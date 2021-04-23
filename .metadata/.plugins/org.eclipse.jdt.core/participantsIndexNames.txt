@@ -1,9 +1,0 @@
-INDEX VERSION 1.131
-C:\Users\LG\Desktop\git_local\Team4\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2837856520.index
-\kostaTeam4\src
-C:\Users\LG\Desktop\git_local\Team4\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1783829475.index
-\kostaTeam4\src
-C:\Users\LG\Desktop\git_local\Team4\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1379415824.index
-\kostaTeam4\src
-C:\Users\LG\Desktop\git_local\Team4\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2691094343.index
-\kostaTeam4\src
