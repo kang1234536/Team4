@@ -1,4 +1,4 @@
-package controller;
+package controller.board;
 
 import java.io.IOException;
 
@@ -9,8 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import model.BoardDAO;
-import model.BoardVO;
+import model.board.*;
 
 
 

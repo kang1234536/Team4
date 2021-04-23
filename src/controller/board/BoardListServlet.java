@@ -1,4 +1,4 @@
-package controller;
+package controller.board;
 
 import java.io.IOException;
 import java.util.List;
@@ -10,8 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import model.BoardDAO;
-import model.BoardVO;
+import model.board.*;
 
 @WebServlet("/board/boardlist")
 public class BoardListServlet extends HttpServlet {
@@ -22,7 +21,7 @@ public class BoardListServlet extends HttpServlet {
 		List<BoardVO> blist = dao.selectList();
 		request.setAttribute("board_list", blist);
 		request.setAttribute("list_length", blist.size()+1);
-		RequestDispatcher rd = request.getRequestDispatcher("boarder.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("boardList.jsp");
 		rd.forward(request, response);
 	}
 

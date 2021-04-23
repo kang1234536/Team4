@@ -12,22 +12,16 @@
 <head>
 <meta charset="UTF-8">
 <!-- 화면 최적화 -->
-<meta name="viewport" content="width-device-width" , initial-scale="1">
-<title>JSP 게시판 웹 사이트</title>
+<meta name="viewport" content="width-device-width">
+<title>멍냥멍냥 게시판</title>
 <style>
 body {margin: 100px 300px;}
-th {style=background-color: #eeeeee; text-align: center;}
-table {style=text-align: center; border: 1px solid black; width: 800px;border-collapse:collapse;}
+th {background-color: #eeeeee; text-align: center;}
+table {text-align: center; border: 1px solid black; width: 800px;}
 .btn1 {float: right;}
 </style>
 </head>
 <body>
-	<%
-	BoardDAO boarddao = new BoardDAO();
-	List<BoardVO> boardlist = boarddao.selectList();
-	Date nowDate = new Date();
-	SimpleDateFormat sf = new SimpleDateFormat("yyyy/MM/dd");
-	%>
 	<!-- 게시판 메인 페이지 영역 시작 -->
 	<div class="container">
 		<div class="row" style="width: 800px;">
@@ -38,15 +32,20 @@ table {style=text-align: center; border: 1px solid black; width: 800px;border-co
 					</tr>
 				</thead>
 				<tbody>
-				<%for(BoardVO board:boardlist){ %>
-					<tr>
-						<td><%=board.getBoard_ID() %></td>
-						<td><%=board.getBoard_title() %></td>
-						<td><%=board.getUser_ID() %></td>
-						<td><%=board.getBoard_date() %></td>
-						<td><%=board.getBoard_count() %></td>
-					</tr>
-				<%} %>
+				<c:set var="seq" value="${list_length }"/>
+				<c:forEach var="board" items="${board_list}">
+				    <c:set var="seq" value="${seq-1 }"/>
+					<c:url value="boardDetail" var="board_ID">
+						<c:param name="board_ID" value="${board.board_ID}"></c:param>
+					</c:url>
+				<tr>
+					<td>${seq}</td>
+					<td><a href="${board_ID}" onclick="coutUp()">${board.board_title }</a></td>
+					<td>${board.user_ID }</td>
+					<td>${board.board_date }</td>
+					<td>${board.board_count}</td>
+				</tr>
+				</c:forEach>
 				</tbody>
 			</table>
 			<!-- 글쓰기 버튼 생성 -->

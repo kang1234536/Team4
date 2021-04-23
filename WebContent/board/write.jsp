@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <!-- 화면 최적화 -->
-<meta name="viewport" content="width-device-width" , initial-scale="1">
+<meta name="viewport" content="width-device-width">
 <title>멍냥멍냥 게시판 글쓰기</title>
 <style>
 body {
@@ -14,11 +14,10 @@ body {
 </style>
 </head>
 <body>
-
 	<!-- 게시판 글쓰기 양식 영역 시작 -->
 	<div class="container">
 		<div class="row">
-			<form method="post" action="../boardWrite" enctype="multipart/form-data; charset=UTF-8">
+			<form method="post" action="boardWrite" enctype="multipart/form-data; charset=UTF-8">
 				<table class="table table-striped" style="text-align: center;  width: 600px;">
 					<thead>
 						<tr>

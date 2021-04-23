@@ -1,4 +1,4 @@
-package controller;
+package controller.board;
 
 import java.io.IOException;
 
@@ -8,9 +8,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import model.BoardDAO;
+import model.board.*;
 
-@WebServlet("/boardWrite")
+@WebServlet("/board/boardWrite")
 public class boardWriteServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -22,8 +22,7 @@ public class boardWriteServlet extends HttpServlet {
 		String content = request.getParameter("Content");
 		int result = boardDAO.insertBoard(title, content);
 		if(result > 0) {
-			response.sendRedirect("/2.Project/board/boardlist");
+			response.sendRedirect("boardlist");
 		}
 	}
-
 }
