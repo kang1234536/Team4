@@ -1,4 +1,4 @@
-package controller;
+package controller.animal;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -11,8 +11,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import model.AnimalsDAO;
-import model.AnimalsVO;
+import model.animal.AnimalsDAO;
+import model.animal.AnimalsVO;
+
+
 
 
 

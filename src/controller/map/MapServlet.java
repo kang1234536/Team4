@@ -1,4 +1,4 @@
-package controller;
+package controller.map;
 
 import java.io.IOException;
 
@@ -9,7 +9,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import model.AnimalsDAO;
+import model.animal.AnimalsDAO;
+
+
 
 /**
  * Servlet implementation class MapServlet
@@ -30,7 +32,7 @@ public class MapServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("googlemap 요청");
+		System.out.println("googlemap �슂泥�");
 		String careAddr;
 		String animalId;
 		animalId = "411322202100033";
