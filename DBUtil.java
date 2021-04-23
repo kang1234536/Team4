@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class DBUtil {
-
+	//aaaa
 	// 1.DB Driver,����
 	public static Connection getConnection() {
 		Connection conn = null;
