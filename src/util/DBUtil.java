@@ -7,7 +7,7 @@ import javax.sql.DataSource;
 import java.sql.*;
 
 public class DBUtil {
-    //1.DB ?—°ê²?
+    //1.DB ?ï¿½ï¿½ï¿½?
     public static Connection getConnection() {
         Connection conn = null;
         Context initContext = null;
@@ -22,7 +22,7 @@ public class DBUtil {
         return conn;
     }
 
-    //2.??› ë°˜ë‚©
+    //2.?ï¿½ï¿½?ï¿½ï¿½ ë°˜ë‚©
     public static void dbClose(ResultSet rs, Statement st, Connection conn) {
         try {
             if (rs != null) rs.close();

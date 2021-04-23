@@ -1,50 +1,48 @@
 package controller.login;
 
-import java.io.IOException;
+import model.user.UserDAO;
+import model.user.UserVO;
 
+import javax.jms.Session;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import java.io.IOException;
 
-import model.user.UserDAO;
-
-@WebServlet("/LoginCheckServlet")
+@WebServlet("/login/LoginCheckServlet")
 public class LoginCheckServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // 濡쒓렇�씤 �솕硫댁뿉 �엯�젰�맂 �븘�씠�뵒�� 鍮꾨�踰덊샇瑜� 媛��졇�삩�떎
+        // 로그인 화면에 입력된 아이디와 비밀번호를 가져온다
+        UserVO user = new UserVO();
         String userID = request.getParameter("userID");
         String userPW = request.getParameter("userPW");
 
-        // DB�뿉�꽌 �븘�씠�뵒, 鍮꾨�踰덊샇 �솗�씤
+        // DB에서 아이디, 비밀번호 확인
         UserDAO dao = UserDAO.getInstance();
         int check = dao.loginCheck(userID, userPW);
 
-        // DB �깮�꽦 �쟾 �뀒�뒪�듃
-//    int check = 0;
-//    if(id.equals("test") && pw.equals("test"))
-//        check = 1;
-
-        // URL 諛� 濡쒓렇�씤愿��젴 �쟾�떖 硫붿떆吏�
+        // URL 및 로그인관련 전달 메시지
         String msg = "";
 
-        if (check == 1)    // 濡쒓렇�씤 �꽦怨�
+        if (check == 1)    // 로그인 성공
         {
-            // �꽭�뀡�뿉 �쁽�옱 �븘�씠�뵒 �꽭�똿
-//            HttpSession session = null;
-//            session.setAttribute("sessionID", userID); //�븘�씠�뵒 留먭퀬 荑좏궎 �꽔�뼱�빞�븷 �벏
-            msg = "/2.Project/";
-        } else if (check == 0) // 鍮꾨�踰덊샇媛� ��由닿꼍�슦
+            HttpSession session = request.getSession();
+            System.out.println(session.getId() + " 세션 연결");
+            session.setAttribute("userID", userID);
+            msg = "/";
+        } else if (check == 0) // 비밀번호가 틀릴경우
         {
-            msg = "/LoginForm.jsp?msg=0";
-        } else    // �븘�씠�뵒媛� ��由닿꼍�슦
+            msg = "/login/LoginForm.jsp?msg=0";
+        } else    // 아이디가 틀릴경우
         {
-            msg = "/LoginForm.jsp?msg=-1";
+            msg = "/login/LoginForm.jsp?msg=-1";
         }
 
-        // sendRedirect(String URL) : �빐�떦 URL濡� �씠�룞
-        // URL�뮘�뿉 get諛⑹떇 泥섎읆 �뜲�씠�꽣瑜� �쟾�떖媛��뒫
+        // sendRedirect(String URL) : 해당 URL로 이동
+        // URL뒤에 get방식 처럼 데이터를 전달가능
         response.sendRedirect(msg);
     }
 

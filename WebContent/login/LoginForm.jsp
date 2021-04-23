@@ -32,7 +32,7 @@
 </head>
 <body>
 <div id="wrap">
-    <form name="loginInfo" method="post" action="../LoginCheckServlet" onsubmit="return checkValue()">
+    <form name="loginInfo" method="post" action="LoginCheckServlet" onsubmit="return checkValue()">
 
         <br><br>
 
