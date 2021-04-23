@@ -1,6 +1,6 @@
 <%@page import="java.util.List"%>
-<%@page import="model.BoardDAO"%>
-<%@page import="model.BoardVO"%>
+<%@page import="model.board.BoardDAO"%>
+<%@page import="model.board.BoardVO"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.util.Date"%>
 <%@page language="java" contentType="text/html; charset=UTF-8"

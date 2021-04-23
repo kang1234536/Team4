@@ -27,7 +27,7 @@
 
         // 취소 버튼 클릭시 로그인 화면으로 이동
         function goLoginForm() {
-            location.href = "/2.Project/LoginForm.jsp";
+            location.href = "LoginForm.jsp";
         }
     </script>
 
