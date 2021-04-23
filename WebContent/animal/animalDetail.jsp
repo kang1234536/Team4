@@ -37,7 +37,7 @@ ${animal.careAddr}
 <br>
 ${animal.bookNum}
 
-
+<%@ include file="/map/carePlaceSearch.jsp" %>
 
 
 </body>

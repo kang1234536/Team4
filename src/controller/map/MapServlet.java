@@ -32,7 +32,7 @@ public class MapServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("googlemap �슂泥�");
+		System.out.println("googlemap");
 		String careAddr;
 		String animalId;
 		animalId = "411322202100033";
@@ -40,7 +40,7 @@ public class MapServlet extends HttpServlet {
 		careAddr = aniDao.selectById(animalId).getCareAddr();
 		request.setAttribute("careAddr", careAddr);
 		request.setAttribute("animalid", animalId);
-		RequestDispatcher rd = request.getRequestDispatcher("maps/carePlaceSearch.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("map/carePlaceSearch.jsp");
 		rd.forward(request, response);
 	}
 

@@ -1,4 +1,3 @@
-
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -11,8 +10,8 @@
         html,
         body,
         #google-map {
-            width: 100%;
-            height: 100%;
+            width: 700px;
+            height: 400px;
             margin: 0;
             padding: 0;
         }
@@ -31,6 +30,7 @@
     <title></title>
 </head>
 <body>
+	
     <!--<div id="search-panel">
           <input id="address" type="text" value="서울특별시 중랑구 신내동 서울유기동물입양센터" />
         <button id="submit" type="button" value="Geocode">지도 검색</button>   
@@ -101,7 +101,7 @@
           
             //console.log("주소!!!!!"+address);
             //var address = "경상북도 포항시 북구 흥해읍 덕장길 224 (흥해읍)"; 
-            var address = "${careAddr}";
+            var address = "${animal.careAddr}";
             geocodeAddress(geocoder, map);
             
             function geocodeAddress(geocoder, resultMap) {
@@ -133,7 +133,7 @@
                         // 맵의 중심 좌표를 설정한다.
                         resultMap.setCenter(result[0].geometry.location);
                         // 맵의 확대 정도를 설정한다.
-                        resultMap.setZoom(18);
+                        resultMap.setZoom(16.5);
                         // 맵 마커
                         
                         marker = new google.maps.Marker({

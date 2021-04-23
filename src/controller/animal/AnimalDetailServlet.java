@@ -30,11 +30,12 @@ public class AnimalDetailServlet extends HttpServlet {
 		
 		animal = aniDAO.selectById(animalId);
 		request.setAttribute("animal", animal);
-		RequestDispatcher rd = request.getRequestDispatcher("animalDetail.jsp");
+		
+		RequestDispatcher rd = request.getRequestDispatcher("animal/animalDetail.jsp");
 		rd.forward(request, response);
 		
-		RequestDispatcher rd2 = request.getRequestDispatcher("maps/carePlaceSearch.jsp");
-		rd2.forward(request, response);
+		/*RequestDispatcher rd2 = request.getRequestDispatcher("map/carePlaceSearch.jsp");
+		rd2.forward(request, response);*/
 	}
 
 
