@@ -23,6 +23,7 @@ public class LoginCheckServlet extends HttpServlet {
         // DB에서 아이디, 비밀번호 확인
         UserDAO dao = UserDAO.getInstance();
         int check = dao.loginCheck(userID, userPW);
+        request.setAttribute("username", user.getUserName());
 
         // URL 및 로그인관련 전달 메시지
         String msg = "";
@@ -32,7 +33,7 @@ public class LoginCheckServlet extends HttpServlet {
             HttpSession session = request.getSession();
             System.out.println(session.getId() + " 세션 연결");
             session.setAttribute("userID", userID);
-            msg = "../index.jsp";
+            msg = "../index.jsp?msg=1";
         } else if (check == 0) // 비밀번호가 틀릴경우
         {
             msg = "LoginForm.jsp?msg=0";

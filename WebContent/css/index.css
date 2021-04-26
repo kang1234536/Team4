@@ -46,7 +46,7 @@
 #loginheader {
 	z-index: 5;
 	width: 1115px;
-	/* border: 2px dotted red; */
+	/* border: 2px solid red; */
 	left: 182.5px;
 	position: relative;
 }
@@ -55,6 +55,13 @@
 	font-size: 15px;
 	text-decoration: none;
 	font-family: 'a타이틀고딕3';
+}
+
+.loginICON {
+	font-size: 15px;
+	text-decoration: none;
+	font-family: 'a타이틀고딕3';
+	float: right;
 }
 
 #u1609 {

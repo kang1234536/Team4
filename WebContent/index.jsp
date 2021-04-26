@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
          pageEncoding="EUC-KR" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html class="nojs html css_verticalspacer" lang="ko-KR">
 <head>
@@ -36,8 +37,15 @@ if(typeof Muse == "undefined") window.Muse = {}; window.Muse.assets = {"required
        
        <!-- 로그인버튼 -->
        <div class="clearfix colelem" id="loginheader">
-       <a href="login/LoginForm.jsp" id="loginICON">로그인</a>
-     </div>
+     	
+     	<c:if test="${userID != null}">
+			<p class="loginICON">${userID}님 환영합니다!<a href="LogoutServlet">로그아웃</a></p>
+		</c:if>
+		<c:if test="${userID == null}">
+			<p class="loginICON"><a href="login/LoginForm.jsp">로그인</a></p>
+		</c:if>
+		
+       </div>
        
        <!-- 동물친구들 -->
        <div class="clip_frame colelem" id="u1461">
@@ -117,6 +125,8 @@ Muse.Utils.transformMarkupToFixBrowserProblems();/* body */
 </script>
   <!-- RequireJS script -->
   <script src="scripts/require.js?crc=4157109226" type="text/javascript" async data-main="scripts/museconfig.js?crc=4153641093" onload="if (requirejs) requirejs.onError = function(requireType, requireModule) { if (requireType && requireType.toString && requireType.toString().indexOf && 0 <= requireType.toString().indexOf('#scripterror')) window.Muse.assets.check(); }" onerror="window.Muse.assets.check();"></script>
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 
 </body>
 </html>
