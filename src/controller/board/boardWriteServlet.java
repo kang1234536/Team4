@@ -2,10 +2,9 @@ package controller.board;
 
 import java.io.IOException;
 
-<<<<<<< HEAD
+
 import javax.servlet.RequestDispatcher;
-=======
->>>>>>> branch 'master' of https://github.com/kang1234536/Team4.git
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
