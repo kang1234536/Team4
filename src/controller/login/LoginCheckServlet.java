@@ -1,16 +1,16 @@
 package controller.login;
 
-import model.user.UserDAO;
-import model.user.UserVO;
+import java.io.IOException;
 
-import javax.jms.Session;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import java.io.IOException;
+
+import model.user.UserDAO;
+import model.user.UserVO;
 
 @WebServlet("/login/LoginCheckServlet")
 public class LoginCheckServlet extends HttpServlet {
@@ -32,15 +32,18 @@ public class LoginCheckServlet extends HttpServlet {
             HttpSession session = request.getSession();
             System.out.println(session.getId() + " 세션 연결");
             session.setAttribute("userID", userID);
-            msg = "/";
+            msg = "../index.jsp";
         } else if (check == 0) // 비밀번호가 틀릴경우
         {
-            msg = "/login/LoginForm.jsp?msg=0";
+            msg = "LoginForm.jsp?msg=0";
         } else    // 아이디가 틀릴경우
         {
-            msg = "/login/LoginForm.jsp?msg=-1";
+            msg = "LoginForm.jsp?msg=-1";
         }
-
+        
+        
+        
+        
         // sendRedirect(String URL) : 해당 URL로 이동
         // URL뒤에 get방식 처럼 데이터를 전달가능
         response.sendRedirect(msg);
