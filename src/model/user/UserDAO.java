@@ -1,9 +1,6 @@
 package model.user;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 
 import util.DBUtil;
 
@@ -52,17 +49,24 @@ public class UserDAO {
     public int loginCheck(String userID, String userPW) {
         Connection conn = DBUtil.getConnection();
         PreparedStatement st = null;
-        int result = 0;
+        ResultSet rs = null;
+        String dbPW = "";
+        int result = -1;
 
         try {
             StringBuffer sql = new StringBuffer();
-            sql.append("select USER_ID, USER_PW from USERS where USER_ID=? and USER_PW=?");
+            sql.append("select USER_PW from USERS where USER_ID=?");
 
             st = conn.prepareStatement(sql.toString());
             st.setString(1, userID);
-            st.setString(2, userPW);
+            rs = st.executeQuery();
 
-            result = st.executeUpdate();
+            if(rs.next()) {
+                dbPW = rs.getString("user_pw");
+                if(dbPW.equals(userPW)) result = 1;
+                else result = 0;
+            }
+
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {

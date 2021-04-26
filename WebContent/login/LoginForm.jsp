@@ -25,19 +25,6 @@ if(typeof Muse == "undefined") window.Muse = {}; window.Muse.assets = {"required
 	<link rel="stylesheet" type="text/css" href="../css/login.css" id="pagesheet"/>
 
     <script type="text/javascript">
-        function checkValue() {
-            inputForm = eval("document.loginInfo");
-            if (!inputForm.userID.value) {
-                alert("아이디를 입력하세요");
-                inputForm.userID.focus();
-                return false;
-            }
-            if (!inputForm.userPW.value) {
-                alert("비밀번호를 입력하세요");
-                inputForm.userPW.focus();
-                return false;
-            }
-        }
 
         // 회원가입 버튼 클릭시 회원가입 화면으로 이동
         function goRegisterForm() {
@@ -124,26 +111,11 @@ if(typeof Muse == "undefined") window.Muse = {}; window.Muse.assets = {"required
            <div class="TabbedPanelsContent grpelem" id="u2866">
 			
 			<form id="loginfrm" action="LoginCheckServlet" method="post" onsubmit="return checkValue()">
-				<input type="text" name="userID" maxlength="50" placeholder="아이디"><br><br>
-				<input type="password" name="userPW" maxlength="50" placeholder="비밀번호"><br><br><br>
+				<input type="text" name="userID" maxlength="50" placeholder="아이디" required><br><br>
+				<input type="password" name="userPW" maxlength="50" placeholder="비밀번호" required><br><br><br>
 				<input type="submit" value="로그인"><br><br><br>
 				<p>아직 계정이 없으신가요? <a href="RegisterForm.jsp">회원가입</a></p>
 			</form>
-		    
-		
-		    <%
-		        // 아이디, 비밀번호가 틀릴경우 화면에 메시지 표시
-		        // LoginCheck.jsp에서 로그인 처리 결과에 따른 메시지를 보낸다.
-		        String msg = request.getParameter("msg");
-		
-		        if (msg != null && msg.equals("0")) {
-		            out.println("<br>");
-		            out.println("<font color='red' size='5'>비밀번호를 확인해 주세요.</font>");
-		        } else if (msg != null && msg.equals("-1")) {
-		            out.println("<br>");
-		            out.println("<font color='red' size='5'>아이디를 확인해 주세요.</font>");
-		        }
-		    %>
 			
 		   </div>
            <div class="TabbedPanelsContent invi grpelem" id="u2862">
