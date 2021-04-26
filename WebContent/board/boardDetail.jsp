@@ -18,7 +18,7 @@ table, td {text-align: center; border: 1px solid black; width: 800px; border-col
 <body>
 	<div class="container">
 		<div class="row">
-			<form action="boardlist" enctype="multipart/form-data; charset=UTF-8">
+			<form action="boardlist">
 				<table class="detail">
 					<tbody>
 						<tr>
@@ -45,12 +45,19 @@ table, td {text-align: center; border: 1px solid black; width: 800px; border-col
 				</form>
 				<div>
 				<!-- 수정 -->
-				<button onclick="location='boardUpdate'">수정</button>
+				<button onclick="location='boardUpdate?board_ID=${param.board_ID}'">수정</button>
 				<!-- 삭제 -->
-				<input type="password" maxlength="4" size="4"><button>삭제</button>
+				<button onclick="del()">삭제</button>
 				</div>
 			
 		</div>
 	</div>
+	<script>
+	function del(){
+		if(confirm('삭제하시겠습니까?')){
+			location.href='boardDelete?board_ID=${param.board_ID}';
+		}
+	}
+	</script>
 </body>
 </html>

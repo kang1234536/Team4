@@ -55,6 +55,8 @@ public class UserDAO {
         int result = 0;
 
         try {
+            conn.setAutoCommit(false);
+
             StringBuffer sql = new StringBuffer();
             sql.append("select USER_ID, USER_PW from USERS where USER_ID=? and USER_PW=?");
 

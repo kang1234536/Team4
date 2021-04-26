@@ -17,7 +17,7 @@ body {
 	<!-- 게시판 글쓰기 양식 영역 시작 -->
 	<div class="container">
 		<div class="row">
-			<form method="post" action="boardWrite" enctype="multipart/form-data; charset=UTF-8">
+			<form method="post" action="boardWrite">
 				<table class="table table-striped" style="text-align: center;  width: 600px;">
 					<thead>
 						<tr>

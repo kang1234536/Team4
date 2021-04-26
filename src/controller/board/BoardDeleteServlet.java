@@ -9,23 +9,18 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import model.board.*;
+import model.board.BoardDAO;
 
-
-
-@WebServlet("/board/boardDetail")
-public class BoardDetailServlet extends HttpServlet {
+@WebServlet("/board/boardDelete")
+public class BoardDeleteServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String boardid = request.getParameter("board_ID");
-		if(boardid == null) throw new ServletException("board_id ¾øÀ½");
-		
+		String boardID = request.getParameter("board_ID");
 		BoardDAO dao = new BoardDAO();
-		BoardVO board = dao.selectDetail(boardid);
-		request.setAttribute("board_detail", board);
-		RequestDispatcher rd = request.getRequestDispatcher("boardDetail.jsp");
-		rd.forward(request, response);
+		int result = dao.deleteBoard(boardID);
+		if(result > 0) {
+			response.sendRedirect("boardlist");
+		}
 	}
-
 }

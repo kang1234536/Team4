@@ -40,7 +40,7 @@ table {text-align: center; border: 1px solid black; width: 800px;}
 					</c:url>
 				<tr>
 					<td>${seq}</td>
-					<td><a href="${board_ID}" onclick="coutUp()">${board.board_title }</a></td>
+					<td><a href="${board_ID}">${board.board_title }</a></td>
 					<td>${board.user_ID }</td>
 					<td>${board.board_date }</td>
 					<td>${board.board_count}</td>
@@ -50,7 +50,7 @@ table {text-align: center; border: 1px solid black; width: 800px;}
 			</table>
 			<!-- 글쓰기 버튼 생성 -->
 			<br>
-			<button class="btn1" onclick="location='write.jsp'">WRITE</button>
+			<button class="btn1" onclick="location='boardWrite'">WRITE</button>
 		</div>
 	</div>
 	<!-- 게시판 메인 페이지 영역 끝 -->
