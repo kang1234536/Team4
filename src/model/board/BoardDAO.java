@@ -12,8 +12,8 @@ import util.DBUtil;
 
 public class BoardDAO {
 
-	public int insertBoard(String title, String content) {
-		String sql = "insert into board values(BOARD_SEQ.NEXTVAL,?,?,'wodud',' ',sysdate,0)";
+	public int insertBoard(String title, String content, String userID) {
+		String sql = "insert into board values(BOARD_SEQ.NEXTVAL,?,?,?,' ',sysdate,0)";
 		Connection conn;
 		PreparedStatement st = null;
 		int result = 0;
@@ -23,6 +23,7 @@ public class BoardDAO {
 			st = conn.prepareStatement(sql);
 			st.setString(1, title);
 			st.setString(2, content);
+			st.setString(3, userID);
 			result = st.executeUpdate();
 			conn.commit();
 		} catch (SQLException e) {

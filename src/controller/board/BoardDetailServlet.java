@@ -19,7 +19,7 @@ public class BoardDetailServlet extends HttpServlet {
     
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String boardid = request.getParameter("board_ID");
-		if(boardid == null) throw new ServletException("board_id ¾øÀ½"); 
+		if(boardid == null) throw new ServletException("board_id ì—†ìŒ");
 		
 		BoardDAO dao = new BoardDAO();
 		BoardVO board = dao.selectDetail(boardid);

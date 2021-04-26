@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+         pageEncoding="EUC-KR" %>
 <!DOCTYPE html>
 <html class="nojs html css_verticalspacer" lang="ko-KR">
 <head>
@@ -11,7 +13,7 @@ document.documentElement.className = document.documentElement.className.replace(
 if(typeof Muse == "undefined") window.Muse = {}; window.Muse.assets = {"required":["museutils.js", "museconfig.js", "jquery.watch.js", "require.js", "index.css"], "outOfDate":[]};
 </script>
   
-<title>ë©ëƒ¥ë©ëƒ¥</title>
+<title>¸Û³É¸Û³É</title>
   	  <!-- CSS -->
 	  <link rel="stylesheet" type="text/css" href="css/site_global.css?crc=444006867"/>
   	  <link rel="stylesheet" type="text/css" href="css/master_a-___.css?crc=4158216669"/>
@@ -32,12 +34,12 @@ if(typeof Muse == "undefined") window.Muse = {}; window.Muse.assets = {"required
      <div id="u129"><!-- column -->
       <div class="clearfix" id="u129_align_to_page">
        
-       <!-- ë¡œê·¸ì¸ë²„íŠ¼ -->
+       <!-- ·Î±×ÀÎ¹öÆ° -->
        <div class="clearfix colelem" id="loginheader">
-       <a href="login/LoginForm.jsp" id="loginICON">ë¡œê·¸ì¸</a>
+       <a href="login/LoginForm.jsp" id="loginICON">·Î±×ÀÎ</a>
      </div>
        
-       <!-- ë™ë¬¼ì¹œêµ¬ë“¤ -->
+       <!-- µ¿¹°Ä£±¸µé -->
        <div class="clip_frame colelem" id="u1461">
         <img class="block" id="u1461_img" src="images/index-animalfriends.png?crc=414174054" alt="" width="677" height="125"/>
        </div>
@@ -46,19 +48,19 @@ if(typeof Muse == "undefined") window.Muse = {}; window.Muse.assets = {"required
        <div class="clearfix colelem" id="u1609"><!-- group -->
        
         <a class="nonblock nontext Button rounded-corners transition clearfix grpelem" id="buttonu3226" href="">
-        <img class="grpelem" id="u3227" alt="ë‚´ ì •ë³´" src="images/blank.gif?crc=4208392903"/></a>
+        <img class="grpelem" id="u3227" alt="³» Á¤º¸" src="images/blank.gif?crc=4208392903"/></a>
         <a class="nonblock nontext Button rounded-corners transition clearfix grpelem" id="buttonu3228" href="AnimalsListServlet">
-        <img class="grpelem" id="u3229" alt="ìœ ê¸°ë™ë¬¼ì¡°íšŒ" src="images/blank.gif?crc=4208392903"/></a>
+        <img class="grpelem" id="u3229" alt="À¯±âµ¿¹°Á¶È¸" src="images/blank.gif?crc=4208392903"/></a>
         <div class="clearfix grpelem" id="pu3260-4"><!-- column -->
-         <img class="colelem" id="u3260-4" alt="ë©ëƒ¥ë©ëƒ¥" width="212" height="60" src="images/u3260-4.png?crc=347814851"/>
+         <img class="colelem" id="u3260-4" alt="¸Û³É¸Û³É" width="212" height="60" src="images/u3260-4.png?crc=347814851"/>
          <div class="clip_frame colelem" id="u1463">
-          <!-- ê³ ì–‘ì´ì‚¬ì§„ -->
+          <!-- °í¾çÀÌ»çÁø -->
           <img class="block" id="u1463_img" src="images/%ea%b3%a0%ec%96%91%ec%9d%b41.png?crc=22901423" alt="" width="270" height="241"/>
          </div>
         </div>
         <div class="pointer_cursor Button rounded-corners transition clearfix grpelem" id="buttonu3230">
          <a class="nonblock nontext grpelem" id="u3231" href="board/boardlist">
-         <img id="u3231_states" alt="ì»¤ë®¤ë‹ˆí‹°" src="images/blank.gif?crc=4208392903"/></a>
+         <img id="u3231_states" alt="Ä¿¹Â´ÏÆ¼" src="images/blank.gif?crc=4208392903"/></a>
         </div>
         <a class="nonblock nontext Button rounded-corners transition clearfix grpelem" id="buttonu3232" href="qna.html">
         <img class="grpelem" id="u3233" alt="Q &amp; A" src="images/blank.gif?crc=4208392903"/></a>
@@ -74,8 +76,8 @@ if(typeof Muse == "undefined") window.Muse = {}; window.Muse.assets = {"required
       <div id="u128"></div>
      </div>
      <div class="shadow clearfix grpelem" id="u1615"><!-- column -->
-      <img class="colelem" id="u1465-4" alt="&lt; ë©ëƒ¥ë©ëƒ¥ &gt;" width="130" height="30" src="images/u1465-4.png?crc=4231403855"/>
-      <img class="colelem" id="u1466-7" alt="&quot; ì‚¬ì§€ë§ê³  ì…ì–‘í•˜ì„¸ìš” &quot; ì‘ì€ ê´€ì‹¬ì´ ë§ì€ ìƒëª…ì„ ì‚´ë¦½ë‹ˆë‹¤." width="290" height="62" src="images/u1466-7.png?crc=3923293643"/>
+      <img class="colelem" id="u1465-4" alt="&lt; ¸Û³É¸Û³É &gt;" width="130" height="30" src="images/u1465-4.png?crc=4231403855"/>
+      <img class="colelem" id="u1466-7" alt="&quot; »çÁö¸»°í ÀÔ¾çÇÏ¼¼¿ä &quot; ÀÛÀº °ü½ÉÀÌ ¸¹Àº »ı¸íÀ» »ì¸³´Ï´Ù." width="290" height="62" src="images/u1466-7.png?crc=3923293643"/>
      </div>
     </div>
     <div class="verticalspacer" data-offset-top="845" data-content-above-spacer="999" data-content-below-spacer="0"></div>
@@ -105,7 +107,7 @@ var suppressMissingFileError = false
    window.Muse.assets.check=function(d){if(!window.Muse.assets.checked){window.Muse.assets.checked=!0;var b={},c=function(a,b){if(window.getComputedStyle){var c=window.getComputedStyle(a,null);return c&&c.getPropertyValue(b)||c&&c[b]||""}if(document.documentElement.currentStyle)return(c=a.currentStyle)&&c[b]||a.style&&a.style[b]||"";return""},a=function(a){if(a.match(/^rgb/))return a=a.replace(/\s+/g,"").match(/([\d\,]+)/gi)[0].split(","),(parseInt(a[0])<<16)+(parseInt(a[1])<<8)+parseInt(a[2]);if(a.match(/^\#/))return parseInt(a.substr(1),
 16);return 0},g=function(g){for(var f=document.getElementsByTagName("link"),h=0;h<f.length;h++)if("text/css"==f[h].type){var i=(f[h].href||"").match(/\/?css\/([\w\-]+\.css)\?crc=(\d+)/);if(!i||!i[1]||!i[2])break;b[i[1]]=i[2]}f=document.createElement("div");f.className="version";f.style.cssText="display:none; width:1px; height:1px;";document.getElementsByTagName("body")[0].appendChild(f);for(h=0;h<Muse.assets.required.length;){var i=Muse.assets.required[h],l=i.match(/([\w\-\.]+)\.(\w+)$/),k=l&&l[1]?
 l[1]:null,l=l&&l[2]?l[2]:null;switch(l.toLowerCase()){case "css":k=k.replace(/\W/gi,"_").replace(/^([^a-z])/gi,"_$1");f.className+=" "+k;k=a(c(f,"color"));l=a(c(f,"backgroundColor"));k!=0||l!=0?(Muse.assets.required.splice(h,1),"undefined"!=typeof b[i]&&(k!=b[i]>>>24||l!=(b[i]&16777215))&&Muse.assets.outOfDate.push(i)):h++;f.className="version";break;case "js":h++;break;default:throw Error("Unsupported file type: "+l);}}d?d().jquery!="1.8.3"&&Muse.assets.outOfDate.push("jquery-1.8.3.min.js"):Muse.assets.required.push("jquery-1.8.3.min.js");
-f.parentNode.removeChild(f);if(Muse.assets.outOfDate.length||Muse.assets.required.length)f="ì„œë²„ì˜ ì¼ë¶€ íŒŒì¼ì´ ëˆ„ë½ë˜ì—ˆê±°ë‚˜ ì˜¬ë°”ë¥´ì§€ ì•ŠìŠµë‹ˆë‹¤. ë¸Œë¼ìš°ì € ìºì‹œë¥¼ ì§€ìš°ê³  ë‹¤ì‹œ ì‹œë„í•˜ì‹­ì‹œì˜¤. ë¬¸ì œê°€ ì§€ì†ë˜ë©´ ì›¹ì‚¬ì´íŠ¸ ì‘ì„±ìì—ê²Œ ë¬¸ì˜í•˜ì‹­ì‹œì˜¤.",g&&Muse.assets.outOfDate.length&&(f+="\nOut of date: "+Muse.assets.outOfDate.join(",")),g&&Muse.assets.required.length&&(f+="\nMissing: "+Muse.assets.required.join(",")),suppressMissingFileError?(f+="\nUse SuppressMissingFileError key in AppPrefs.xml to show missing file error pop up.",console.log(f)):alert(f)};location&&location.search&&location.search.match&&location.search.match(/muse_debug/gi)?
+f.parentNode.removeChild(f);if(Muse.assets.outOfDate.length||Muse.assets.required.length)f="¼­¹öÀÇ ÀÏºÎ ÆÄÀÏÀÌ ´©¶ôµÇ¾ú°Å³ª ¿Ã¹Ù¸£Áö ¾Ê½À´Ï´Ù. ºê¶ó¿ìÀú Ä³½Ã¸¦ Áö¿ì°í ´Ù½Ã ½ÃµµÇÏ½Ê½Ã¿À. ¹®Á¦°¡ Áö¼ÓµÇ¸é À¥»çÀÌÆ® ÀÛ¼ºÀÚ¿¡°Ô ¹®ÀÇÇÏ½Ê½Ã¿À.",g&&Muse.assets.outOfDate.length&&(f+="\nOut of date: "+Muse.assets.outOfDate.join(",")),g&&Muse.assets.required.length&&(f+="\nMissing: "+Muse.assets.required.join(",")),suppressMissingFileError?(f+="\nUse SuppressMissingFileError key in AppPrefs.xml to show missing file error pop up.",console.log(f)):alert(f)};location&&location.search&&location.search.match&&location.search.match(/muse_debug/gi)?
 setTimeout(function(){g(!0)},5E3):g()}};
 var muse_init=function(){require.config({baseUrl:""});require(["jquery","museutils","whatinput","jquery.watch"],function(d){var $ = d;$(document).ready(function(){try{
 window.Muse.assets.check($);/* body */
