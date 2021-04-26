@@ -38,7 +38,7 @@ table {text-align: center; border: 1px solid black; width: 800px;}
 					<c:url value="boardDetail" var="board_ID">
 						<c:param name="board_ID" value="${board.board_ID}"></c:param>
 					</c:url>
-				<tr>
+				<tr> 
 					<td>${seq}</td>
 					<td><a href="${board_ID}">${board.board_title }</a></td>
 					<td>${board.user_ID }</td>
