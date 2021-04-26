@@ -76,4 +76,38 @@ public class UserDAO {
         return result;
     }
 
+    public UserVO selectByUserId(String userId) {
+        UserVO user = null;
+        Connection conn = DBUtil.getConnection();
+        PreparedStatement st = null;
+        ResultSet rs = null;
+        String sql = "select * from USERS where user_ID = ?";  //411322202100033
+        try {
+            st = conn.prepareStatement(sql);
+            st.setString(1,userId);
+            rs = st.executeQuery();
+            while(rs.next()) {
+                //System.out.println(rs.getString(1));
+                user = makeUsers(rs);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            DBUtil.dbClose(rs, st, conn);
+        }
+
+        return user;
+    }
+
+    private UserVO makeUsers(ResultSet rs) throws SQLException {
+        UserVO user = new UserVO();
+        user.setUserDiv(rs.getInt("user_div"));
+        user.setUserID(rs.getString("user_id"));
+        user.setUserName(rs.getString("user_name"));
+        user.setUserPW(rs.getString("user_pw"));
+
+        return user;
+    }
+
 }

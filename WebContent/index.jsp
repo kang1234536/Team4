@@ -43,7 +43,7 @@
                     <div class="clearfix colelem" id="loginheader">
 
                         <c:if test="${userID != null}">
-                            <p class="loginICON">${userID}님 환영합니다!<a href="LogoutServlet">로그아웃</a></p>
+                            <p class="loginICON">${username}님 환영합니다!<a href="LogoutServlet">로그아웃</a></p>
                         </c:if>
                         <c:if test="${userID == null}">
                             <p class="loginICON"><a href="login/LoginForm.jsp">로그인</a></p>
