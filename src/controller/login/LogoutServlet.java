@@ -18,6 +18,6 @@ public class LogoutServlet extends HttpServlet {
         HttpSession session = request.getSession();
         session.invalidate();
         System.out.println(session.getId() + " 세션 연결 해제");
-        response.sendRedirect("/");
+        response.sendRedirect("index.jsp");
     }
 }

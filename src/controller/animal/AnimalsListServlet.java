@@ -10,6 +10,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import model.animal.AnimalsDAO;
 import model.animal.AnimalsVO;
@@ -34,6 +35,17 @@ public class AnimalsListServlet extends HttpServlet {
 		request.setAttribute("aniList", aniList);
 		RequestDispatcher rd = request.getRequestDispatcher("animal/animalList.jsp");
 		rd.forward(request, response);
+		
+		
+		 HttpSession session = request.getSession(); 
+		 Object obj = session.getAttribute("userID"); 
+		 
+		 if(obj==null) {
+		 response.sendRedirect("../login/LoginCheckServlet"); //로그인을 안했으니 로그인을 하고와라 로그인창으로 보냄 
+		 return; 
+		 }
+		 
+		
 	}
 	
 	

@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
+<<<<<<< HEAD
     pageEncoding="UTF-8"%>
+=======
+         pageEncoding="UTF-8"%>
+>>>>>>> branch 'master' of https://github.com/kang1234536/Team4.git
 <html>
 <head>
     <title>회원가입 화면</title>

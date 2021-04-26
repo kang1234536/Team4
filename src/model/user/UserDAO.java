@@ -1,9 +1,6 @@
 package model.user;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 
 import util.DBUtil;
 
@@ -52,19 +49,26 @@ public class UserDAO {
     public int loginCheck(String userID, String userPW) {
         Connection conn = DBUtil.getConnection();
         PreparedStatement st = null;
-        int result = 0;
+        ResultSet rs = null;
+        String dbPW = "";
+        int result = -1;
 
         try {
             conn.setAutoCommit(false);
 
             StringBuffer sql = new StringBuffer();
-            sql.append("select USER_ID, USER_PW from USERS where USER_ID=? and USER_PW=?");
+            sql.append("select USER_PW from USERS where USER_ID=?");
 
             st = conn.prepareStatement(sql.toString());
             st.setString(1, userID);
-            st.setString(2, userPW);
+            rs = st.executeQuery();
 
-            result = st.executeUpdate();
+            if(rs.next()) {
+                dbPW = rs.getString("user_pw");
+                if(dbPW.equals(userPW)) result = 1;
+                else result = 0;
+            }
+
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
@@ -72,6 +76,40 @@ public class UserDAO {
         }
 
         return result;
+    }
+
+    public UserVO selectByUserId(String userId) {
+        UserVO user = null;
+        Connection conn = DBUtil.getConnection();
+        PreparedStatement st = null;
+        ResultSet rs = null;
+        String sql = "select * from USERS where user_ID = ?";  //411322202100033
+        try {
+            st = conn.prepareStatement(sql);
+            st.setString(1,userId);
+            rs = st.executeQuery();
+            while(rs.next()) {
+                //System.out.println(rs.getString(1));
+                user = makeUsers(rs);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            DBUtil.dbClose(rs, st, conn);
+        }
+
+        return user;
+    }
+
+    private UserVO makeUsers(ResultSet rs) throws SQLException {
+        UserVO user = new UserVO();
+        user.setUserDiv(rs.getInt("user_div"));
+        user.setUserID(rs.getString("user_id"));
+        user.setUserName(rs.getString("user_name"));
+        user.setUserPW(rs.getString("user_pw"));
+
+        return user;
     }
 
 }
