@@ -387,3 +387,13 @@ body {
 	position: relative;
 	min-width: 1280px;
 }
+
+a:link {
+	text-decoration: none;
+	color : black;
+}
+
+a:visited {
+	text-decoration: none;
+	color : black;
+}

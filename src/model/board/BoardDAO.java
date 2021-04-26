@@ -12,58 +12,6 @@ import util.DBUtil;
 
 public class BoardDAO {
 
-	public int deleteBoard(String boardID) {
-		String sql = "delete from board where board_ID = ?";
-		Connection conn;
-		PreparedStatement st = null;
-		int result = 0;
-
-		conn = DBUtil.getConnection();
-		try {
-			st = conn.prepareStatement(sql);
-			st.setString(1, boardID);
-			result = st.executeUpdate();
-			conn.commit();
-		} catch (SQLException e) {
-			try {
-				conn.rollback();
-			} catch (SQLException e1) {
-				e1.printStackTrace();
-			}
-			e.printStackTrace();
-		} finally {
-			DBUtil.dbClose(null, st, conn);
-		}
-		return result;
-	}
-	
-	public int updateBoard(String title, String content, String boardID) {
-		String sql = "update board set board_title=?, board_content=? where board_id = ?";
-		Connection conn;
-		PreparedStatement st = null;
-		int result = 0;
-
-		conn = DBUtil.getConnection();
-		try {
-			st = conn.prepareStatement(sql);
-			st.setString(1, title);
-			st.setString(2, content);
-			st.setString(3, boardID);
-			result = st.executeUpdate();
-			conn.commit();
-		} catch (SQLException e) {
-			try {
-				conn.rollback();
-			} catch (SQLException e1) {
-				e1.printStackTrace();
-			}
-			e.printStackTrace();
-		} finally {
-			DBUtil.dbClose(null, st, conn);
-		}
-		return result;
-	}
-	
 	public int insertBoard(String title, String content, String userID) {
 		String sql = "insert into board values(BOARD_SEQ.NEXTVAL,?,?,?,' ',sysdate,0)";
 		Connection conn;
