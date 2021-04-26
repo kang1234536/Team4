@@ -52,7 +52,6 @@
                         <c:if test="${userID == null}">
                             <p class="loginICON"><a href="login/LoginForm.jsp">로그인</a></p>
                         </c:if>
-                        <div><p>${msg}</p></div>
                     </div>
 
 
@@ -125,13 +124,18 @@
                                 <!-- 로그인FORM -->
                                 <div class="TabbedPanelsContentGroup clearfix colelem" id="u2861">
                                     <div class="TabbedPanelsContent grpelem" id="u2866">
-
                                         <form id="loginfrm" action="LoginCheckServlet" method="post"
                                               onsubmit="return checkValue()">
-                                            <input type="text" name="userID" maxlength="50" placeholder="아이디"
-                                                   required><br><br>
-                                            <input type="password" name="userPW" maxlength="50" placeholder="비밀번호"
-                                                   required><br><br><br>
+                                            <c:choose>
+                                                <c:when test="${check == -1}">
+                                                    <p style="color:red">아이디가 존재하지 않습니다.</p><br>
+                                                </c:when>
+                                                <c:when test="${check == 0}">
+                                                    <p style="color:red">비밀번호가 올바르지 않습니다.</p><br>
+                                                </c:when>
+                                            </c:choose>
+                                            <input type="text" name="userID" maxlength="50" placeholder="아이디" required><br><br>
+                                            <input type="password" name="userPW" maxlength="50" placeholder="비밀번호" required><br><br><br>
                                             <input type="submit" value="로그인"><br><br><br>
                                             <p>아직 계정이 없으신가요? <a href="RegisterForm.jsp">회원가입</a></p>
                                         </form>

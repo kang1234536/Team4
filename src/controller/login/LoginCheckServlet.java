@@ -2,6 +2,7 @@ package controller.login;
 
 import java.io.IOException;
 
+import javax.servlet.DispatcherType;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -26,7 +27,6 @@ public class LoginCheckServlet extends HttpServlet {
         // DB에서 아이디, 비밀번호 확인
         int check = dao.loginCheck(userID, userPW);
 
-        String msg = "";
         RequestDispatcher rd = null;
 
         if (check == 1)    // 로그인 성공
@@ -38,16 +38,12 @@ public class LoginCheckServlet extends HttpServlet {
             response.sendRedirect("../index.jsp");
         } else if (check == -1) // 아이디가 틀림
         {
-            msg = "입력하신 아이디는 존재하지 않습니다.";
-            System.out.println(msg);
-            request.setAttribute("msg", msg);
-            rd = request.getRequestDispatcher("/login/LoginForm.jsp");
+            request.setAttribute("check", check);
+            rd = request.getRequestDispatcher("LoginForm.jsp");
             rd.forward(request, response);
         } else if (check == 0){ // 비밀번호가 틀림
-            msg = "입력하신 비밀번호가 맞지 않습니다.";
-            System.out.println(msg);
-            request.setAttribute("msg", msg);
-            rd = request.getRequestDispatcher("/login/LoginForm.jsp");
+            request.setAttribute("check", check);
+            rd = request.getRequestDispatcher("LoginForm.jsp");
             rd.forward(request, response);
         }
 
@@ -55,6 +51,7 @@ public class LoginCheckServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        RequestDispatcher rd = request.getRequestDispatcher("LoginForm.jsp");
+        rd.forward(request, response);
     }
 }
