@@ -160,10 +160,10 @@ table {
 	        
 	        <!-- NAV -->
 	        <div class="clearfix colelem" id="u3513"><!-- group -->
-	         <a class="nonblock nontext Button rounded-corners transition clearfix grpelem" id="buttonu3461" href="../login/myinform.jsp">
+	         <a class="nonblock nontext Button rounded-corners transition clearfix grpelem" id="buttonu3461" href="../myinform/myinform.jsp">
 	         <img class="grpelem" id="u3462" alt="내 정보" src="../images/blank.gif?crc=4208392903"/></a>
 	         
-	         <a class="nonblock nontext Button rounded-corners transition clearfix grpelem" id="buttonu3463" href="../AnimalsListServlet">
+	         <a class="nonblock nontext Button rounded-corners transition clearfix grpelem" id="buttonu3463" href="../animal/animalsList">
 	         <img class="grpelem" id="u3464" alt="유기동물조회" src="../images/blank.gif?crc=4208392903"/></a>
 	         
 	         <a class="nonblock nontext grpelem" id="u3469-4" href="../index.jsp">
