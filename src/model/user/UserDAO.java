@@ -46,6 +46,37 @@ public class UserDAO {
         }
     }
 
+    public void insertShelterUser(UserVO user) {
+        Connection conn =  DBUtil.getConnection();
+        PreparedStatement st = null;
+
+        try {
+            conn.setAutoCommit(false);
+
+            StringBuffer sql = new StringBuffer();
+            sql.append("insert into USERS values");
+            sql.append("(?, ?, ?, 1)");
+
+            st = conn.prepareStatement(sql.toString());
+            st.setString(1, user.getUserID());
+            st.setString(2, user.getUserPW());
+            st.setString(3, user.getUserName());
+
+            st.executeUpdate();
+
+            conn.commit();
+        } catch (SQLException sqle) {
+            try {
+                conn.rollback();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            throw new RuntimeException(sqle.getMessage());
+        } finally {
+            DBUtil.dbClose(null, st, conn);
+        }
+    }
+
     public int loginCheck(String userID, String userPW) {
         Connection conn = DBUtil.getConnection();
         PreparedStatement st = null;
