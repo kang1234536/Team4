@@ -27,8 +27,8 @@ public class Paging {
         this.lastPageNum = lastPageNum;
     }
 
-    // blockÀ» »ý¼º
-    // ÇöÀç ÆäÀÌÁö°¡ ¼ÓÇÑ blockÀÇ ½ÃÀÛ ¹øÈ£, ³¡ ¹øÈ£¸¦ °è»ê
+    // blockï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+    // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ blockï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£, ï¿½ï¿½ ï¿½ï¿½È£ï¿½ï¿½ ï¿½ï¿½ï¿½
     public void makeBlock(int curPage){
         int blockNum = 0;
 
@@ -37,7 +37,7 @@ public class Paging {
         blockLastNum = blockStartNum + (pageCount-1);
     }
 
-    // ÃÑ ÆäÀÌÁöÀÇ ¸¶Áö¸· ¹øÈ£
+    // ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£
     public void makeLastPageNum() {
         BoardDAO dao = new BoardDAO();
         int total = dao.getCount();
