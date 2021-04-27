@@ -23,20 +23,9 @@ public class BoardDAO {
 			st.setInt(1, start);
 			st.setInt(2, end);
 			rs = st.executeQuery();
-			if (rs.next()) { // 데이터베이스에 데이터가 있으면 실행
-				do {
-					// 반복할 때마다 ExboardDTO 객체를 생성 및 데이터 저장
-					BoardVO board = new BoardVO();
-					board.setBoard_ID(rs.getInt("board_id"));
-					board.setBoard_title(rs.getString("board_title"));
-					board.setBoard_content(rs.getString("board_content"));
-					board.setUser_ID(rs.getString("user_id"));
-					board.setBoard_answer(rs.getString("board_answer"));
-					board.setBoard_date(rs.getDate("board_date"));
-					board.setBoard_count(rs.getInt("board_count"));
-
-					boardlist.add(board); // list에 0번 인덱스부터 board 객체의 참조값을 저장
-				} while (rs.next());
+			while(rs.next()) {
+				BoardVO board = new BoardVO(rs.getInt("board_id"), rs.getString("board_title"), rs.getString("user_id"), rs.getDate("board_date"), rs.getInt("board_count"));
+				boardlist.add(board);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
