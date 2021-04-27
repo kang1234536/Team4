@@ -16,32 +16,37 @@ import model.user.UserVO;
 
 @WebServlet("/login/LoginCheckServlet")
 public class LoginCheckServlet extends HttpServlet {
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // ë¡œê·¸ì¸ í™”ë©´ì— ì…ë ¥ëœ ì•„ì´ë””ì™€ ë¹„ë°€ë²ˆí˜¸ë¥¼ ê°€ì ¸ì˜¨ë‹¤
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        // ·Î±×ÀÎ È­¸é¿¡ ÀÔ·ÂµÈ ¾ÆÀÌµğ¿Í ºñ¹Ğ¹øÈ£¸¦ °¡Á®¿Â´Ù
         UserDAO dao = UserDAO.getInstance();
         String userID = request.getParameter("userID");
         String userPW = request.getParameter("userPW");
 
         UserVO user = dao.selectByUserId(userID);
 
-        // DBì—ì„œ ì•„ì´ë””, ë¹„ë°€ë²ˆí˜¸ í™•ì¸
+        // DB¿¡¼­ ¾ÆÀÌµğ, ºñ¹Ğ¹øÈ£ È®ÀÎ
         int check = dao.loginCheck(userID, userPW);
 
         RequestDispatcher rd = null;
 
-        if (check == 1)    // ë¡œê·¸ì¸ ì„±ê³µ
+        if (check == 1)    // ·Î±×ÀÎ ¼º°ø
         {
             HttpSession session = request.getSession();
-            System.out.println(session.getId() + " ì„¸ì…˜ ì—°ê²°");
+            System.out.println(session.getId() + " ¼¼¼Ç ¿¬°á");
             session.setAttribute("userID", userID);
             session.setAttribute("username", user.getUserName());
             response.sendRedirect("../index.jsp");
-        } else if (check == -1) // ì•„ì´ë””ê°€ í‹€ë¦¼
+        } else if (check == -1) // ¾ÆÀÌµğ°¡ Æ²¸²
         {
             request.setAttribute("check", check);
             rd = request.getRequestDispatcher("LoginForm.jsp");
             rd.forward(request, response);
-        } else if (check == 0){ // ë¹„ë°€ë²ˆí˜¸ê°€ í‹€ë¦¼
+        } else if (check == 0){ // ºñ¹Ğ¹øÈ£°¡ Æ²¸²
             request.setAttribute("check", check);
             rd = request.getRequestDispatcher("LoginForm.jsp");
             rd.forward(request, response);
@@ -51,6 +56,10 @@ public class LoginCheckServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    	HttpSession session = request.getSession();
+    	request.setAttribute("message", session.getAttribute("message"));
+    	//System.out.println(session.getAttribute("message"));
+    	session.setAttribute("message", null);
         RequestDispatcher rd = request.getRequestDispatcher("LoginForm.jsp");
         rd.forward(request, response);
     }

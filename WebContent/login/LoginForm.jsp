@@ -15,7 +15,10 @@
             "outOfDate": []
         };
     </script>
-
+	<script>
+		var m = "${message}";
+		alert(m.replace(".", ".\n"));
+	</script>
     <%
         // 인코딩 처리
         request.setCharacterEncoding("euc-kr");
