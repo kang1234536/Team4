@@ -49,17 +49,9 @@
         <div class="browser_width colelem" id="u1966-bw">
             <div id="u1966">
                 <div class="clearfix" id="u1966_align_to_page">
-                    <!-- 로그인버튼 -->
-                    <div class="clearfix colelem" id="loginheader">
-                        <c:if test="${userID != null}">
-                            <p class="loginICON">${username}님 환영합니다!<a href="LogoutServlet">로그아웃</a></p>
-                        </c:if>
-                        <c:if test="${userID == null}">
-                            <p class="loginICON"><a href="login/LoginForm.jsp">로그인</a></p>
-                        </c:if>
-                    </div>
+                    
 
- 
+
                     <div class="position_content" id="u1966_position_content">
 
 
