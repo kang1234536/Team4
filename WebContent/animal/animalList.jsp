@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
-<html>
+<html> 
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
@@ -19,7 +19,7 @@
 		width: 480px;
 		height: 1000px;
 		float: left;
-		margin-top: 150px;
+		/* margin-top: 150px; */
 		margin-left: 27px;
 	}
 
@@ -58,7 +58,7 @@
 		width: 750px;
 		margin: auto;
 		/* border: 1px solid red; */
-		margin-top: 50px;
+		margin-top: 40px;
 	}
 	
 	#a_safe img{
@@ -71,6 +71,48 @@
 		margin: auto;
 		border: 2px dotted red;
 		margin-top: 30px;
+	}
+	
+	#paging {
+		position: relative;
+		float: inherit;
+		/* border: 1px solid red; */
+		top: 16px;
+		left: 450px;
+		
+	}
+	
+	a {
+		text-decoration: none;
+	}
+	
+	.container2 {
+		width: 350px;
+		background-color: transparent;
+		/* border: 2px solid purple; */
+		position: relative;
+		left: 50px;
+		padding: 10px;
+	}
+	
+	#catFoot {
+		position: relative;
+		margin-top: 10px;
+	}
+	
+	#boardTITLE {
+		font-size: 40px;
+		font-family: 'a타이틀고딕3';
+		display: inline;
+		position: absolute;
+		margin-left: 20px;
+		margin-top: 35px;
+		text-align: center;
+	}
+	
+	hr {
+		/* background-color: lightgray; */
+		width: 95%;
 	}
 	
 </style>
@@ -92,8 +134,8 @@
         <div class="clearfix colelem" id="u1521"><!-- group -->
          <a class="nonblock nontext Button rounded-corners transition clearfix grpelem" id="buttonu3263" href="../myinform/myInform">
          <img class="grpelem" id="u3264" alt="내 정보" src="../images/blank.gif?crc=4208392903"/></a>
-         <div class="nonblock nontext Button ButtonSelected rounded-corners clearfix grpelem" id="buttonu3265">
-         <img class="grpelem" id="u3266-4" alt="유기동물조회" width="103" height="20" src="../images/u3266-4-a.png?crc=155739993"/></div>
+         <a class="nonblock nontext Button ButtonSelected rounded-corners clearfix grpelem" id="buttonu3265" href="animalsList">
+         <img class="grpelem" id="u3266-4" alt="유기동물조회" width="103" height="20" src="../images/u3266-4-a.png?crc=155739993"/></a>
          <a class="nonblock nontext grpelem" id="u3271-4" href="../index.jsp">
          <img id="u3271-4_img" alt="멍냥멍냥" width="212" height="60" src="../images/u3271-4.png?crc=347814851"/></a>
          <a class="nonblock nontext Button rounded-corners transition clearfix grpelem" id="buttonu3267" href="../board/boardlist">
@@ -111,6 +153,11 @@
          <div id="serchBar">
          	<p>검색바 들어갈 공간</p>
          </div>
+         <div class="container2">
+				<img id="catFoot" src="../images/catUL.png" width="32" height="56"/>
+				<h2 id="boardTITLE">동물 리스트</h2>
+		 </div>
+		 <hr><br>
          <div class="a_listDIV">
 			<c:forEach var="animal" items="${aniList }" varStatus="status">
 				<c:if test="${status.count%2 eq 1}">
@@ -141,10 +188,17 @@
 					</li>
 				</c:if>
 			</c:forEach>​
-		</div> 
-      
+		</div>
+		<div id="paging">
+		<c:set var="page" value="${totalPage}"/>
+		<div>
+		<c:forEach var="pageNum" begin="1" end="${page}" step="1">
+			<a href="animalsList?page=${pageNum}">${pageNum}&nbsp;&nbsp;&nbsp;</a>
+		</c:forEach>
+		</div>
+		</div>
       </div>
-         
+      
         </div>
        </div>
       </div>

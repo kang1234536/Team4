@@ -8,6 +8,8 @@
 <meta name="viewport" content="width-device-width">
 <title>유기동물 상세정보</title>
 
+
+
 	<!-- CSS -->
 	<link rel="stylesheet" type="text/css" href="../css/site_global.css"/>
 	<link rel="stylesheet" type="text/css" href="../css/master_b-___.css"/>
@@ -33,8 +35,8 @@
   .gonggoView {
   	/* border: 1px solid red; */
   	width: 750px;
-  	margin: 120px auto;
-  	margin-bottom: 20px;
+  	margin: 90px auto;
+  	margin-bottom: 10px;
   }
   
   
@@ -60,10 +62,9 @@
     font-size: 16px; font-family: 'a타이틀고딕2';
   }
   .viewTable td{
-    padding:4px 5px; 
+    padding:4px 10px; 
     border:0; 
-    border-bottom: 
-    1px solid #cfcfcf; 
+    border-bottom: 1px solid #cfcfcf; 
     font-size: 1em;
     font-size: 14px; font-family: 'a타이틀고딕1';
   }
@@ -103,12 +104,22 @@
 	/* border: 1px solid red; */
 	width: 700px; height: 440px;
 	padding: 5px;
-	margin: 10px auto;
+	margin: 5px auto;
 }
 
 #careLocation {
 	font-size: 24px; font-family: 'a타이틀고딕2';
 	line-height: 1.5em;
+}
+
+#listbtn {
+	width: 50px; height: 30px;
+	border-radius: 3px;
+	background-color: lightgray;
+	font-size: 14px; font-family: 'a타이틀고딕1';
+	position: relative;
+	box-shadow: 1px 1px 10px #eee;
+	left: 500px;
 }
 </style>
 </head>
@@ -233,10 +244,14 @@
 				    </tbody>
 				  </table>
 				</div>
+				<a href="../animal/animalsList">
+				<button id="listbtn">목 록</button></a>
 				<div id="map">
 				  <span id="careLocation">[ 보호소 위치 ]</span>
 				  <%@ include file="/map/carePlaceSearch.jsp" %>
 				</div>
+				
+				
 			</div>
 			
           </div>

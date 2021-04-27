@@ -54,7 +54,8 @@
         <a class="nonblock nontext Button rounded-corners transition clearfix grpelem" id="buttonu3228" href="animal/animalsList">
         <img class="grpelem" id="u3229" alt="유기동물조회" src="images/blank.gif?crc=4208392903"/></a>
         <div class="clearfix grpelem" id="pu3260-4"><!-- column -->
-         <img class="colelem" id="u3260-4" alt="멍냥멍냥" width="212" height="60" src="images/u3260-4.png?crc=347814851"/>
+         <a href="index.jsp">
+         <img class="colelem" id="u3260-4" alt="멍냥멍냥" width="212" height="60" src="images/u3260-4.png?crc=347814851"/></a>
          <div class="clip_frame colelem" id="u1463">
           <!-- 고양이사진 -->
           <img class="block" id="u1463_img" src="images/%ea%b3%a0%ec%96%91%ec%9d%b41.png?crc=22901423" alt="" width="270" height="241"/>

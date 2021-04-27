@@ -2,9 +2,14 @@
          pageEncoding="EUC-KR" %>
 <html>
 <head>
-    <title>회원가입 화면</title>
+<title>회원가입 화면</title>
 
-    <script type="text/javascript">
+	<!-- CSS -->
+	<link rel="stylesheet" type="text/css" href="../css/site_global.css"/>
+ 	<link rel="stylesheet" type="text/css" href="../css/master_b-___.css"/>
+  	<link rel="stylesheet" type="text/css" href="../css/userinsert.css" id="pagesheet"/>
+
+<script type="text/javascript">
 
         // 필수 입력정보인 아이디, 비밀번호가 입력되었는지 확인하는 함수
         function checkValue() {
