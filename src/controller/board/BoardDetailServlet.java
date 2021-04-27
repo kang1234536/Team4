@@ -18,7 +18,7 @@ import model.board.*;
 @WebServlet("/board/boardDetail")
 public class BoardDetailServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	 
+	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String boardid = request.getParameter("board_ID");
 		if(boardid == null) throw new ServletException("board_id ¾øÀ½");

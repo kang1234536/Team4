@@ -15,7 +15,7 @@ import model.board.*;
 @WebServlet("/board/boardWrite")
 public class boardWriteServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
- 
+
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
 		String userID = (String) session.getAttribute("userID");

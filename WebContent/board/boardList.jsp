@@ -196,7 +196,7 @@ table {
 						<c:set var="page" value="${totalData}"/>
 						<div class="a">
 						<c:forEach var="pageNum" begin="1" end="${page}" step="1">
-							<a href="javascript:paging(${pageNum});">${pageNum} </a>
+							<a href="javascript:paging(${pageNum});">${pageNum}&nbsp;&nbsp;&nbsp;</a>
 						</c:forEach>
 						</div>
 						<!-- 글쓰기 버튼 생성 -->

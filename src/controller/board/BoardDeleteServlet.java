@@ -14,7 +14,7 @@ import model.board.BoardDAO;
 @WebServlet("/board/boardDelete")
 public class BoardDeleteServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-     
+    
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String boardID = request.getParameter("board_ID");
 		BoardDAO dao = new BoardDAO();

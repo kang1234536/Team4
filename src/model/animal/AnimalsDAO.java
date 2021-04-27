@@ -11,7 +11,7 @@ import java.util.List;
 import model.board.BoardVO;
 import util.DBUtil;
 
-public class AnimalsDAO  {
+public class AnimalsDAO {
 	
 	public List<AnimalsVO> getList(int start, int end) {
 		List<AnimalsVO> aniList = new ArrayList<AnimalsVO>();

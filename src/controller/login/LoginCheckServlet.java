@@ -20,7 +20,7 @@ public class LoginCheckServlet extends HttpServlet {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
- 
+
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // 로그인 화면에 입력된 아이디와 비밀번호를 가져온다
         UserDAO dao = UserDAO.getInstance();
