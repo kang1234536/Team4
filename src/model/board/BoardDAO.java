@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-
+ 
 import util.DBUtil;
 
 public class BoardDAO {
@@ -92,11 +92,6 @@ public class BoardDAO {
 			result = st.executeUpdate();
 			conn.commit();
 		} catch (SQLException e) {
-			try {
-				conn.rollback();
-			} catch (SQLException e1) {
-				e1.printStackTrace();
-			}
 			e.printStackTrace();
 		} finally {
 			DBUtil.dbClose(null, st, conn);
@@ -119,11 +114,6 @@ public class BoardDAO {
 			result = st.executeUpdate();
 			conn.commit();
 		} catch (SQLException e) {
-			try {
-				conn.rollback();
-			} catch (SQLException e1) {
-				e1.printStackTrace();
-			}
 			e.printStackTrace();
 		} finally {
 			DBUtil.dbClose(null, st, conn);
@@ -193,11 +183,6 @@ public class BoardDAO {
 			result = st.executeUpdate();
 			conn.commit();
 		} catch (SQLException e) {
-			try {
-				conn.rollback();
-			} catch (SQLException e1) {
-				e1.printStackTrace();
-			}
 			e.printStackTrace();
 		} finally {
 			DBUtil.dbClose(null, st, conn);

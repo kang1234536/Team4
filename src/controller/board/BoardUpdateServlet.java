@@ -16,7 +16,7 @@ import model.board.BoardVO;
 @WebServlet("/board/boardUpdate")
 public class BoardUpdateServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-    
+     
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String boardid = request.getParameter("board_ID");
 		BoardDAO dao = new BoardDAO();
@@ -30,7 +30,7 @@ public class BoardUpdateServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		String board_ID = request.getParameter("boardID");
-		if(board_ID == null) throw new ServletException("board_id 없음");
+		if(board_ID == null) throw new ServletException("board_id �뾾�쓬");
 		BoardDAO boardDAO = new BoardDAO();
 		String title = request.getParameter("Title");
 		String content = request.getParameter("Content");

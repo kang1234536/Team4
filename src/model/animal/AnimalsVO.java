@@ -1,7 +1,7 @@
 package model.animal;
 
 import java.sql.Date;
-
+ 
 public class AnimalsVO {
 	private String animalID; //
 	private String popfile;   //

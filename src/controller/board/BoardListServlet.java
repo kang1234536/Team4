@@ -15,7 +15,7 @@ import model.board.*;
 @WebServlet("/board/boardlist")
 public class BoardListServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-    
+      
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		/*
 		 * String next_s = (String)request.getParameter("page");; int next=0; if(next_s
@@ -26,16 +26,11 @@ public class BoardListServlet extends HttpServlet {
 		//List<BoardVO> blist = dao.selectList();
 		int totalData = (int) Math.ceil(dao.getCount()/10.0);
 		request.setAttribute("totalData", totalData);
-<<<<<<< HEAD
 		/* request.setAttribute("board_list", blist); */
 		/*
 		 * if(next==0) request.setAttribute("list_length", dao.getCount()+1); else
 		 * request.setAttribute("list_length", (dao.getCount()+1)-10*next);
 		 */
-=======
-		request.setAttribute("board_list", blist);
-		request.setAttribute("list_length", blist.size()+1);
->>>>>>> branch 'master' of https://github.com/kang1234536/Team4.git
 		RequestDispatcher rd = request.getRequestDispatcher("boardList.jsp");
 		rd.forward(request, response);
 	}

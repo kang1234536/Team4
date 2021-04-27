@@ -59,7 +59,7 @@
                         </c:if>
                     </div>
 
-
+ 
                     <div class="position_content" id="u1966_position_content">
 
 

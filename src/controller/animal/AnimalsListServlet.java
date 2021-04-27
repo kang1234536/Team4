@@ -18,7 +18,7 @@ import model.animal.AnimalsVO;
 
 
 
-
+ 
 @WebServlet("/animal/animalsList")
 public class AnimalsListServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -47,13 +47,13 @@ public class AnimalsListServlet extends HttpServlet {
 		rd.forward(request, response);
 		
 		
-		 HttpSession session = request.getSession(); 
-		 Object obj = session.getAttribute("userID"); 
-		 
-		 if(obj==null) {
-		 response.sendRedirect("../login/LoginCheckServlet"); //濡쒓렇�씤�쓣 �븞�뻽�쑝�땲 濡쒓렇�씤�쓣 �븯怨좎��씪 濡쒓렇�씤李쎌쑝濡� 蹂대깂 
-		 return; 
-		 }
+		/*
+		 * HttpSession session = request.getSession(); Object obj =
+		 * session.getAttribute("userID");
+		 * 
+		 * if(obj==null) { response.sendRedirect("../login/LoginCheckServlet");
+		 * //嚥≪뮄�젃占쎌뵥占쎌뱽 占쎈툧占쎈뻥占쎌몵占쎈빍 嚥≪뮄�젃占쎌뵥占쎌뱽 占쎈릭�⑥쥙占쏙옙�뵬 嚥≪뮄�젃占쎌뵥筌≪럩�몵嚥∽옙 癰귣�源� return; }
+		 */
 		 
 		
 	}

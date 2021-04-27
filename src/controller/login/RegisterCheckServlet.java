@@ -16,7 +16,7 @@ public class RegisterCheckServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         UserVO user = new UserVO();
         UserDAO dao = new UserDAO();
-
+ 
         user.setUserID(request.getParameter("userID"));
         user.setUserPW(request.getParameter("userPW"));
         user.setUserName(request.getParameter("userName"));
