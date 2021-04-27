@@ -49,9 +49,9 @@
        <!-- NAVI -->
        <div class="clearfix colelem" id="u1609"><!-- group -->
        
-        <a class="nonblock nontext Button rounded-corners transition clearfix grpelem" id="buttonu3226" href="MyInformServlet">
+        <a class="nonblock nontext Button rounded-corners transition clearfix grpelem" id="buttonu3226" href="myinform/myInform">
         <img class="grpelem" id="u3227" alt="내 정보" src="images/blank.gif?crc=4208392903"/></a>
-        <a class="nonblock nontext Button rounded-corners transition clearfix grpelem" id="buttonu3228" href="AnimalsListServlet">
+        <a class="nonblock nontext Button rounded-corners transition clearfix grpelem" id="buttonu3228" href="animal/animalsList">
         <img class="grpelem" id="u3229" alt="유기동물조회" src="images/blank.gif?crc=4208392903"/></a>
         <div class="clearfix grpelem" id="pu3260-4"><!-- column -->
          <img class="colelem" id="u3260-4" alt="멍냥멍냥" width="212" height="60" src="images/u3260-4.png?crc=347814851"/>
@@ -86,12 +86,13 @@
    </div>
   </div>
   
+  
 <div class="preload_images">
    <img class="preload" src="images/u3227-r.png?crc=333767328"/>
    <img class="preload" src="images/u3229-r.png?crc=196503113"/>
    <img class="preload" src="images/u3231_states-r.png?crc=258751846"/>
    <img class="preload" src="images/u3233-r.png?crc=4001421722"/>
-</div> 
+</div>
 
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 

@@ -18,7 +18,7 @@ import model.animal.*;
 /**
  * Servlet implementation class AnimalDetailServlet
  */
-@WebServlet("/AnimalDetailServlet")
+@WebServlet("/animal/AnimalDetailServlet")
 public class AnimalDetailServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -31,7 +31,7 @@ public class AnimalDetailServlet extends HttpServlet {
 		animal = aniDAO.selectById(animalId);
 		request.setAttribute("animal", animal);
 		
-		RequestDispatcher rd = request.getRequestDispatcher("animal/animalDetail.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("animalDetail.jsp");
 		rd.forward(request, response);
 		
 		/*RequestDispatcher rd2 = request.getRequestDispatcher("map/carePlaceSearch.jsp");

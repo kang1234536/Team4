@@ -20,7 +20,7 @@ import model.user.UserVO;
 /**
  * Servlet implementation class MyInformServlet
  */
-@WebServlet("/MyInformServlet")
+@WebServlet("/myinform/myInform")
 public class MyInformServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -34,12 +34,12 @@ public class MyInformServlet extends HttpServlet {
 		Object obj2 = session.getAttribute("userPW");	
 		Object obj3 = session.getAttribute("userName");	
 		if(obj==null) {
-			response.sendRedirect("login/LoginForm.jsp");
+			response.sendRedirect("../login/LoginForm.jsp");
 			return;
 		}
 	
 		 request.setAttribute("userName", obj3);
-		 RequestDispatcher rd =request.getRequestDispatcher("/myinform/myinform.jsp");
+		 RequestDispatcher rd =request.getRequestDispatcher("myinform.jsp");
 		 rd.forward(request,response);
 		
 		

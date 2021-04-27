@@ -19,7 +19,7 @@ import model.animal.AnimalsVO;
 
 
 
-@WebServlet("/AnimalsListServlet")
+@WebServlet("/animal/animalsList")
 public class AnimalsListServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -33,7 +33,7 @@ public class AnimalsListServlet extends HttpServlet {
 		}
 		
 		request.setAttribute("aniList", aniList);
-		RequestDispatcher rd = request.getRequestDispatcher("animal/animalList.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("animalList.jsp");
 		rd.forward(request, response);
 		
 		

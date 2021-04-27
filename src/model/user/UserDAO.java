@@ -15,6 +15,61 @@ public class UserDAO {
         return instance;
     }
 
+    public int DeleteUser(UserVO user) {
+		Connection conn =DBUtil.getConnection();
+		PreparedStatement st = null;
+		int result = 0;
+		try {
+		StringBuffer sql = new StringBuffer();
+		sql.append("delete from users  where user_id=?");
+		
+		
+			st = conn.prepareStatement(sql.toString());
+
+			st.setString(1, user.getUserID());
+			
+			
+		
+
+			result = st.executeUpdate(); // insert/update/delete는 executeUpdate()를 써야한다.
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			DBUtil.dbClose(null, st, conn);
+		}
+		return result;
+	}
+	public int UpdateUser(UserVO user) {
+		Connection conn =DBUtil.getConnection();
+		PreparedStatement st = null;
+		int result = 0;
+		try {
+		StringBuffer sql = new StringBuffer();
+		sql.append("update users set user_pw=? , user_name=? where user_id=?");
+		
+		
+			st = conn.prepareStatement(sql.toString());
+
+			st.setString(3, user.getUserID());
+			st.setString(1, user.getUserPW());
+			st.setString(2, user.getUserName());
+			
+		
+
+			result = st.executeUpdate(); // insert/update/delete는 executeUpdate()를 써야한다.
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			DBUtil.dbClose(null, st, conn);
+		}
+		return result;
+	}
+    
+    
+    
+    
     public void insertUser(UserVO user) {
         Connection conn =  DBUtil.getConnection();
         PreparedStatement st = null;
@@ -25,37 +80,6 @@ public class UserDAO {
             StringBuffer sql = new StringBuffer();
             sql.append("insert into USERS values");
             sql.append("(?, ?, ?, 0)");
-
-            st = conn.prepareStatement(sql.toString());
-            st.setString(1, user.getUserID());
-            st.setString(2, user.getUserPW());
-            st.setString(3, user.getUserName());
-
-            st.executeUpdate();
-
-            conn.commit();
-        } catch (SQLException sqle) {
-            try {
-                conn.rollback();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-            throw new RuntimeException(sqle.getMessage());
-        } finally {
-            DBUtil.dbClose(null, st, conn);
-        }
-    }
-
-    public void insertShelterUser(UserVO user) {
-        Connection conn =  DBUtil.getConnection();
-        PreparedStatement st = null;
-
-        try {
-            conn.setAutoCommit(false);
-
-            StringBuffer sql = new StringBuffer();
-            sql.append("insert into USERS values");
-            sql.append("(?, ?, ?, 1)");
 
             st = conn.prepareStatement(sql.toString());
             st.setString(1, user.getUserID());

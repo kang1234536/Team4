@@ -16,20 +16,73 @@
 <style>
 
 table, td {
-	text-align: center; border: 1px solid black; width: 800px; border-collapse: collapse;
+	text-align: center; 
+	border-bottom: 1px dotted gray;
+	/* border-collapse: collapse; */
+}
+
+.td1 {
+	background-color: #F6C95E; 
+	text-align: center;
+	font-size: 18px; font-family: 'a타이틀고딕2';
+	padding: 20px;
+	width: 150px;
+}
+
+.td2 {
+	background-color: transparent; 
+	text-align: left;
+	font-size: 15px; font-family: 'a타이틀고딕1';
+	padding: 10px;
+	width: 800px;
 }
 
 .container {
-	border: 1px solid red;
-	width: 1000px;
+	/* border: 1px solid red; */
+	width: 1050px;
 	margin-top: 100px;
 }
 
-.row {
-	border: 2px solid blue;
-	margin: 0 auto;
+.container2 {
+	width: 350px;
+	background-color: transparent;
+	/* border: 1px solid red; */
+	position: relative;
+	margin-top: 40px;
+	left: 150px;
+	padding: 10px;
+	float: left;
 }
 
+.row {
+	/* border: 2px solid blue; */
+	margin: 0 auto;
+	width: 800px;
+}
+
+#td3 {
+	background-color: transparent; 
+	text-align: left;
+	font-size: 15px; font-family: 'a타이틀고딕1';
+	padding: 10px;
+	width: 600px;
+	height: 250px;
+}
+
+#catFoot {
+	position: relative;
+	margin-top: 10px;
+}
+
+#boardTITLE {
+	font-size: 40px;
+	font-family: 'a타이틀고딕3';
+	display: inline;
+	position: absolute;
+	margin-left: 20px;
+	margin-top: 35px;
+	text-align: center;
+}
 
 
 </style>
@@ -57,7 +110,7 @@ table, td {
 				<img class="grpelem" id="u2061" alt="나의정보"	src="../images/blank.gif?crc=4208392903" />
 				</a>
 				<!-- 유기동물조회버튼 -->
-				<a class="nonblock nontext Button rounded-corners transition clearfix grpelem" id="buttonu2062" href="../AnimalsListServlet">
+				<a class="nonblock nontext Button rounded-corners transition clearfix grpelem" id="buttonu2062" href="../animal/animalsList">
 				<img class="grpelem" id="u2063" alt="유기동물조회" src="../images/blank.gif?crc=4208392903" />
 				</a>
 				 <!-- 멍냥멍냥로고 -->
@@ -82,26 +135,31 @@ table, td {
         <!-- 컨텐츠 들어갈공간 -->
         
         <!-- BOARD DETAIL -->
-        <div class="container">
+        <div class="container2">
+			<img id="catFoot" src="../images/catUL.png" width="32" height="56"/>
+			<h2 id="boardTITLE">커뮤니티 게시판</h2>
+		</div>
+		<br><br><br>
+		<div class="container">
 			<div class="row">
 				<form action="boardlist">
 					<table class="detail">
 						<tbody>
 							<tr>
-								<td id="td1">제목</td>
-								<td>${board_detail.board_title}</td>
+								<td class="td1">제 목</td>
+								<td class="td2">${board_detail.board_title}</td>
 							</tr>
 							<tr>
-								<td >작성자</td>
-								<td>${board_detail.user_ID}</td>
+								<td class="td1">작성자</td>
+								<td class="td2">${board_detail.user_ID}</td>
 							</tr>
 							<tr>
-								<td>작성날짜</td>
-								<td>${board_detail.board_date}</td>
+								<td class="td1">작성날짜</td>
+								<td class="td2">${board_detail.board_date}</td>
 							</tr>
 							<tr>
-								<td>내용</td>
-								<td>${board_detail.board_content}</td>
+								<td class="td1">내 용</td>
+								<td class="td2" id="td3">${board_detail.board_content}</td>
 							</tr>
 						</tbody>
 					</table>

@@ -17,7 +17,7 @@
     </script>
 	<script>
 		var m = "${message}";
-		alert(m.replace(".", ".\n"));
+		/* alert(m.replace(".", ".\n")); */
 	</script>
     <%
         // 인코딩 처리
@@ -71,12 +71,12 @@
                         <div class="clearfix colelem" id="u2954">
                             <!-- 나의정보버튼 -->
                             <a class="nonblock nontext Button rounded-corners transition clearfix grpelem"
-                               id="buttonu2060" href="">
+                               id="buttonu2060" href="../myinform/myInform">
                                 <img class="grpelem" id="u2061" alt="나의정보" src="../images/blank.gif?crc=4208392903"/>
                             </a>
                             <!-- 유기동물조회버튼 -->
                             <a class="nonblock nontext Button rounded-corners transition clearfix grpelem"
-                               id="buttonu2062" href="AnimalsListServlet">
+                               id="buttonu2062" href="../animal/animalsList">
                                 <img class="grpelem" id="u2063" alt="유기동물조회" src="../images/blank.gif?crc=4208392903"/>
                             </a>
                             <!-- 멍냥멍냥로고 -->
