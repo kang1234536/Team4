@@ -91,6 +91,9 @@ table {
 	border-radius: 3px;
 }
 
+.a {
+	text-align: center;
+}
 #notice {
 	background-color: lightgray;
 }
@@ -130,7 +133,6 @@ table {
 
 
 </style>
-
 </head>
 
 <body>
@@ -202,6 +204,7 @@ table {
 								<td>2021-04-26</td>
 								<td>0</td>
 							</tr>
+							
 							<c:set var="seq" value="${list_length }"/>
 							<c:forEach var="board" items="${board_list}">
 							    <c:set var="seq" value="${seq-1 }"/>
@@ -218,6 +221,13 @@ table {
 							</c:forEach>
 							</tbody>
 						</table>
+						<br>
+						<c:set var="page" value="${totalData}"/>
+						<div class="a">
+						<c:forEach var="pageNum" begin="1" end="${page}" step="1">
+							<a href="boardlist?page=${pageNum}">${pageNum} </a>
+						</c:forEach>
+						</div>
 						<!-- 글쓰기 버튼 생성 -->
 						<br>
 						<button class="btn1" onclick="location='boardWrite'">WRITE</button>

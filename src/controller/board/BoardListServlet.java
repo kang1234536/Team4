@@ -17,8 +17,16 @@ public class BoardListServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String next_s = (String)request.getParameter("page");;
+		int next=0;
+		if(next_s != null) {
+			next = Integer.parseInt(next_s)-1;
+		}
 		BoardDAO dao = new BoardDAO();
-		List<BoardVO> blist = dao.selectList();
+		List<BoardVO> blist = dao.getList(1+(10*next), 10+(10*next));
+		//List<BoardVO> blist = dao.selectList();
+		int totalData = (int) Math.ceil(dao.getCount()/10.0);
+		request.setAttribute("totalData", totalData);
 		request.setAttribute("board_list", blist);
 		request.setAttribute("list_length", blist.size()+1);
 		RequestDispatcher rd = request.getRequestDispatcher("boardList.jsp");

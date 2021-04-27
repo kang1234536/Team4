@@ -30,7 +30,7 @@ public class BoardUpdateServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		String board_ID = request.getParameter("boardID");
-		if(board_ID == null) throw new ServletException("board_id ¾øÀ½");
+		if(board_ID == null) throw new ServletException("board_id ì—†ìŒ");
 		BoardDAO boardDAO = new BoardDAO();
 		String title = request.getParameter("Title");
 		String content = request.getParameter("Content");

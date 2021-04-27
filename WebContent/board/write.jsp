@@ -1,3 +1,4 @@
+<%@page import="com.sun.org.apache.xpath.internal.functions.Function"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -17,7 +18,7 @@ body {
 	<!-- 게시판 글쓰기 양식 영역 시작 -->
 	<div class="container">
 		<div class="row">
-			<form method="post" action="boardWrite">
+			<form method="post" action="boardWrite" onsubmit="session()">
 				<table class="table table-striped" style="text-align: center;  width: 600px;">
 					<thead>
 						<tr>
@@ -37,9 +38,11 @@ body {
 				</table>
 				<!-- 글쓰기 버튼 생성 -->
 				<input type="submit" class="btn1" value="글쓰기">
+				
 			</form>
 		</div>
 	</div>
+	
 	<!-- 게시판 글쓰기 양식 영역 끝 -->
 
 </body>
