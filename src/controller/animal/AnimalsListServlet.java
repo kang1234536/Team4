@@ -25,12 +25,22 @@ public class AnimalsListServlet extends HttpServlet {
        
     
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		///Paging
+		String next_s = (String)request.getParameter("page");;
+		int next=0;
+		if(next_s != null) {
+			next = Integer.parseInt(next_s)-1;
+		}
+		
 		AnimalsDAO aniDAO = new AnimalsDAO();
 		List<AnimalsVO> aniList = new ArrayList<>();
-		aniList = aniDAO.selectAll();
+		aniList = aniDAO.getList(1+(10*next), 10+(10*next));
 		for(AnimalsVO ani:aniList) {
 			System.out.println(ani);
 		}
+		///
+		int totalPage = (int) Math.ceil(aniDAO.getCount()/10.0);
+		request.setAttribute("totalPage", totalPage);	
 		
 		request.setAttribute("aniList", aniList);
 		RequestDispatcher rd = request.getRequestDispatcher("animalList.jsp");
@@ -41,7 +51,7 @@ public class AnimalsListServlet extends HttpServlet {
 		 Object obj = session.getAttribute("userID"); 
 		 
 		 if(obj==null) {
-		 response.sendRedirect("../login/LoginCheckServlet"); //로그인을 안했으니 로그인을 하고와라 로그인창으로 보냄 
+		 response.sendRedirect("../login/LoginCheckServlet"); //濡쒓렇�씤�쓣 �븞�뻽�쑝�땲 濡쒓렇�씤�쓣 �븯怨좎��씪 濡쒓렇�씤李쎌쑝濡� 蹂대깂 
 		 return; 
 		 }
 		 

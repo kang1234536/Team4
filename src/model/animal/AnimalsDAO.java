@@ -8,9 +8,55 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import model.board.BoardVO;
 import util.DBUtil;
 
 public class AnimalsDAO {
+	
+	public List<AnimalsVO> getList(int start, int end) {
+		List<AnimalsVO> aniList = new ArrayList<AnimalsVO>();
+		Connection conn = util.DBUtil.getConnection();
+		PreparedStatement st = null;
+		ResultSet rs = null;
+		String sql = "select * from (select rownum rn, aa.* from(select * from animals order by animalid)aa) where rn between ? and ?";
+		try {
+			st = conn.prepareStatement(sql);
+			st.setInt(1, start);
+			st.setInt(2, end);
+			rs = st.executeQuery();
+			while(rs.next()) {
+				AnimalsVO makeRs = makeAnimals(rs);
+				aniList.add(makeRs);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			DBUtil.dbClose(rs, st, conn);
+		}
+		
+		return aniList;
+	}
+	
+	public int getCount(){
+		int count = 0;
+		Connection conn = null;
+		Statement st = null;
+		ResultSet rs = null;
+		String sql = "select count(*) from animals";
+		try {
+			conn = DBUtil.getConnection();
+			st = conn.createStatement();
+			rs = st.executeQuery(sql);
+			if(rs.next()){
+				count = rs.getInt(1);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			DBUtil.dbClose(rs, st, conn);
+		}
+		return count; // 총 레코드 수 리턴
+	}
 	
 	public List<AnimalsVO> selectAll(){
 		List<AnimalsVO> aniList = new ArrayList<>();

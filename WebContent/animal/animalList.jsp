@@ -140,11 +140,17 @@
 						</ul>
 					</li>
 				</c:if>
-			</c:forEach>​
-		</div> 
-      
+			</c:forEach>
+			<c:set var="page" value="${totalPage}"/>
+		<div class="a">
+		<c:forEach var="pageNum" begin="1" end="${page}" step="1">
+			<a href="animalsList?page=${pageNum}">${pageNum} </a>
+		</c:forEach>
+		</div>​
+		</div>
+		
       </div>
-         
+      
         </div>
        </div>
       </div>
