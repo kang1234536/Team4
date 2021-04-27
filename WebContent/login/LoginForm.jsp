@@ -6,6 +6,17 @@
     <script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js" charset="utf-8"></script>
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
 
+    <script type="text/javascript">
+        // Update the 'nojs'/'js' class on the html node
+        document.documentElement.className = document.documentElement.className.replace(/\bnojs\b/g, 'js');
+        // Check that all required assets are uploaded and up-to-date
+        if (typeof Muse == "undefined") window.Muse = {};
+        window.Muse.assets = {
+            "required": ["museutils.js", "museconfig.js", "webpro.js", "musewpdisclosure.js", "jquery.watch.js", "require.js", "login.css"],
+            "outOfDate": []
+        };
+    </script>
+
 	<script>
 		var m = "${message}";
 		/* alert(m.replace(".", ".\n")); */
@@ -132,19 +143,20 @@
                                                    required><br><br>
                                             <input type="password" name="userPW" maxlength="50" placeholder="비밀번호"
                                                    required><br><br><br>
-                                            <input type="submit" value="로그인"><br>
-                                            <p>아직 계정이 없으신가요? <a href="RegisterForm.jsp">회원가입</a></p>
+                                            <input type="submit" value="로그인"><br><br>
+                                            <p>아직 계정이 없으신가요? <a href="RegisterForm.jsp">회원가입</a></p><br>
+
+                                            <div id="naver_id_login"></div>
+                                            <script type="text/javascript">
+                                                var naver_id_login = new naver_id_login("S6NizWUvfrEyNSDHC2IS", "http://3.34.139.44/Team4_war/oauth/naverCallback.jsp");
+                                                var state = naver_id_login.getUniqState();
+                                                naver_id_login.setButton("white", 2,40);
+                                                naver_id_login.setDomain("http://3.34.139.44/Team4_war/login/LoginForm.jsp");
+                                                naver_id_login.setState(state);
+                                                naver_id_login.setPopup();
+                                                naver_id_login.init_naver_id_login();
+                                            </script>
                                         </form>
-                                        <div id="naver_id_login"></div>
-                                        <script type="text/javascript">
-                                            var naver_id_login = new naver_id_login("S6NizWUvfrEyNSDHC2IS", "http://3.34.139.44/Team4_war/oauth/naverCallback.jsp");
-                                            var state = naver_id_login.getUniqState();
-                                            naver_id_login.setButton("white", 2,40);
-                                            naver_id_login.setDomain("http://3.34.139.44/Team4_war/login/LoginForm.jsp");
-                                            naver_id_login.setState(state);
-                                            naver_id_login.setPopup();
-                                            naver_id_login.init_naver_id_login();
-                                        </script>
 
                                     </div>
                                     <div class="TabbedPanelsContent invi grpelem" id="u2862">
