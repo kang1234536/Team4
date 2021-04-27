@@ -12,7 +12,7 @@ import model.board.BoardVO;
 import util.DBUtil;
 
 public class AnimalsDAO {
-	
+	 
 	public List<AnimalsVO> getList(int start, int end) {
 		List<AnimalsVO> aniList = new ArrayList<AnimalsVO>();
 		Connection conn = util.DBUtil.getConnection();

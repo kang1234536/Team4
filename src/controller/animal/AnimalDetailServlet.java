@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import model.animal.*;
 
 
-
+ 
 /**
  * Servlet implementation class AnimalDetailServlet
  */
