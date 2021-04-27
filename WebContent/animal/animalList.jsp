@@ -115,6 +115,26 @@
 		width: 95%;
 	}
 	
+	#loginICON {
+		font-size: 15px;
+		text-decoration: none;
+		font-family: 'a타이틀고딕3';
+	}
+	
+	.loginICON {
+		font-size: 15px;
+		text-decoration: none;
+		font-family: 'a타이틀고딕3';
+		float: right;
+	}
+	
+	#loginheader {
+		z-index: 5;
+		width: 1115px;
+		/* border: 2px solid red; */
+		left: 182.5px;
+		position: relative;
+	}
 </style>
 
 </head>
@@ -125,6 +145,15 @@
      <div id="u1442"><!-- column -->
       <div class="clearfix" id="u1442_align_to_page">
        <div class="position_content" id="u1442_position_content">
+       <!-- 로그인버튼 -->
+	       <div class="clearfix colelem" id="loginheader">
+	     	<c:if test="${username != null}">
+				<p class="loginICON">${username}님 환영합니다!<a href="../LogoutServlet">로그아웃</a></p>
+			</c:if>
+			<c:if test="${username == null}">
+				<p class="loginICON"><a href="../login/LoginForm.jsp">로그인</a></p>
+			</c:if>
+	       </div>
         <div class="clip_frame colelem" id="u1519">
          <img class="block" id="u1519_img" src="../images/index-animalfriends.png?crc=414174054" alt="" width="677" height="125"/>
         </div>
