@@ -23,11 +23,9 @@ public class BoardDAO {
 			st.setInt(1, start);
 			st.setInt(2, end);
 			rs = st.executeQuery();
-			if (rs.next()) { // ï¿½ï¿½ï¿½ï¿½ï¿½Íºï¿½ï¿½Ì½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Í°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
-				while(rs.next()) {
-					BoardVO board = new BoardVO(rs.getInt("board_id"), rs.getString("board_title"), rs.getString("user_id"), rs.getDate("board_date"), rs.getInt("board_count"));
-					boardlist.add(board);
-				}
+			while(rs.next()) {
+				BoardVO board = new BoardVO(rs.getInt("board_id"), rs.getString("board_title"), rs.getString("user_id"), rs.getDate("board_date"), rs.getInt("board_count"));
+				boardlist.add(board);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -56,7 +54,7 @@ public class BoardDAO {
 		} finally {
 			DBUtil.dbClose(rs, st, conn);
 		}
-		return count; // ï¿½ï¿½ ï¿½ï¿½ï¿½Úµï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+		return count; // ÃÑ ·¹ÄÚµå ¼ö ¸®ÅÏ
 	}
 	
 	public int deleteBoard(String boardID) {
@@ -67,7 +65,6 @@ public class BoardDAO {
 
 		conn = DBUtil.getConnection();
 		try {
-			conn.setAutoCommit(false);
 			st = conn.prepareStatement(sql);
 			st.setString(1, boardID);
 			result = st.executeUpdate();
@@ -92,9 +89,7 @@ public class BoardDAO {
 		int result = 0;
 
 		conn = DBUtil.getConnection();
-
 		try {
-			conn.setAutoCommit(false);
 			st = conn.prepareStatement(sql);
 			st.setString(1, title);
 			st.setString(2, content);
@@ -122,7 +117,6 @@ public class BoardDAO {
 
 		conn = DBUtil.getConnection();
 		try {
-			conn.setAutoCommit(false);
 			st = conn.prepareStatement(sql);
 			st.setString(1, title);
 			st.setString(2, content);
@@ -198,7 +192,6 @@ public class BoardDAO {
 
 		conn = DBUtil.getConnection();
 		try {
-			conn.setAutoCommit(false);
 			st = conn.prepareStatement(sql);
 			st.setInt(1, boardCount+1);
 			st.setString(2, boardid);
