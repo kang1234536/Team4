@@ -51,7 +51,11 @@ public class BoardDetailServlet extends HttpServlet {
 		//System.out.println(userID);
 		String boardWriter = dao.getUserID(boardid);
 		//System.out.println(boardWriter);
-		if(userID.equals(boardWriter)) {
+		if(userID==null) {
+			RequestDispatcher rd = request.getRequestDispatcher("boardDetailNotWriter.jsp");
+			rd.forward(request, response);
+		}
+		else if(userID.equals(boardWriter)) {
 			RequestDispatcher rd = request.getRequestDispatcher("boardDetail.jsp");
 			rd.forward(request, response);
 		}

@@ -69,19 +69,14 @@ public class AnimalsListServlet extends HttpServlet {
 		 HttpSession session = request.getSession(); 
 		 Object obj = session.getAttribute("userID"); 
 
-		 if(obj==null) {
-		 response.sendRedirect("../login/LoginCheckServlet"); //嚥≪뮄�젃占쎌뵥占쎌뱽 占쎈툧占쎈뻥占쎌몵占쎈빍 嚥≪뮄�젃占쎌뵥占쎌뱽 占쎈릭�⑥쥙占쏙옙�뵬 嚥≪뮄�젃占쎌뵥筌≪럩�몵嚥∽옙 癰귣�源� 
-		 return; 
-		 }
+//		 if(obj==null) {
+//		 response.sendRedirect("../login/LoginCheckServlet"); //嚥≪뮄�젃占쎌뵥占쎌뱽 占쎈툧占쎈뻥占쎌몵占쎈빍 嚥≪뮄�젃占쎌뵥占쎌뱽 占쎈릭�⑥쥙占쏙옙�뵬 嚥≪뮄�젃占쎌뵥筌≪럩�몵嚥∽옙 癰귣�源� 
+//		 return; 
+//		 }
 		 
 		
 		RequestDispatcher rd = request.getRequestDispatcher("animalList.jsp");
 		rd.forward(request, response);
-		
-		
-		
-		 
-		 
 		
 	}
 	

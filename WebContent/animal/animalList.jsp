@@ -132,6 +132,27 @@
 		
 	}
 	
+	#loginICON {
+		font-size: 15px;
+		text-decoration: none;
+		font-family: 'a타이틀고딕3';
+	}
+	
+	.loginICON {
+		font-size: 15px;
+		text-decoration: none;
+		font-family: 'a타이틀고딕3';
+		float: right;
+	}
+	
+	#loginheader {
+		z-index: 5;
+		width: 1115px;
+		/* border: 2px solid red; */
+		left: 182.5px;
+		position: relative;
+	}
+	
 </style>
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script type="text/javascript">
@@ -153,6 +174,17 @@ function call(kind){
      <div id="u1442"><!-- column -->
       <div class="clearfix" id="u1442_align_to_page">
        <div class="position_content" id="u1442_position_content">
+       
+       <!-- 로그인버튼 -->
+	       <div class="clearfix colelem" id="loginheader">
+	     	<c:if test="${username != null}">
+				<p class="loginICON">${username}님 환영합니다!<a href="../LogoutServlet">로그아웃</a></p>
+			</c:if>
+			<c:if test="${username == null}">
+				<p class="loginICON"><a href="../login/LoginForm.jsp">로그인</a></p>
+			</c:if>
+	       </div>
+	       
         <div class="clip_frame colelem" id="u1519">
          <img class="block" id="u1519_img" src="../images/index-animalfriends.png?crc=414174054" alt="" width="677" height="125"/>
         </div>
@@ -207,41 +239,12 @@ function call(kind){
 				<h2 id="boardTITLE">동물 리스트</h2>
 		 </div>
 		 <hr><br>
-         <div class="a_listDIV">
-			<c:forEach var="animal" items="${aniList }" varStatus="status">
-				<c:if test="${status.count%2 eq 1}">
-					<li class="animals"><img src="${animal.popfile}" width="180" height="180">
-						<ul>
-							<li><span>유기번호 : </span>${animal.animalID}</li>
-							<li><span>발견장소 : </span>${animal.happenPlace}</li>
-							<li><span>발견날짜 : </span>${animal.happenDate}</li>
-							<li><span>상태 : </span>${animal.state}</li><br>
-							<li><button	class="상세보기버튼" onclick="location.href='AnimalDetailServlet?animalId=${animal.animalID}'">상세보기</button></li>
-						</ul>
-					</li>
-				</c:if>
-			</c:forEach>
-		</div>
-		<div class="a_listDIV">
-			<c:forEach var="animal" items="${aniList }" varStatus="status">
-				<c:if test="${status.count%2 eq 0}">
-					<li class="animals"><img src="${animal.popfile}" width="180" height="180">
-						<ul>
-							<li><span>유기번호 : </span>${animal.animalID}</li>
-							<li><span>발견장소 : </span>${animal.happenPlace}</li>
-							<li><span>발견날짜 : </span>${animal.happenDate}</li>
-							<li><span>상태 : </span>${animal.state}</li><br>
-							<li><button	class="상세보기버튼" onclick="location.href='AnimalDetailServlet?animalId=${animal.animalID}'">상세보기</button></li>
-						</ul>
-					</li>
-				</c:if>
-			</c:forEach>
-		</div>
+         <div id="animalList"></div>
 		<div id="paging">
 		<c:set var="page" value="${totalPage}"/>
 		<div>
 		<c:forEach var="pageNum" begin="1" end="${page}" step="1">
-			<a href="animalsList?page=${pageNum}">${pageNum}&nbsp;&nbsp;&nbsp;</a>
+			<a href="javascript:paging(${pageNum});">${pageNum}&nbsp;&nbsp;&nbsp;</a>
 		</c:forEach>
 		</div>
 		</div>
@@ -263,5 +266,17 @@ function call(kind){
    <img class="preload" src="../images/u3268-r.png?crc=258751846" alt=""/>
    <img class="preload" src="../images/u3270-r.png?crc=4001421722" alt=""/>
   </div>
+  <script>
+	  function paging(page){
+		  $.ajax({
+			  url:"animalListPage",
+			  data: {"page":page},
+			  success: function(responseData){
+				  $("#animalList").html(responseData);
+			  }
+		  });
+	  }
+	  paging(1);
+	  </script>
 </body>
 </html>

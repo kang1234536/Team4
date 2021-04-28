@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -96,6 +97,27 @@ table, td {
 	margin-left: 5px;
 	margin-top: 20px;
 }
+
+#loginICON {
+	font-size: 15px;
+	text-decoration: none;
+	font-family: 'a타이틀고딕3';
+}
+
+.loginICON {
+	font-size: 15px;
+	text-decoration: none;
+	font-family: 'a타이틀고딕3';
+	float: right;
+}
+
+#loginheader {
+	z-index: 5;
+	width: 1115px;
+	/* border: 2px solid red; */
+	left: 182.5px;
+	position: relative;
+}
 </style>
 </head>
 <body>
@@ -106,6 +128,16 @@ table, td {
 		<div id="u1966">
 		<div class="clearfix" id="u1966_align_to_page">
 		<div class="position_content" id="u1966_position_content">
+		
+		 <!-- 로그인버튼 -->
+	       <div class="clearfix colelem" id="loginheader">
+	     	<c:if test="${username != null}">
+				<p class="loginICON">${username}님 환영합니다!<a href="../LogoutServlet">로그아웃</a></p>
+			</c:if>
+			<c:if test="${username == null}">
+				<p class="loginICON"><a href="../login/LoginForm.jsp">로그인</a></p>
+			</c:if>
+	       </div>
 				
 				
 		<!-- 동물친구들이미지 -->
