@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,14 +16,20 @@
 	<link rel="stylesheet" type="text/css" href="../css/animalDetail.css" id="pagesheet"/>
 
 <style>
-  #wingBnr{
-  	z-index:10000;
-  	position: absolute;
-  	width: 300px; height: 220px;
-  	/* border: 1px solid blue; */
-  	left: 590px;
-  	margin-top: 90px;
-  }
+	#u1966 {
+		z-index: 3;
+		min-height: 1300px;
+		padding-bottom: 1px;	
+	}
+	
+	#wingBnr{
+	  	z-index:10000;
+	  	position: absolute;
+	  	width: 300px; height: 220px;
+	  	/* border: 1px solid blue; */
+	  	left: 590px;
+	  	margin-top: 90px;
+  	}
   
   #wingBnr div.wing_hgroup{
   	position:relative;
@@ -131,7 +138,31 @@
 	left: 182px;
 	position: relative;
 }
-
+  
+	#loginheader {
+		z-index: 5;
+		width: 1115px;
+		/* border: 2px solid red; */
+		left: 182.5px;
+		position: relative;
+	}
+	
+	.loginICON {
+		font-size: 15px;
+		text-decoration: none;
+		font-family: 'a타이틀고딕2';
+		float: right;
+	}
+	
+	a:link {
+		text-decoration: none;
+		color : blue;
+	}
+	
+	a:visited {
+		text-decoration: none;
+		color : blue;
+	}
 
 
 </style>
@@ -146,8 +177,17 @@
 		<div id="u1966">
 		<div class="clearfix" id="u1966_align_to_page">
 		<div class="position_content" id="u1966_position_content">
-				
-				
+
+		<!-- 로그인버튼 -->
+		<div class="clearfix colelem" id="loginheader">
+			<c:if test="${username != null}">
+				<p class="loginICON">${username}님 환영합니다!&nbsp;&nbsp;<a href="../LogoutServlet">로그아웃</a></p>
+			</c:if>
+			<c:if test="${username == null}">
+				<p class="loginICON"><a href="../login/LoginForm.jsp">로그인</a></p>
+			</c:if>
+		</div>
+
 		<!-- 동물친구들이미지 -->
 		<div class="clip_frame colelem" id="u2010">
 		<img class="block" id="u2010_img" src="../images/index-animalfriends.png?crc=414174054" alt="" width="677" height="125" />

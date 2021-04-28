@@ -9,7 +9,8 @@
     <style>
         #google-map {
             width: 650px;
-            height: 300px;	
+            height: 300px;
+            border: 1px solid gray;	
         }
     </style>
     <title></title>

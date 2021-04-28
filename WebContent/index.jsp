@@ -18,6 +18,7 @@
 	#loginICON {
 		float: right;
 	}
+	
 </style>
 
 </head>
@@ -33,7 +34,7 @@
        <div class="clearfix colelem" id="loginheader">
      	
      	<c:if test="${username != null}">
-			<p class="loginICON">${username}님 환영합니다!<a href="LogoutServlet">로그아웃</a></p>
+			<p class="loginICON">${username}님 환영합니다!&nbsp;&nbsp;<a href="LogoutServlet">로그아웃</a></p>
 		</c:if>
 		<c:if test="${username == null}">
 			<p class="loginICON"><a href="login/LoginForm.jsp">로그인</a></p>
@@ -49,7 +50,7 @@
        <!-- NAVI -->
        <div class="clearfix colelem" id="u1609"><!-- group -->
        
-        <a class="nonblock nontext Button rounded-corners transition clearfix grpelem" id="buttonu3226" href="myinform/myInform">
+        <a class="nonblock nontext Button rounded-corners transition clearfix grpelem" id="buttonu3226" href="myinform/myinformation">
         <img class="grpelem" id="u3227" alt="내 정보" src="images/blank.gif?crc=4208392903"/></a>
         <a class="nonblock nontext Button rounded-corners transition clearfix grpelem" id="buttonu3228" href="animal/animalsList">
         <img class="grpelem" id="u3229" alt="유기동물조회" src="images/blank.gif?crc=4208392903"/></a>

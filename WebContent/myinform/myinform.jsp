@@ -15,11 +15,13 @@
 <meta charset="UTF-8">
 <!-- 화면 최적화 -->
 <meta name="viewport" content="width-device-width">
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 	
 	<!-- CSS -->
 	<link rel="stylesheet" type="text/css" href="../css/site_global.css"/>
 	<link rel="stylesheet" type="text/css" href="../css/master_b-___.css"/>
-	<link rel="stylesheet" type="text/css" href="../css/board.css" id="pagesheet"/>
+	<link rel="stylesheet" type="text/css" href="../css/myinform.css" id="pagesheet"/>
 	
 <title>마이페이지</title>
 
@@ -43,6 +45,10 @@
 	margin-left: 30px;
 	margin-right: 30px;
 }
+
+section {
+	text-align: center;
+}
 </style>
 
 </head>
@@ -50,9 +56,9 @@
         function changeForm(val){
             if(val == "-2"){
                 location.href="../user/userList.jsp";
-            }else if(val=="-1"){
+            }/* else if(val=="-1"){
             	
-            }
+            } */
             else if(val == "0"){ //회원정보 변경
                	var test =confirm("회원정보를 변경하시겠습니까?");
             if(test==true){
@@ -65,9 +71,17 @@
             }else if(val == "1"){ //회원탈퇴
                 var delete_test = confirm("회원 탈퇴하시겠습니까?");
                 if(delete_test==true){
-                	location.href="../login/DeleteForm.jsp";
-                }
-                else if(delete_test==false){
+                	alert("Ajax 왜안돼냐ㅑㅑㅑㅑㅑㅑㅑ");
+                	$.ajax({
+            			url:"../Delete",
+            			data:{"userid":"${userID}"},
+            			type:"POST",
+            			success:function(responseData) {
+            				alert("삭제되었습니다.");
+            				location.href="../index.jsp";
+            			}
+            		});
+                } else if(delete_test==false) {
                 	alert("회원탈퇴를 취소하셨습니다.");
                 }
             }
@@ -133,47 +147,37 @@
 				<div class="box">
 					<div class="sh_header">
 					 
-						<center><h2>멍냥멍냥 프로필</h2>
+					<section><h2>멍냥멍냥 프로필</h2>
 						<hr>
-						 <img class="block" id="u3456_img" src="images/index-animalfriends.png?crc=414174054" alt="" width="200" height="150"/>
+						 <img class="block" id="u3456_img" src="../images/Icon.png" alt="" width="200" height="150"/>
 						<hr>
 						<h2>${username }님의 프로필 입니다.</h2>
 						<hr>
 						<input type="button" value="회원정보 보기" onclick="changeForm(-2)">
-						</center>
+					</section>
 				
 					</div>
 					
 				</div>
 				<div class="box">
-				<center><h2>멍냥멍냥 프로필</h2>
+					<section><h2>멍냥멍냥 프로필</h2>
 						<hr>
-						 <img class="block" id="u3456_img" src="images/index-animalfriends.png?crc=414174054" alt="" width="200" height="150"/>
-						<hr>
-						<h2>${username }님의 프로필 입니다.</h2>
-						<hr>
-						<input type="button" value="회원정보 추가하기" onclick="changeForm(-1)">
-						</center>
-				</div>
-				<div class="box">
-					<center><h2>멍냥멍냥 프로필</h2>
-						<hr>
-						 <img class="block" id="u3456_img" src="images/index-animalfriends.png?crc=414174054" alt="" width="200" height="150"/>
+						 <img class="block" id="u3456_img" src="../images/Icon.png" alt="" width="200" height="150"/>
 						<hr>
 						<h2>${username }님의 프로필 입니다.</h2>
 						<hr>
 						<input type="button" value="회원정보 변경" onclick="changeForm(0)">
-						</center>
+						</section>
 				</div>
 				<div class="box">
-				<center><h2>멍냥멍냥 프로필</h2>
+				<section><h2>멍냥멍냥 프로필</h2>
 						<hr>
-						 <img class="block" id="u3456_img" src="images/index-animalfriends.png?crc=414174054" alt="" width="200" height="150"/>
+						 <img class="block" id="u3456_img" src="../images/Icon.png" alt="" width="200" height="150"/>
 						<hr>
 						<h2>${username }님의 프로필 입니다.</h2>
 						<hr>
 						<input type="button" value="회원정보 삭제" onclick="changeForm(1)">
-						</center>
+						</section>
 				</div>
 				
 				</div>
@@ -204,7 +208,8 @@
 	    <div class="verticalspacer" data-offset-top="1199" data-content-above-spacer="1300" data-content-below-spacer="0"></div>
 	   </div>
 	  </div>
-	
+	 </div>
+	</div>
 	
 ​
 </body>

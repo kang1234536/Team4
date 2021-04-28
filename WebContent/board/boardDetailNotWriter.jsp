@@ -15,6 +15,16 @@
 	<link rel="stylesheet" type="text/css" href="../css/boardDetail.css" id="pagesheet"/>
 
 <style>
+	a:link {
+		text-decoration: none;
+		color : blue;
+	}
+	
+	a:visited {
+		text-decoration: none;
+		color : blue;
+	}
+
 
 table, td {
 	text-align: center; 
@@ -98,16 +108,11 @@ table, td {
 	margin-top: 20px;
 }
 
-#loginICON {
-	font-size: 15px;
-	text-decoration: none;
-	font-family: 'a타이틀고딕3';
-}
 
 .loginICON {
 	font-size: 15px;
 	text-decoration: none;
-	font-family: 'a타이틀고딕3';
+	font-family: 'a타이틀고딕2';
 	float: right;
 }
 
@@ -132,7 +137,7 @@ table, td {
 		<!-- 로그인버튼 -->
 	       <div class="clearfix colelem" id="loginheader">
 	     	<c:if test="${username != null}">
-				<p class="loginICON">${username}님 환영합니다!<a href="../LogoutServlet">로그아웃</a></p>
+				<p class="loginICON">${username}님 환영합니다!&nbsp;&nbsp;<a href="../LogoutServlet">로그아웃</a></p>
 			</c:if>
 			<c:if test="${username == null}">
 				<p class="loginICON"><a href="../login/LoginForm.jsp">로그인</a></p>

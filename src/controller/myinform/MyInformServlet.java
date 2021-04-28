@@ -1,8 +1,6 @@
-package myinform;
+package controller.myinform;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -12,15 +10,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import model.user.UserDAO;
-import model.user.UserVO;
-
 
 
 /**
  * Servlet implementation class MyInformServlet
  */
-@WebServlet("/myinform/myInform")
+@WebServlet("/myinform/myinformation")
 public class MyInformServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

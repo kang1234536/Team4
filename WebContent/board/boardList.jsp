@@ -26,111 +26,105 @@
 
 <style>
 
-a:link {
-	text-decoration: none;
-	color : black;
-}
-
-a:visited {
-	text-decoration: none;
-	color : black;
-}
-
-noticeA:link {
-	color : red;
-}
-
-th {
-	background-color: #F6C95E; 
-	text-align: center;
-	font-size: 18px; font-family: 'a타이틀고딕2';
-	padding: 15px;
-}
-
-td {
-	background-color: transparent; 
-	text-align: center;
-	font-size: 14px; font-family: 'a타이틀고딕1';
-	padding: 10px;
-	border-bottom: 1px dotted gray;
-}
-
-table {
-	text-align: center;
-	width: 800px;
-
-}
-
-.btn1 {
-	float: right;
-}
+	a:link {
+		text-decoration: none;
+		color : blue;
+	}
 	
-.container {
-	margin-top: 50px;
-	margin-bottom: 10px;
-}
-.container2 {
-	width: 350px;
-	background-color: transparent;
-	position: relative;
-	margin-top: 40px;
-	left: 150px;
-	padding: 10px;
-	float: left;
-}
-
-.row {
-	margin: 0 auto;
-	padding-top: 30px;
-}
-
-.btn1 {
-	width: 90px; height: 30px;
-	font-size: 15px; font-family: 'a타이틀고딕2';
-	text-shadow: 0.5px 0.5px 0.5px gray;
-	background-color: #F6C95E;
-	border-radius: 3px;
-}
-
-.a {
-	text-align: center;
-}
-#notice {
-	background-color: lightgray;
-}
-
-#notice td {
-	color: red;
-	font-family: 'a타이틀고딕3';
-}
-
-#catFoot {
-	position: relative;
-	margin-top: 10px;
-}
-
-#boardTITLE {
-	font-size: 40px;
-	font-family: 'a타이틀고딕3';
-	display: inline;
-	position: absolute;
-	margin-left: 20px;
-	margin-top: 35px;
-	text-align: center;
-}
-
-#loginICON {
-	font-size: 15px;
-	text-decoration: none;
-	font-family: 'a타이틀고딕3';
-}
-
-.loginICON {
-	font-size: 15px;
-	text-decoration: none;
-	font-family: 'a타이틀고딕3';
-	float: right;
-}
+	a:visited {
+		text-decoration: none;
+		color : blue;
+	}
+	
+	noticeA:link {
+		color : red;
+	}
+	
+	th {
+		background-color: #F6C95E; 
+		text-align: center;
+		font-size: 18px; font-family: 'a타이틀고딕2';
+		padding: 15px;
+	}
+	
+	td {
+		background-color: transparent; 
+		text-align: center;
+		font-size: 14px; font-family: 'a타이틀고딕1';
+		padding: 10px;
+		border-bottom: 1px dotted gray;
+	}
+	
+	table {
+		text-align: center;
+		width: 800px;
+	
+	}
+	
+	.btn1 {
+		float: right;
+	}
+		
+	.container {
+		margin-top: 50px;
+		margin-bottom: 10px;
+	}
+	.container2 {
+		width: 350px;
+		background-color: transparent;
+		position: relative;
+		margin-top: 40px;
+		left: 150px;
+		padding: 10px;
+		float: left;
+	}
+	
+	.row {
+		margin: 0 auto;
+		padding-top: 30px;
+	}
+	
+	.btn1 {
+		width: 90px; height: 30px;
+		font-size: 15px; font-family: 'a타이틀고딕2';
+		text-shadow: 0.5px 0.5px 0.5px gray;
+		background-color: #F6C95E;
+		border-radius: 3px;
+	}
+	
+	.a {
+		text-align: center;
+	}
+	#notice {
+		background-color: lightgray;
+	}
+	
+	#notice td {
+		color: red;
+		font-family: 'a타이틀고딕3';
+	}
+	
+	#catFoot {
+		position: relative;
+		margin-top: 10px;
+	}
+	
+	#boardTITLE {
+		font-size: 40px;
+		font-family: 'a타이틀고딕3';
+		display: inline;
+		position: absolute;
+		margin-left: 20px;
+		margin-top: 35px;
+		text-align: center;
+	}
+	
+	.loginICON {
+		font-size: 15px;
+		text-decoration: none;
+		font-family: 'a타이틀고딕2';
+		float: right;
+	}
 
 
 </style>
@@ -147,7 +141,7 @@ table {
 	       <!-- 로그인버튼 -->
 	       <div class="clearfix colelem" id="loginheader">
 	     	<c:if test="${username != null}">
-				<p class="loginICON">${username}님 환영합니다!<a href="../LogoutServlet">로그아웃</a></p>
+				<p class="loginICON">${username}님 환영합니다!&nbsp;&nbsp;<a href="../LogoutServlet">로그아웃</a></p>
 			</c:if>
 			<c:if test="${username == null}">
 				<p class="loginICON"><a href="../login/LoginForm.jsp">로그인</a></p>

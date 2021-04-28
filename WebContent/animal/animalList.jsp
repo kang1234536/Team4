@@ -15,8 +15,14 @@
 		font-size: 20px; font-family: 'a타이틀고딕3';
 	}
 	
-	a {
+	a:link {
 		text-decoration: none;
+		color : blue;
+	}
+	
+	a:visited {
+		text-decoration: none;
+		color : blue;
 	}
 	
 	.a_listDIV {
@@ -35,7 +41,7 @@
 	ul {
 		float: right;
 		list-style-type: none;
-		width: 280px; height: 200px;
+		width: 280px; height: 205px;
 		/* border: 1px solid orange; */
 		position: relative;
 		margin-left: 20px;
@@ -55,6 +61,9 @@
 		font-size: 14px; font-family: 'a타이틀고딕1';
 		background-color: lightgray;
 		border-radius: 3px;
+		box-shadow: 2px 2px 5px #eee;
+		border: 1px outset lightgray;
+		margin-top: 30px;
 	}
 	
 	#a_safe {
@@ -71,19 +80,20 @@
 	
 	#searchBar {
 		position : relative;
-		background-color: #F6C95E;
+		background-color: lightgray;
 		border: 1px outset lightyellow;
-		width: 600px; height: 100px;
+		width: 705px; height: 90px;
 		margin: auto;
-		margin-top: 30px;
-		padding: 20px;
+		margin-top: 10px;
+		margin-bottom: 40px;
+		padding: 15px;
 	}
 	
 	#paging {
 		position: relative;
 		float: inherit;
 		/* border: 1px solid red; */
-		top: 16px;
+		top: 30px;
 		left: 450px;
 		
 	}
@@ -132,16 +142,16 @@
 		
 	}
 	
-	#loginICON {
+	/* #loginICON {
 		font-size: 15px;
 		text-decoration: none;
 		font-family: 'a타이틀고딕3';
-	}
+	} */
 	
 	.loginICON {
 		font-size: 15px;
 		text-decoration: none;
-		font-family: 'a타이틀고딕3';
+		font-family: 'a타이틀고딕2';
 		float: right;
 	}
 	
@@ -153,20 +163,28 @@
 		position: relative;
 	}
 	
+	#animalList {
+		border: 1px solid red;
+		min-height: 1000px;
+	}
 </style>
+
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-<script type="text/javascript">
-function call(kind){
-	$.ajax({
-		url:"animalKind",
-		data:{"kind":kind},
-		success: function(responseData){
-			$("#klist").html(responseData);
+
+	<script type="text/javascript">
+		function call(kind){
+			$.ajax({
+				url:"animalKind",
+				data:{"kind":kind},
+				success: function(responseData){
+					$("#klist").html(responseData);
+				}
+			});
 		}
-	});
-}
-</script>
+	</script>
+
 </head>
+
 <body>
 	<div class="clearfix" id="page"><!-- column -->
    <div class="position_content" id="page_position_content">
@@ -175,15 +193,15 @@ function call(kind){
       <div class="clearfix" id="u1442_align_to_page">
        <div class="position_content" id="u1442_position_content">
        
-       <!-- 로그인버튼 -->
-	       <div class="clearfix colelem" id="loginheader">
-	     	<c:if test="${username != null}">
-				<p class="loginICON">${username}님 환영합니다!<a href="../LogoutServlet">로그아웃</a></p>
+		<!-- 로그인버튼 -->
+		<div class="clearfix colelem" id="loginheader">
+			<c:if test="${username != null}">
+				<p class="loginICON">${username}님 환영합니다!&nbsp;&nbsp;<a href="../LogoutServlet">로그아웃</a></p>
 			</c:if>
 			<c:if test="${username == null}">
 				<p class="loginICON"><a href="../login/LoginForm.jsp">로그인</a></p>
 			</c:if>
-	       </div>
+		</div>
 	       
         <div class="clip_frame colelem" id="u1519">
          <img class="block" id="u1519_img" src="../images/index-animalfriends.png?crc=414174054" alt="" width="677" height="125"/>
@@ -261,12 +279,15 @@ function call(kind){
     <div class="verticalspacer" data-offset-top="2129" data-content-above-spacer="2313" data-content-below-spacer="0"></div>
    </div>
   </div>
-  <div class="preload_images">
+  
+  <!-- <div class="preload_images">
    <img class="preload" src="../images/u3264-r.png?crc=333767328" alt=""/>
    <img class="preload" src="../images/u3268-r.png?crc=258751846" alt=""/>
    <img class="preload" src="../images/u3270-r.png?crc=4001421722" alt=""/>
-  </div>
-  <script>
+  </div> -->
+  
+  
+	<script>
 	  function paging(page){
 		  $.ajax({
 			  url:"animalListPage",
@@ -277,6 +298,7 @@ function call(kind){
 		  });
 	  }
 	  paging(1);
-	  </script>
+	</script>
+	
 </body>
 </html>

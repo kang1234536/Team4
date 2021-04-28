@@ -15,6 +15,32 @@ public class UserDAO {
         return instance;
     }
 
+    public int DeleteUser(String user) {
+		Connection conn =DBUtil.getConnection();
+		PreparedStatement st = null;
+		int result = 0;
+		try {
+		StringBuffer sql = new StringBuffer();
+		sql.append("delete from users  where user_id=?");
+		
+		
+			st = conn.prepareStatement(sql.toString());
+			st.setString(1, user);
+			
+			
+		
+			result = st.executeUpdate(); // insert/update/delete는 executeUpdate()를 써야한다.
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			DBUtil.dbClose(null, st, conn);
+		}
+		return result;
+	}
+    
+    
+    
     public boolean checkId(String id) {
     	Connection conn =DBUtil.getConnection();
 		PreparedStatement st = null;
