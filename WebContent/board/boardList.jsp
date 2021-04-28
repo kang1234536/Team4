@@ -169,8 +169,8 @@ table {
 	         <a class="nonblock nontext grpelem" id="u3469-4" href="../index.jsp">
 	         <img id="u3469-4_img" alt="멍냥멍냥" width="212" height="60" src="../images/u3469-4.png?crc=347814851"/></a>
 	         
-	         <div class="nonblock nontext Button ButtonSelected rounded-corners clearfix grpelem" id="buttonu3465">
-	         <img class="grpelem" id="u3466-4" alt="커뮤니티" width="65" height="20" src="../images/u3466-4-a.png?crc=4069860665"/></div>
+	         <a class="nonblock nontext Button ButtonSelected rounded-corners clearfix grpelem" id="buttonu3465" href="../board/boardlist">
+	         <img class="grpelem" id="u3466-4" alt="커뮤니티" width="65" height="20" src="../images/u3466-4-a.png?crc=4069860665"/></a>
 	         
 	         <a class="nonblock nontext Button rounded-corners transition clearfix grpelem" id="buttonu3467" href="">
 	         <img class="grpelem" id="u3468" alt="Q &amp; A" src="../images/blank.gif?crc=4208392903"/></a>

@@ -1,9 +1,5 @@
 package model.user;
 
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
-import util.DBUtil;
-
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
@@ -12,6 +8,12 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+
+import org.json.simple.parser.*;
+
+import org.json.simple.JSONObject;
+
+import util.DBUtil;
 
 public class OauthDAO {
     private static OauthDAO instance;

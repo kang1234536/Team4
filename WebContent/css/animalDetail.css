@@ -322,22 +322,10 @@
 		no-repeat 0px 0px;
 }
 
-#u2013 {
-	z-index: 6;
-	width: 1115px;
-	box-shadow: 0px 20px 20px rgba(127, 127, 127, 0.2);
-	background-color: #FFFFFF;
-	padding-bottom: 28px;
-	left: 182px;
-	top: -1px;
-	margin-bottom: -1px;
-	position: relative;
-}
-
 #u2511-3 {
 	z-index: 7;
 	width: 1052px;
-	min-height: 745px;
+	min-height: 1000px;
 	border-style: solid;
 	border-width: 5px;
 	border-color: #F6C95E;
@@ -551,12 +539,12 @@
 
 #u1966-bw {
 	z-index: 3;
-	min-height: 960.3500000000001px;
+	min-height: 1000px;
 }
 
 #u1965, #u1965-bw {
 	z-index: 2;
-	height: 340px;
+	height: 300px;
 }
 
 #muse_css_mq, .html {

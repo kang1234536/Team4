@@ -1,10 +1,13 @@
 package controller.oauth;
 
-import model.user.OauthDAO;
-import model.user.UserDAO;
-import model.user.UserVO;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.math.BigInteger;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.net.URLEncoder;
+import java.security.SecureRandom;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -13,14 +16,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.net.URLEncoder;
-import java.security.SecureRandom;
-import java.math.BigInteger;
+
+import org.json.simple.parser.*;
+import org.json.simple.JSONObject;
+
+import model.user.OauthDAO;
+import model.user.UserVO;
 
 
 @WebServlet("/NaverCallbackServlet")

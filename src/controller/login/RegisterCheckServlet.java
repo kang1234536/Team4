@@ -14,7 +14,9 @@ import model.user.UserVO;
 @WebServlet("/RegisterCheckServlet")
 public class RegisterCheckServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        UserVO user = new UserVO();
+    	request.setCharacterEncoding("UTF-8");
+    	
+    	UserVO user = new UserVO();
         UserDAO dao = new UserDAO();
 
         user.setUserID(request.getParameter("userID"));
@@ -23,7 +25,7 @@ public class RegisterCheckServlet extends HttpServlet {
 
         dao.insertUser(user);
 
-        response.sendRedirect("/2.Project/login/LoginForm.jsp");
+        response.sendRedirect("../login/LoginForm.jsp");
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

@@ -221,11 +221,11 @@ a.nontext {
 	margin-right: auto;
 }
 
-.colelem {
+/* .colelem {
 	display: inline;
 	float: left;
 	clear: both;
-}
+} */
 
 .clearfix:after {
 	content: "\0020";
@@ -235,9 +235,9 @@ a.nontext {
 	clear: both;
 }
 
-*:first-child+html .clearfix {
+/* *:first-child+html .clearfix {
 	zoom: 1;
-}
+} */
 
 .clip_frame {
 	overflow: hidden;

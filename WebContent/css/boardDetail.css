@@ -22,7 +22,7 @@
 
 #u1966 {
 	z-index: 3;
-	min-height: 960.3500000000001px;
+	min-height: 1300px;
 	padding-bottom: 1px;
 }
 
@@ -324,7 +324,7 @@
 
 #u2013 {
 	z-index: 6;
-	width: 1115px;
+	width: 1115px; min-height: 1100px; 
 	box-shadow: 0px 20px 20px rgba(127, 127, 127, 0.2);
 	background-color: #FFFFFF;
 	padding-bottom: 28px;
@@ -337,7 +337,7 @@
 #u2511-3 {
 	z-index: 7;
 	width: 1052px;
-	min-height: 745px;
+	min-height: 1100px;
 	border-style: solid;
 	border-width: 5px;
 	border-color: #F6C95E;

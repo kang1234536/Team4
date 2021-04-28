@@ -15,6 +15,35 @@ public class UserDAO {
         return instance;
     }
 
+    public boolean checkId(String id) {
+    	Connection conn =DBUtil.getConnection();
+		PreparedStatement st = null;
+		ResultSet rs =null;
+		boolean check =false;
+		try {
+		StringBuffer sql = new StringBuffer();
+		sql.append("select user_id from users  where user_id=?");
+		
+		
+			st = conn.prepareStatement(sql.toString());
+			st.setString(1, id);
+			
+			
+		
+			rs = st.executeQuery();
+			check=rs.next();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			DBUtil.dbClose(null, st, conn);
+		}
+		return check;
+    }
+    
+    
+    
     public int DeleteUser(UserVO user) {
 		Connection conn =DBUtil.getConnection();
 		PreparedStatement st = null;

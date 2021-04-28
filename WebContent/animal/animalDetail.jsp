@@ -6,9 +6,8 @@
 <meta charset="UTF-8">
 <!-- 화면 최적화 -->
 <meta name="viewport" content="width-device-width">
+
 <title>유기동물 상세정보</title>
-
-
 
 	<!-- CSS -->
 	<link rel="stylesheet" type="text/css" href="../css/site_global.css"/>
@@ -21,8 +20,8 @@
   	position: absolute;
   	width: 300px; height: 220px;
   	/* border: 1px solid blue; */
-  	left: 600px;
-  	margin-top: 125px;
+  	left: 590px;
+  	margin-top: 90px;
   }
   
   #wingBnr div.wing_hgroup{
@@ -46,20 +45,21 @@
     border:0; 
     border-top:0px solid #E1E1E1;
     border-bottom: 2px solid #E1E1E1; 
-    margin-bottom: 15px; 
-    padding-left: 10px;
+    margin-bottom: 5px; 
+    padding-left: 20px;
+    
   }
   .viewTable th{
     padding:4px 5px; 
     border:0; 
     border-bottom: 1px solid #cfcfcf;
     background: #f7f7f7; 
-    width:120px; 
-    line-height: 1.7em; 
+    width:120px;  
+    line-height: 1.5em; 
     text-align: center; 
     font-size: 1em; 
     color:#565b48;
-    font-size: 16px; font-family: 'a타이틀고딕2';
+    font-size: 15px; font-family: 'a타이틀고딕2';
   }
   .viewTable td{
     padding:4px 10px; 
@@ -102,7 +102,7 @@
 #map {
 	position: inherit;
 	/* border: 1px solid red; */
-	width: 700px; height: 440px;
+	width: 650px; height: 390px;
 	padding: 5px;
 	margin: 5px auto;
 }
@@ -121,6 +121,19 @@
 	box-shadow: 1px 1px 10px #eee;
 	left: 500px;
 }
+
+#u2013 {
+	z-index: 6;
+	width: 1115px;
+	box-shadow: 0px 20px 20px rgba(127, 127, 127, 0.2);
+	background-color: #FFFFFF;
+	padding-bottom: 28px;
+	left: 182px;
+	position: relative;
+}
+
+
+
 </style>
 </head>
 
@@ -244,7 +257,7 @@
 				    </tbody>
 				  </table>
 				</div>
-				<a href="../animal/animalsList">
+				<a href="animalsList">
 				<button id="listbtn">목 록</button></a>
 				<div id="map">
 				  <span id="careLocation">[ 보호소 위치 ]</span>

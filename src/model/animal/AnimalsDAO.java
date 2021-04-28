@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 
 import model.board.BoardVO;
@@ -13,6 +14,48 @@ import util.DBUtil;
 
 public class AnimalsDAO {
 	
+	public HashSet<String> selectKind() {
+		HashSet<String> kindSet = new HashSet<>();
+		Connection conn = DBUtil.getConnection();
+		Statement st = null;
+		ResultSet rs = null;
+		String sql = "select distinct kind from animals order by 1";
+		try {
+			st = conn.createStatement();
+			rs = st.executeQuery(sql);
+			while(rs.next()) {
+				kindSet.add(rs.getString("kind"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			DBUtil.dbClose(rs, st, conn);
+		}
+		
+		return kindSet;
+	}
+	
+	public HashSet<String> selectCareAddr() {
+		HashSet<String> addrSet = new HashSet<>();
+		Connection conn = DBUtil.getConnection();
+		Statement st = null;
+		ResultSet rs = null;
+		String sql = "select distinct careaddr from animals order by 1";
+		try {
+			st = conn.createStatement();
+			rs = st.executeQuery(sql);
+			while(rs.next()) {
+				addrSet.add(rs.getString("careaddr"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			DBUtil.dbClose(rs, st, conn);
+		}
+		
+		return addrSet;
+	}
+	 
 	public List<AnimalsVO> getList(int start, int end) {
 		List<AnimalsVO> aniList = new ArrayList<AnimalsVO>();
 		Connection conn = util.DBUtil.getConnection();
@@ -55,7 +98,7 @@ public class AnimalsDAO {
 		} finally {
 			DBUtil.dbClose(rs, st, conn);
 		}
-		return count; // ÃÑ ·¹ÄÚµå ¼ö ¸®ÅÏ
+		return count; // ï¿½ï¿½ ï¿½ï¿½ï¿½Úµï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	}
 	
 	public List<AnimalsVO> selectAll(){
@@ -168,6 +211,10 @@ public class AnimalsDAO {
 	   
 	   return ani;
    }
+
+
+
+
    
    
 

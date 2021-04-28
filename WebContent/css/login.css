@@ -577,15 +577,14 @@ body {
 
 #loginfrm {
 		background: transparent;
-		border: 1px solid #F6C95E;
+		border: 4px double #F6C95E;
 		border-radius: 6px;
 		padding: 50px;
 		padding-top: 70px;
+		padding-bottom: 70px;
 		width: 500px;
 		height: 250px;
 		top: 100px;
-		left: 0;
-		right: 0;
 		margin: 0 auto;
 		margin-top: 40px;
 		text-align: center;
@@ -605,17 +604,21 @@ body {
 
 
 #loginfrm input[type=submit] {
-	background-color: rgb(255, 185, 55);
+	background-color: #F6C95E;
 	border-radius: 4px;
-	font-size: 18px; font-family: 'a타이틀고딕2';
+	border: 1px outset #F6C95E;
+	font-size: 15px; font-family: 'a타이틀고딕2';
+	box-shadow: 5px 5px 10px #eee;
 	padding: 3px;
-	width: 120px;
+	width: 185px;
 	height: 36px;
+	margin-bottom: 10px;
 }
 
 #loginfrm input[type=button] {
 	background-color: transparent;
 	font-size: 14px; font-family: 'a타이틀고딕1';
+	box-shadow: 5px 5px 10px #eee;
 	padding: 3px;
 	width: 80px;
 	height: 24px;
@@ -623,15 +626,14 @@ body {
 
 #loginfrm2 {
 		background: transparent;
-		border: 1px solid #F6C95E;
+		border: 4px double #F6C95E;
 		border-radius: 6px;
 		padding: 50px;
 		padding-top: 70px;
+		padding-bottom: 70px;
 		width: 500px;
 		height: 250px;
 		top: 100px;
-		left: 0;
-		right: 0;
 		margin: 0 auto;
 		margin-top: 40px;
 		text-align: center;
@@ -651,10 +653,17 @@ body {
 
 
 #loginfrm2 input[type=submit] {
-	background-color: rgb(255, 185, 55);
+	background-color: #F6C95E;
 	border-radius: 4px;
-	font-size: 18px; font-family: 'a타이틀고딕2';
+	border: 1px outset #F6C95E;
+	font-size: 15px; font-family: 'a타이틀고딕2';
+	box-shadow: 5px 5px 10px #eee;
 	padding: 3px;
-	width: 120px;
+	width: 185px;
 	height: 36px;
+}
+
+#naverlogin {
+	width: 185px;
+	box-shadow: 5px 5px 10px #eee;
 }

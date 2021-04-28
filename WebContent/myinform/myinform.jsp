@@ -47,12 +47,13 @@
 
 </head>
 <script type="text/javascript">
-    
         function changeForm(val){
-            if(val == "-1"){
-                location.href="../index.jsp";
-                
-            } else if(val == "0"){ //회원정보 변경
+            if(val == "-2"){
+                location.href="../user/userList.jsp";
+            }else if(val=="-1"){
+            	
+            }
+            else if(val == "0"){ //회원정보 변경
                	var test =confirm("회원정보를 변경하시겠습니까?");
             if(test==true){
             	location.href="../login/UpdateForm.jsp";
@@ -69,11 +70,8 @@
                 else if(delete_test==false){
                 	alert("회원탈퇴를 취소하셨습니다.");
                 }
-            
-            
-            } 
+            }
         }
-        
     </script>
 
 
@@ -130,126 +128,70 @@
 		<!-- CONTENTS -->
 		<div id="content" class="section_home" >
 			<div class="column" >
-
 				<!-- 프로필 설정 -->
 				<div id="boxALL">
 				<div class="box">
 					<div class="sh_header">
-						<center><h2>멍냥멍냥 프로필</h2></center>
-						
-						
+					 
+						<center><h2>멍냥멍냥 프로필</h2>
+						<hr>
+						 <img class="block" id="u3456_img" src="images/index-animalfriends.png?crc=414174054" alt="" width="200" height="150"/>
+						<hr>
+						<h2>${username }님의 프로필 입니다.</h2>
+						<hr>
+						<input type="button" value="회원정보 보기" onclick="changeForm(-2)">
+						</center>
+				
 					</div>
+					
 				</div>
-				<div class="box"></div>
-				<div class="box"></div>
-				<div class="box"></div>
+				<div class="box">
+				<center><h2>멍냥멍냥 프로필</h2>
+						<hr>
+						 <img class="block" id="u3456_img" src="images/index-animalfriends.png?crc=414174054" alt="" width="200" height="150"/>
+						<hr>
+						<h2>${username }님의 프로필 입니다.</h2>
+						<hr>
+						<input type="button" value="회원정보 추가하기" onclick="changeForm(-1)">
+						</center>
+				</div>
+				<div class="box">
+					<center><h2>멍냥멍냥 프로필</h2>
+						<hr>
+						 <img class="block" id="u3456_img" src="images/index-animalfriends.png?crc=414174054" alt="" width="200" height="150"/>
+						<hr>
+						<h2>${username }님의 프로필 입니다.</h2>
+						<hr>
+						<input type="button" value="회원정보 변경" onclick="changeForm(0)">
+						</center>
+				</div>
+				<div class="box">
+				<center><h2>멍냥멍냥 프로필</h2>
+						<hr>
+						 <img class="block" id="u3456_img" src="images/index-animalfriends.png?crc=414174054" alt="" width="200" height="150"/>
+						<hr>
+						<h2>${username }님의 프로필 입니다.</h2>
+						<hr>
+						<input type="button" value="회원정보 삭제" onclick="changeForm(1)">
+						</center>
+				</div>
+				
 				</div>
 				
 				<br>
-				<div class="sh_group">
+				
+				
+			
 					
-					<div class="sh_content">
-						<dl class="sh_lst">
-						<center>
-					
-						<dt class="nic_tit">별명</dt>
-						<dd class="nic_desc">kha0202kha</dd></center>
-						</dl>
-					</div>
 				
-				</div>
-
-				
-
-				
-			<div class="column">
-					<!-- 일반아이디 연락처 -->
-					<div class="sh_group ">
-						
-						<div class="sh_content">
-							<dl class="sh_lst2">
-							<center><dt>연락처 이메일</dt>
-							<dd>kh******@n*******.com</dd>
-							<dt>본인확인 이메일</dt>
-							<dd>등록된 이메일 없음</dd>
-							<dt>휴대전화</dt>
-							<dd>+82 10-2***-6***</dd></center>
-							</dl>
-							<dl class="sh_lst2 nudge" id="divNudge">
-								<dt></dt>
-								<dd>
-									<div class="nudge_tooltip">
-										<span class="banner_area">
-										<span class="nudge_edge"></span>
-										<span class="text">연락처가 맞는지 <em class="yellow_point">확인하세요.</em></span>
-										<a href="javascript:closeNudge();" role="button" aria-label="닫기" class="nudge_close"></a>
-									</span>
-									</div>
-								</dd>
-							</dl>
-						</div>
-						<p class="btn_area_btm"><a href="/user2/help/changeUserInfo?menu=nid&lang=ko_KR" onclick="clickcr(this,'imn.cntmodify','','',event);" class="btn_model"><b class="btn2">수정</b></a></p>
-					</div>
-				<!-- 지역 설정 -->
-				<div class="sh_group">
-					<div class="sh_header">
-						<h2>지역 설정</h2>
-						<a href="javascript:toggle('region');" onclick="clickcr(this,'imn.reghelp','','',event);" class="link_help"><i id="i_region" class="spico ico_arr3_dn">도움말</i></a>
-						<p id="p_region" class="contxt" style="display:none">
-						     	  네이버 서비스에서 <em>공통으로 사용되는 지역 정보</em>입니다.
-						     <br>
-							설정되어 있는 모든 지역을 보거나 수정하시려면 설정하기를 클릭하세요.</p>
-					</div>
-					<div class="sh_content">
-							<p class="contxt">
-						     	  설정된 지역이 없습니다.<br>지금 내 주변의 관심지역을 설정하세요!
-						     </p>
-					</div>
-					<p class="btn_area_btm"><a href="/user2/help/region?menu=nid&lang=ko_KR" onclick="clickcr(this,'imn.regmodify','','',event);" class="btn_model"><b class="btn2">설정하기</b></a></p>
-				</div>
-			</div>
-
-				<p class="desc_sub">소중한 개인정보 이용내역이 궁금하다면 <a href="/user2/help/privacyInfo" class="more" target="_blank" onclick="clickcr(this,'imn.privacychk','','',event);">개인정보 이용내역 보기</a></p>
-			<p class="desc_sub">네이버를 더 이상 이용하지 않는다면 <a href="/user2/help/leaveId?menu=nid&lang=ko_KR" onclick="clickcr(this,'imn.memberout','','',event);" class="more">회원탈퇴 바로가기</a></p>
-		
 		</div>
-        
-        
-       <%--  <table>
-            <tr>
-                <td id="title">아이디</td>
-                <td>${userID} </td>
-            </tr>
-                        
-           <tr>
-                <td id="title">이름</td>
-                <td>${username}</td>
-            </tr>
-                    
-              <tr>
-                <td id="title">개인/보호소</td>
-                <td>${userdiv }</td>
-            </tr>
-                   
-            <tr>
-                <td id="title">개인/보호소</td>
-                <td><%=users.getUserDiv()%></td>
-            </tr> 
-                    
-        </table> --%>
-        
+       
         <br>
-      <input type="button" value="뒤로" onclick="changeForm(-1)">
-        <input type="button" value="회원정보 변경" onclick="changeForm(0)">
-        <input type="button" value="회원탈퇴" onclick="changeForm(1)">
-
-
-
 				<!-- 게시판 메인 페이지 영역 끝 -->
-	         
+	       
 	         </div>
-	         
-	         
+	       
+	       
 	        </div>
 	       </div>
 	      </div>

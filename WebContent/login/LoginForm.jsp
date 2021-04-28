@@ -135,11 +135,12 @@
                                                    required><br><br>
                                             <input type="password" name="userPW" maxlength="50" placeholder="비밀번호"
                                                    required><br><br><br>
-                                            <input type="submit" value="로그인"><br><br>
-                                            <form name="naverLogin" action="../NaverCallbackServlet" method="post">
-                                                <button type="submit"><img width="30%" src="../images/naver_button.PNG"></button>
-                                            </form>
-                                            <p>아직 계정이 없으신가요? <a href="RegisterForm.jsp">회원가입</a></p><br>
+                                            <input type="submit" value="로그인"><br>
+                                             <p>아직 계정이 없으신가요?&nbsp;&nbsp;<a href="RegisterForm.jsp">회원가입</a></p>
+                                        </form>
+                                        <form name="naverLogin" action="../NaverCallbackServlet" method="post">
+                                                <button id="naverlogin" type="submit"><img width="100%" src="../images/naver_button.PNG"></button><br><br><br>
+                                               
                                         </form>
 
                                     </div>

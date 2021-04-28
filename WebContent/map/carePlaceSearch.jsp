@@ -7,34 +7,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <style>
-        html,
-        body,
         #google-map {
-            width: 700px;
-            height: 400px;
-            margin: 0;
-            padding: 0;
-        }
-        #search-panel {
-            position: absolute;
-            top: 10px;
-            left: 25%;
-            z-index: 5;
-            background-color: #FFFFFF;
-            padding: 5px;
-            border: 1px solid black;
-            text-align: center;
-            padding: left 10px;
+            width: 650px;
+            height: 300px;	
         }
     </style>
     <title></title>
 </head>
 <body>
-	
-    <!--<div id="search-panel">
-          <input id="address" type="text" value="서울특별시 중랑구 신내동 서울유기동물입양센터" />
-        <button id="submit" type="button" value="Geocode">지도 검색</button>   
-    </div>  -->
+    
     <div id="google-map">
     </div>
  
