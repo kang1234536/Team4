@@ -12,6 +12,28 @@ import util.DBUtil;
 
 public class BoardDAO {
 	
+	public String getUserID(String boardid) {
+		String userID=null;
+		Connection conn = util.DBUtil.getConnection();
+		PreparedStatement st = null;
+		ResultSet rs = null;
+		String sql = "select user_id from board where board_id=?";
+		
+		try {
+			st = conn.prepareStatement(sql);
+			st.setString(1, boardid);
+			rs = st.executeQuery();
+			while(rs.next()) {
+				userID = rs.getString(1);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			DBUtil.dbClose(rs, st, conn);
+		}
+		return userID;
+	}
+	
 	public List<BoardVO> getList(int start, int end) {
 		List<BoardVO> boardlist = new ArrayList<BoardVO>();
 		Connection conn = util.DBUtil.getConnection();
@@ -54,7 +76,7 @@ public class BoardDAO {
 		} finally {
 			DBUtil.dbClose(rs, st, conn);
 		}
-		return count; // ÃÑ ·¹ÄÚµå ¼ö ¸®ÅÏ
+		return count; // ï¿½ï¿½ ï¿½ï¿½ï¿½Úµï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	}
 	
 	public int deleteBoard(String boardID) {

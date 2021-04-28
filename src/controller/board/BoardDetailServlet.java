@@ -21,7 +21,7 @@ public class BoardDetailServlet extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String boardid = request.getParameter("board_ID");
-		if(boardid == null) throw new ServletException("board_id ¾øÀ½");
+		if(boardid == null) throw new ServletException("board_id ï¿½ï¿½ï¿½ï¿½");
 		
 		BoardDAO dao = new BoardDAO();
 		BoardVO board = dao.selectDetail(boardid);
@@ -30,6 +30,7 @@ public class BoardDetailServlet extends HttpServlet {
 		
 		String cookieValue = null;
 		cookieValue = cookieFromRequest[0].getValue();
+		System.out.println(cookieValue);
 		HttpSession session = request.getSession();
 		if(session.getAttribute(boardid+":cookie")==null) {
 			session.setAttribute(boardid+":cookie", boardid+":"+cookieValue);
@@ -45,8 +46,19 @@ public class BoardDetailServlet extends HttpServlet {
 			
 		
 		request.setAttribute("board_detail", board);
-		RequestDispatcher rd = request.getRequestDispatcher("boardDetail.jsp");
-		rd.forward(request, response);
+		
+		String userID = (String) session.getAttribute("userID");
+		//System.out.println(userID);
+		String boardWriter = dao.getUserID(boardid);
+		//System.out.println(boardWriter);
+		if(userID.equals(boardWriter)) {
+			RequestDispatcher rd = request.getRequestDispatcher("boardDetail.jsp");
+			rd.forward(request, response);
+		}
+		else {
+			RequestDispatcher rd = request.getRequestDispatcher("boardDetailNotWriter.jsp");
+			rd.forward(request, response);
+		}
 	}
 
 }

@@ -179,28 +179,11 @@ table, td {
 					<input type="submit" class="btn1" value="목록">
 					</form>
 					
-					<div>
-					<!-- 삭제 -->
-					<button class="btn1" onclick="del()">삭제</button>
-					<!-- 수정 -->
-					<button class="btn1" onclick="location='boardUpdate?board_ID=${param.board_ID}'">수정</button>
-					</div>
 				
 			</div>
 		</div>
 	</div>
 	
-	
-	<script>
-	function del(){
-		if(confirm('삭제하시겠습니까?')){
-			location.href='boardDelete?board_ID=${param.board_ID}';
-		}
-	}
-	</script>
-          
-          
-           
           </div>
           
          </div>
