@@ -22,31 +22,31 @@ public class LoginCheckServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // ·Î±×ÀÎ È­¸é¿¡ ÀÔ·ÂµÈ ¾ÆÀÌµğ¿Í ºñ¹Ğ¹øÈ£¸¦ °¡Á®¿Â´Ù
+        // ï¿½Î±ï¿½ï¿½ï¿½ È­ï¿½é¿¡ ï¿½Ô·Âµï¿½ ï¿½ï¿½ï¿½Ìµï¿½ï¿½ ï¿½ï¿½Ğ¹ï¿½È£ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Â´ï¿½
         UserDAO dao = UserDAO.getInstance();
         String userID = request.getParameter("userID");
         String userPW = request.getParameter("userPW");
 
         UserVO user = dao.selectByUserId(userID);
 
-        // DB¿¡¼­ ¾ÆÀÌµğ, ºñ¹Ğ¹øÈ£ È®ÀÎ
+        // DBï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½, ï¿½ï¿½Ğ¹ï¿½È£ È®ï¿½ï¿½
         int check = dao.loginCheck(userID, userPW);
 
         RequestDispatcher rd = null;
 
-        if (check == 1)    // ·Î±×ÀÎ ¼º°ø
+        if (check == 1)    // ï¿½Î±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         {
             HttpSession session = request.getSession();
-            System.out.println(session.getId() + " ¼¼¼Ç ¿¬°á");
+            System.out.println(session.getId() + " ì—°ê²°ë¨");
             session.setAttribute("userID", userID);
             session.setAttribute("username", user.getUserName());
             response.sendRedirect("../index.jsp");
-        } else if (check == -1) // ¾ÆÀÌµğ°¡ Æ²¸²
+        } else if (check == -1) // ï¿½ï¿½ï¿½Ìµï¿½ Æ²ï¿½ï¿½
         {
             request.setAttribute("check", check);
             rd = request.getRequestDispatcher("LoginForm.jsp");
             rd.forward(request, response);
-        } else if (check == 0){ // ºñ¹Ğ¹øÈ£°¡ Æ²¸²
+        } else if (check == 0){ // ï¿½ï¿½Ğ¹ï¿½È£ï¿½ï¿½ Æ²ï¿½ï¿½
             request.setAttribute("check", check);
             rd = request.getRequestDispatcher("LoginForm.jsp");
             rd.forward(request, response);

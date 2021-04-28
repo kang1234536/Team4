@@ -136,16 +136,9 @@
                                             <input type="password" name="userPW" maxlength="50" placeholder="비밀번호"
                                                    required><br><br><br>
                                             <input type="submit" value="로그인"><br><br>
-                                            <div id="naver_id_login"></div>
-                                            <script type="text/javascript">
-                                                var naver_id_login = new naver_id_login("S6NizWUvfrEyNSDHC2IS", "http://3.34.139.44/Team4_war/oauth/naverCallback.jsp");
-                                                var state = naver_id_login.getUniqState();
-                                                naver_id_login.setButton("white", 3,40);
-                                                naver_id_login.setDomain("http://3.34.139.44/Team4_war/login/LoginForm.jsp");
-                                                naver_id_login.setState(state);
-                                                naver_id_login.setPopup();
-                                                naver_id_login.init_naver_id_login();
-                                            </script><br>
+                                            <form name="naverLogin" action="../NaverCallbackServlet" method="post">
+                                                <button type="submit"><img width="30%" src="../images/naver_button.PNG"></button>
+                                            </form>
                                             <p>아직 계정이 없으신가요? <a href="RegisterForm.jsp">회원가입</a></p><br>
                                         </form>
 

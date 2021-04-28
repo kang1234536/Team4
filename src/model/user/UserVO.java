@@ -6,6 +6,15 @@ public class UserVO {
     private String userName;
     private int userDiv;
 
+    public UserVO() {
+    }
+
+    public UserVO(String userID, String userPW, String userName) {
+        this.userID = userID;
+        this.userPW = userPW;
+        this.userName = userName;
+    }
+
     public String getUserID() {
         return userID;
     }
