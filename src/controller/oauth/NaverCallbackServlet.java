@@ -28,7 +28,7 @@ import model.user.UserVO;
 public class NaverCallbackServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String clientId = "S6NizWUvfrEyNSDHC2IS";//애플리케이션 클라이언트 아이디값";
-        String redirectURI = URLEncoder.encode("http://127.0.0.1:9090/NaverCallbackServlet", "UTF-8");
+        String redirectURI = URLEncoder.encode("http://bowmeow.ga/Team4_war/NaverCallbackServlet", "UTF-8");
         SecureRandom random = new SecureRandom();
         String state = new BigInteger(130, random).toString();
         String apiURL = "https://nid.naver.com/oauth2.0/authorize?response_type=code";
@@ -47,7 +47,7 @@ public class NaverCallbackServlet extends HttpServlet {
         String clientSecret = "34F7pTX_AP";
         String code = request.getParameter("code");
         String state = request.getParameter("state");
-        String redirectURI = URLEncoder.encode("http://bowmeow.ga/","UTF-8");
+        String redirectURI = URLEncoder.encode("http://bowmeow.ga/Team4_war/NaverCallbackServlet","UTF-8");
 
         StringBuffer apiURL = new StringBuffer();
         apiURL.append("https://nid.naver.com/oauth2.0/token?grant_type=authorization_code&");
