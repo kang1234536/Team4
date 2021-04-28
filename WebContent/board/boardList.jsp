@@ -25,15 +25,24 @@
 	<link rel="stylesheet" type="text/css" href="../css/board.css?crc=346539564" id="pagesheet"/>
 
 <style>
-
-	a:link {
+	#loginoutbtn:link {
 		text-decoration: none;
 		color : blue;
 	}
 	
-	a:visited {
+	#loginoutbtn:visited {
 		text-decoration: none;
 		color : blue;
+	}
+	
+	a:link {
+		text-decoration: none;
+		color : black;
+	}
+	
+	a:visited {
+		text-decoration: none;
+		color : black;
 	}
 	
 	noticeA:link {
@@ -141,10 +150,10 @@
 	       <!-- 로그인버튼 -->
 	       <div class="clearfix colelem" id="loginheader">
 	     	<c:if test="${username != null}">
-				<p class="loginICON">${username}님 환영합니다!&nbsp;&nbsp;<a href="../LogoutServlet">로그아웃</a></p>
+				<p class="loginICON">${username}님 환영합니다!&nbsp;&nbsp;<a id="loginoutbtn" href="../LogoutServlet">로그아웃</a></p>
 			</c:if>
 			<c:if test="${username == null}">
-				<p class="loginICON"><a href="../login/LoginForm.jsp">로그인</a></p>
+				<p class="loginICON"><a id="loginoutbtn" href="../login/LoginForm.jsp">로그인</a></p>
 			</c:if>
 	       </div>
 	       

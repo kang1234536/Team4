@@ -30,8 +30,8 @@
 #boxALL {
 	padding: 10px;
 	position: relative;
-	/* border: 1px solid red; */
-	width: 700px; height: 600px;
+	border: 1px solid red;
+	width: 1000px; height: 400px;
 	margin: 0 auto;
 }
 
@@ -71,7 +71,7 @@ section {
             }else if(val == "1"){ //회원탈퇴
                 var delete_test = confirm("회원 탈퇴하시겠습니까?");
                 if(delete_test==true){
-                	alert("Ajax 왜안돼냐ㅑㅑㅑㅑㅑㅑㅑ");
+                	alert("Ajax 좀 돼라!!!!!!!!!!!!!");
                 	$.ajax({
             			url:"../Delete",
             			data:{"userid":"${userID}"},

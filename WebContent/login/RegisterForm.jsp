@@ -6,6 +6,11 @@
 
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 
+	<%
+		response.setCharacterEncoding("UTF-8");
+	%>
+
+
 	<!-- CSS -->
 	<link rel="stylesheet" type="text/css" href="../css/site_global.css"/>
  	<link rel="stylesheet" type="text/css" href="../css/master_b-___.css"/>
