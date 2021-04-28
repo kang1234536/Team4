@@ -136,18 +136,17 @@
                                             <input type="password" name="userPW" maxlength="50" placeholder="비밀번호"
                                                    required><br><br><br>
                                             <input type="submit" value="로그인"><br><br>
-                                            <p>아직 계정이 없으신가요? <a href="RegisterForm.jsp">회원가입</a></p><br>
-
                                             <div id="naver_id_login"></div>
                                             <script type="text/javascript">
                                                 var naver_id_login = new naver_id_login("S6NizWUvfrEyNSDHC2IS", "http://3.34.139.44/Team4_war/oauth/naverCallback.jsp");
                                                 var state = naver_id_login.getUniqState();
-                                                naver_id_login.setButton("white", 2,40);
+                                                naver_id_login.setButton("white", 3,40);
                                                 naver_id_login.setDomain("http://3.34.139.44/Team4_war/login/LoginForm.jsp");
                                                 naver_id_login.setState(state);
                                                 naver_id_login.setPopup();
                                                 naver_id_login.init_naver_id_login();
-                                            </script>
+                                            </script><br>
+                                            <p>아직 계정이 없으신가요? <a href="RegisterForm.jsp">회원가입</a></p><br>
                                         </form>
 
                                     </div>
@@ -183,14 +182,14 @@
 
 
 <div class="preload_images">
-    <img class="preload" src="images/u2061-r.png?crc=4100690000" alt=""/>
-    <img class="preload" src="images/u2063-r.png?crc=196503113" alt=""/>
-    <img class="preload" src="images/u2065-r.png?crc=79327677" alt=""/>
-    <img class="preload" src="images/u2067-r.png?crc=258751846" alt=""/>
-    <img class="preload" src="images/u2882-r.png?crc=290301145" alt=""/>
-    <img class="preload" src="images/u2882-a.png?crc=205142701" alt=""/>
-    <img class="preload" src="images/u2878-r.png?crc=416687771" alt=""/>
-    <img class="preload" src="images/u2878-a.png?crc=3785110063" alt=""/>
+    <img class="preload" src="../images/u2061-r.png?crc=4100690000" alt=""/>
+    <img class="preload" src="../images/u2063-r.png?crc=196503113" alt=""/>
+    <img class="preload" src="../images/u2065-r.png?crc=79327677" alt=""/>
+    <img class="preload" src="../images/u2067-r.png?crc=258751846" alt=""/>
+    <img class="preload" src="../images/u2882-r.png?crc=290301145" alt=""/>
+    <img class="preload" src="../images/u2882-a.png?crc=205142701" alt=""/>
+    <img class="preload" src="../images/u2878-r.png?crc=416687771" alt=""/>
+    <img class="preload" src="../images/u2878-a.png?crc=3785110063" alt=""/>
 </div>
 
 

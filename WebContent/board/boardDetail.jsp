@@ -84,7 +84,17 @@ table, td {
 	text-align: center;
 }
 
-
+.btn1 {
+	width: 90px;
+	height: 30px;
+	font-size: 15px;
+	font-family: 'a타이틀고딕2';
+	text-shadow: 0.5px 0.5px 0.5px gray;
+	background-color: #F6C95E;
+	border-radius: 3px;
+	float: right;
+	border: 1px solid white;
+}
 </style>
 </head>
 <body>
@@ -169,10 +179,10 @@ table, td {
 					</form>
 					
 					<div>
-					<!-- 수정 -->
-					<button onclick="location='boardUpdate?board_ID=${param.board_ID}'">수정</button>
 					<!-- 삭제 -->
-					<button onclick="del()">삭제</button>
+					<button class="btn1" onclick="del()">삭제</button>
+					<!-- 수정 -->
+					<button class="btn1" onclick="location='boardUpdate?board_ID=${param.board_ID}'">수정</button>
 					</div>
 				
 			</div>
