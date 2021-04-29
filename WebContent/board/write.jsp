@@ -20,12 +20,12 @@
 <style>
 a:link {
 	text-decoration: none;
-	color: black;
+	color: blue;
 }
 
 a:visited {
 	text-decoration: none;
-	color: black;
+	color: blue;
 }
 
 noticeA:link {
@@ -108,7 +108,7 @@ table {
 
 #boardTITLE {
 	font-size: 40px;
-	font-family: 'a타이틀고딕3';
+	font-family: 'a타이틀고딕2';
 	display: inline;
 	position: absolute;
 	margin-left: 20px;
@@ -119,13 +119,13 @@ table {
 #loginICON {
 	font-size: 15px;
 	text-decoration: none;
-	font-family: 'a타이틀고딕3';
+	font-family: 'a타이틀고딕2';
 }
 
 .loginICON {
 	font-size: 15px;
 	text-decoration: none;
-	font-family: 'a타이틀고딕3';
+	font-family: 'a타이틀고딕2';
 	float: right;
 }
 </style>
@@ -142,12 +142,11 @@ table {
 
 			<!-- 로그인버튼 -->
 			<div class="clearfix colelem" id="loginheader">
-				<c:if test="${username != null}">
-					<p class="loginICON">${username}님
-						환영합니다!<a href="../LogoutServlet">로그아웃</a>
+				<c:if test="${userName != null}">
+					<p class="loginICON">${userName}님 환영합니다!&nbsp;&nbsp;<a href="../LogoutServlet">로그아웃</a>
 					</p>
 				</c:if>
-				<c:if test="${username == null}">
+				<c:if test="${userName == null}">
 					<p class="loginICON">
 						<a href="../login/LoginForm.jsp">로그인</a>
 					</p>

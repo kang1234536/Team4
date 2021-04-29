@@ -26,95 +26,144 @@
 <title>마이페이지</title>
 
 <style>
+	/* The Modal (background) */
+	.modal {
+		display: none; /* Hidden by default */
+		position: fixed; /* Stay in place */
+		z-index: 1; /* Sit on top */
+		left: 0;
+		top: 0;
+		width: 100%; /* Full width */
+		height: 100%; /* Full height */
+		overflow: auto; /* Enable scroll if needed */
+		background-color: rgb(0,0,0); /* Fallback color */
+		background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+	}
 
-        /* The Modal (background) */
-        .modal {
-            display: none; /* Hidden by default */
-            position: fixed; /* Stay in place */
-            z-index: 1; /* Sit on top */
-            left: 0;
-            top: 0;
-            width: 100%; /* Full width */
-            height: 100%; /* Full height */
-            overflow: auto; /* Enable scroll if needed */
-            background-color: rgb(0,0,0); /* Fallback color */
-            background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-        }
-          /* The Modal (background) */
-        .modal2 {
-            display: none; /* Hidden by default */
-            position: fixed; /* Stay in place */
-            z-index: 1; /* Sit on top */
-            left: 0;
-            top: 0;
-            width: 100%; /* Full width */
-            height: 100%; /* Full height */
-            overflow: auto; /* Enable scroll if needed */
-            background-color: rgb(0,0,0); /* Fallback color */
-            background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-        }
-        /* Modal Content/Box */
-        .modal-content {
-            background-color: #fefefe;
-            margin: 15% auto; /* 15% from the top and centered */
-            padding: 20px;
-            border: 1px solid #888;
-            width: 30%; /* Could be more or less, depending on screen size */                          
-        }
+	/* The Modal (background) */
+	.modal2 {
+		display: none; /* Hidden by default */
+		position: fixed; /* Stay in place */
+		z-index: 1; /* Sit on top */
+		left: 0;
+		top: 0;
+		width: 100%; /* Full width */
+		height: 100%; /* Full height */
+		overflow: auto; /* Enable scroll if needed */
+		background-color: rgb(0,0,0); /* Fallback color */
+		background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+	}
+	
+	/* Modal Content/Box */
+	.modal-content {
+		background-color: #fefefe;
+		margin: 15% auto; /* 15% from the top and centered */
+		padding: 20px;
+		border: 1px solid #888;
+		width: 30%; /* Could be more or less, depending on screen size */                          
+	}
  
 
 
 
 
-#boxALL {
-	padding: 10px;
-	position: relative;
-	border: 1px solid red;
-	width: 1000px; height: 400px;
-	margin: 0 auto;
-}
+	#boxALL {
+		display: flex;
+		padding: 10px;
+		position: relative;
+		/* border: 1px solid red; */
+		width: 900px; height: 300px;
+		margin: 0 auto;
+	}
+	
+	.box {
+		width: 250px; height: 255px;
+		position: relative;
+		float: left;
+		border: 1px solid lightgray;
+		background-color: #fff;
+		box-shadow: 0 0 5px gray;
+		margin-top: 5px;
+		margin-left: 15px;
+		margin-right: 15px;
+		flex: 1;
+	}
+	
+	.box input[type=button] {
+		font-size: 12px; font-family: 'a타이틀고딕1';
+		background-color: lightgray;
+		border: 1px outset lightgray;
+		padding: 3px;
+		float: right;
+		margin-right: 20px;
+	}
+	
+	section {
+		text-align: center;
+	}
+	
+	section img {
+		margin: 0 auto;
+	}
 
-.box {
-	width: 250px; height: 250px;
-	position: relative;
-	float: left;
-	border: 1px solid lightgray;
-	background-color: transparent;
-	margin-top: 30px;
-	margin-left: 30px;
-	margin-right: 30px;
-}
+	.container2 {
+		width: 350px; height: 55px;
+		background-color: transparent;
+		/* border: 2px solid purple; */
+		position: relative;
+		left: 70px;
+		padding: 10px;
+		margin-top: 15px;
+	}
+	
+	#catFoot {
+		position: relative;
+		margin-top: 8px;
+	}
+	
+	#boardTITLE {
+		font-size: 35px;
+		font-family: 'a타이틀고딕3';
+		display: inline;
+		position: absolute;
+		margin-left: 20px;
+		margin-top: 30px;
+		text-align: center;
+	}	
+	
+	hr {
+		width: 90%;
+		border: 1px dashed gray;
+		border-top: none;
+	}
 
-section {
-	text-align: center;
-}
+	#copyright {
+		margin-top: 30px;
+		position: relative;
+		/* border: 1px solid red; */
+	}
+
+	h2:first-of-type{
+		font-family: 'a타이틀고딕1';
+		padding-top: 10px;
+	}
 </style>
 
-</head>
+
+
 <script type="text/javascript">
 
-/* $(function() {
-    $('#myModal').show();
-}); */
-//팝업 Close 기능
-function close_pop(flag) {
- $('#myModal').hide();
- $('#myModal2').hide();
-
-};
-function update(){
-	alert("수정완료되었습니다.");
-};
-
-
-
-
-
-
-
-
-
-        function changeForm(val){
+	function close_pop(flag) {
+	 $('#myModal').hide();
+	 $('#myModal2').hide();
+	
+	};
+	
+	function update(){
+		alert("수정완료되었습니다.");
+	};
+	
+	function changeForm(val){
             if(val == "-2"){
                /*  location.href="../user/userList.jsp"; */
             	$('#myModal').show();
@@ -149,10 +198,10 @@ function update(){
                 }
             }
         }
-    </script>
+</script>
 
 
-
+</head>
 
 
 <body>
@@ -185,79 +234,59 @@ function update(){
 	        </div>
 	        
 	        
-	        <div class="shadow clearfix colelem" id="u3821"><!-- group -->
-	         
-	         
-	         
-	         <!-- 여기를 flex박스로만들어보자 -->
+	        <div class="shadow clearfix colelem" id="u3821">
 	         <div class="rounded-corners clearfix grpelem" id="u3822-3">
-	         <!-- content -->
-	    
-			
-			<!-- 게시판 메인 페이지 영역 시작 -->
-	
-
-
-
+	         
+	        <!-- 게시판 메인 페이지 영역 시작 -->
 			<br><br>
       <div id="container">
-		<!-- CONTENTS -->
-		<!-- CONTENTS -->
 		<div id="content" class="section_home" >
 			<div class="column" >
+				
+			<div class="container2">
+				<img id="catFoot" src="../images/catUL.png" width="32" height="56"/>
+				<h2 id="boardTITLE">마이 페이지</h2>
+			</div>
+			<br><hr><br>
+				
 				<!-- 프로필 설정 -->
 				<div id="boxALL">
 				<div class="box">
-					<div class="sh_header">
-					 
-					<section><h2>멍냥멍냥 프로필</h2>
+					<section>
+						<h2>${userName }님의 프로필 입니다.</h2>
 						<hr>
-						 <img class="block" id="u3456_img" src="../images/Icon.png" alt="" width="200" height="150"/>
-						<hr>
-						<h2>${username }님의 프로필 입니다.</h2>
+						 <img class="block" id="u3456_img" src="../images/Icon.png" alt="" width="200" height="165"/>
 						<hr>
 						<input type="button" value="회원정보 보기" onclick="changeForm(-2)">
 					</section>
-				
-					</div>
-					
 				</div>
 				<div class="box">
-					<section><h2>멍냥멍냥 프로필</h2>
+					<section>
+						<h2>회원정보 수정하기</h2>
 						<hr>
-						 <img class="block" id="u3456_img" src="../images/Icon.png" alt="" width="200" height="150"/>
+						 <img class="block" id="u3456_img" src="../images/Icon.png" alt="" width="200" height="165"/>
 						<hr>
-						<h2>${username }님의 프로필 입니다.</h2>
-						<hr>
-						<input type="button" value="회원정보 변경" onclick="changeForm(0)">
-						</section>
+						<input type="button" value="수정" onclick="changeForm(0)">
+				</section>
 				</div>
 				<div class="box">
-				<section><h2>멍냥멍냥 프로필</h2>
-						<hr>
-						 <img class="block" id="u3456_img" src="../images/Icon.png" alt="" width="200" height="150"/>
-						<hr>
-						<h2>${username }님의 프로필 입니다.</h2>
-						<hr>
-						<input type="button" value="회원정보 삭제" onclick="changeForm(1)">
-						</section>
-				</div>
-				
-				</div>
-				
-				<br>
-				
-				
-			
-					
-				
+				<section>
+					<h2>회원탈퇴</h2>
+					<hr>
+					 <img class="block" id="u3456_img" src="../images/Icon.png" alt="" width="200" height="165"/>
+					<hr>
+					<input type="button" value="탈퇴" onclick="changeForm(1)">
+				</section>
+		  		</div>
+		 </div>
 		</div>
-       
-        <br>
-				<!-- 게시판 메인 페이지 영역 끝 -->
-	       
-	         </div>
-	       
+	   </div>
+	<div id="copyright" align="center">
+		<img src="../images/bowmeowLOGO.png" width="7%" />
+		<p>Copyright © <b>BOWMEOW Corp.</b> All Rights Reserved.</p>
+	</div>
+		<!-- 게시판 메인 페이지 영역 끝 -->
+		
 	        <!-- The Modal -->
 	        <!-- 회원정보 보기  -->
     <div id="myModal" class="modal">
@@ -275,13 +304,13 @@ function update(){
                      확인
                 </span>
               
-            </div>
+        </div>
       </div>
- 
     </div>
-        <!--End Modal-->
-<!-- The Modal -->
-	        <!-- 회원정보 수정  -->
+	<!--End Modal-->
+        
+	<!-- The Modal -->
+	<!-- 회원정보 수정  -->
     <div id="myModal2" class="modal2">
  
       <!-- Modal content -->
@@ -297,40 +326,17 @@ function update(){
 				
 			</form>
 			
-		   </div>
-         <!--   <div class="TabbedPanelsContent invi grpelem" id="u2862">
-			<form id="loginfrm2" action="LoginCheckServlet" method="post" onsubmit="return checkValue()">
-				<input type="text" name="userID" maxlength="50" placeholder="아이디"><br><br>
-				<input type="password" name="userPW" maxlength="50" placeholder="비밀번호"><br><br>
-				<input type="text" name="aa"><br><br><br>
-				<input type="submit" value="수정"><br><br><br>
-			</form>
-		   </div> -->
-          </div>
+		  </div>
+        </div>
       </div>
- 
     </div>
-        <!--End Modal-->
+	<!--End Modal-->   
 
 
-	    <%--          <p style="text-align: center;"><span style="font-size: 14pt;"><b><span style="font-size: 24pt;">회원정보</span></b></span></p>
-                <p style="text-align: center; line-height: 1.5;"><br />아이디:${userID }</p>
-                <p style="text-align: center; line-height: 1.5;"><br />이름:${userName }</p>
-                <p style="text-align: center; line-height: 1.5;"><br />개인/보호소:${userDiv }</p>
-                <p style="text-align: center; line-height: 1.5;"><br />ㅎㅎㅎ</p>
-                <p><br /></p>
-            <div style="cursor:pointer;background-color:#DDDDDD;text-align: center;padding-bottom: 10px;padding-top: 10px;" onClick="close_pop();">
-                <span class="pop_bt" style="font-size: 13pt;" >
-                     확인
-                </span>
-              
-            </div> --%>
-	       
-	       
-	       
-	       
 	        </div>
 	       </div>
+	       
+	       
 	      </div>
 	     </div>
 	    </div>

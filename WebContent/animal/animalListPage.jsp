@@ -13,7 +13,8 @@
 	<div class="a_listDIV">
 		<c:forEach var="animal" items="${aniList }" varStatus="status">
 			<c:if test="${status.count%2 eq 1}">
-				<li class="animals"><img src="${animal.popfile}" width="180" height="180">
+				<li class="animals"><img src="${animal.popfile}" width="150" height="150">
+					<!-- <div align="left" style="border: 1px solid red; width:279px; height: 204px;"> -->
 					<ul>
 						<li><span>유기번호 : </span>${animal.animalID}</li>
 						<li><span>발견장소 : </span>${animal.happenPlace}</li>
@@ -21,6 +22,7 @@
 						<li><span>상태 : </span>${animal.state}</li><br>
 						<li><button	class="상세보기버튼" onclick="location.href='AnimalDetailServlet?animalId=${animal.animalID}'">상세보기</button></li>
 					</ul>
+					<!-- </div> -->
 				</li>
 			</c:if>
 		</c:forEach>
@@ -29,7 +31,7 @@
 	<div class="a_listDIV">
 		<c:forEach var="animal" items="${aniList }" varStatus="status">
 			<c:if test="${status.count%2 eq 0}">
-				<li class="animals"><img src="${animal.popfile}" width="180" height="180">
+				<li class="animals"><img src="${animal.popfile}" width="150" height="150">
 					<ul>
 						<li><span>유기번호 : </span>${animal.animalID}</li>
 						<li><span>발견장소 : </span>${animal.happenPlace}</li>

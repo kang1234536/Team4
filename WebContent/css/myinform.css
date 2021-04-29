@@ -6,7 +6,7 @@
 #page {
 	z-index: 1;
 	width: 1280px;
-	min-height: 1300.957621841228px;
+	min-height: 1000px;
 	background-image: none;
 	border-width: 0px;
 	border-color: #000000;
@@ -284,6 +284,7 @@
 		no-repeat 0px 0px;
 }
 
+/* CONTENT 영역 흰색배경 */
 #u3821 {
 	z-index: 28;
 	width: 1115px;
@@ -296,10 +297,11 @@
 	position: relative;
 }
 
+/* CONTENT 영역 */
 #u3822-3 {
 	z-index: 29;
 	width: 1052px;
-	min-height: 745px;
+	min-height: 590px;
 	border-style: solid;
 	border-width: 5px;
 	border-color: #F6C95E;

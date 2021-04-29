@@ -141,7 +141,7 @@
                                         <form name="naverLogin" action="../NaverCallbackServlet" method="post">
                                                 <button id="naverlogin" type="submit"><img width="100%" src="../images/naver_button.PNG"></button><br>
                                         </form>
-                                        <button type="submit" class="btn btn-primary">로그인</button>
+                                        
                                         <a href="https://kauth.kakao.com/oauth/authorize?client_id=cbcb98ebb8713ea77adcfaf9b1992493&redirect_uri=http://127.0.0.1:9090/KakaoCallbackServlet&response_type=code">
                                             <img height="38px" src="../images/kakao_button.png" /></a>
 
