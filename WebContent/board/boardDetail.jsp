@@ -184,10 +184,10 @@
 		
 		 <!-- 로그인버튼 -->
 	       <div class="clearfix colelem" id="loginheader">
-	     	<c:if test="${username != null}">
-				<p class="loginICON">${username}님 환영합니다!&nbsp;&nbsp;<a href="../LogoutServlet">로그아웃</a></p>
+	     	<c:if test="${userName != null}">
+				<p class="loginICON">${userName}님 환영합니다!&nbsp;&nbsp;<a href="../LogoutServlet">로그아웃</a></p>
 			</c:if>
-			<c:if test="${username == null}">
+			<c:if test="${userName == null}">
 				<p class="loginICON"><a href="../login/LoginForm.jsp">로그인</a></p>
 			</c:if>
 	       </div>
