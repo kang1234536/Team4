@@ -152,6 +152,8 @@
                                                 <br><br><br>
                                                 <p>아직 계정이 없으신가요?&nbsp;&nbsp;<a href="../RegisterCheckServlet">회원가입</a>
                                                 </p>
+                                                <p>ID를 잊어버리셨나요?&nbsp;&nbsp;<a href="">ID찾기</a>
+                                                </p>
                                             </div>
                                         </div>
 
