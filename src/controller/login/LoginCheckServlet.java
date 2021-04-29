@@ -39,16 +39,20 @@ public class LoginCheckServlet extends HttpServlet {
             HttpSession session = request.getSession();
             System.out.println(session.getId() + " 연결됨");
             session.setAttribute("userID", userID);
-            session.setAttribute("username", user.getUserName());
-            response.sendRedirect("../index.jsp");
+            session.setAttribute("userName", user.getUserName());
+            session.setAttribute("userPW", user.getUserPW());
+            session.setAttribute("userDiv", user.getUserDiv());
+            response.sendRedirect("../index");
         } else if (check == -1) // ���̵� Ʋ��
         {
             request.setAttribute("check", check);
             rd = request.getRequestDispatcher("LoginForm.jsp");
+			/* rd = request.getRequestDispatcher("LoginCheckServlet"); */
             rd.forward(request, response);
         } else if (check == 0){ // ��й�ȣ�� Ʋ��
             request.setAttribute("check", check);
             rd = request.getRequestDispatcher("LoginForm.jsp");
+			/* rd = request.getRequestDispatcher("LoginCheckServlet"); */
             rd.forward(request, response);
         }
 

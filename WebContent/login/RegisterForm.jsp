@@ -1,239 +1,275 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
-         pageEncoding="EUC-KR" %>
+	pageEncoding="UTF-8"%>
 <html>
 <head>
-<title>È¸¿ø°¡ÀÔ È­¸é</title>
+<title>íšŒì›ê°€ì… í™”ë©´</title>
 
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 
-	<%
-		response.setCharacterEncoding("UTF-8");
-	%>
+<%
+response.setCharacterEncoding("UTF-8");
+%>
 
 
-	<!-- CSS -->
-	<link rel="stylesheet" type="text/css" href="../css/site_global.css"/>
- 	<link rel="stylesheet" type="text/css" href="../css/master_b-___.css"/>
-  	<link rel="stylesheet" type="text/css" href="../css/userinsert.css" id="pagesheet"/>
+<!-- CSS -->
+<link rel="stylesheet" type="text/css" href="css/site_global.css" />
+<link rel="stylesheet" type="text/css" href="css/master_b-___.css" />
+<link rel="stylesheet" type="text/css" href="css/userinsert.css"
+	id="pagesheet" />
 
 <script>
-		function dCheck(){
-			$.ajax({
-				url:"idCheck",
-				data:{"userid":$("#userid").val()},
-				success:function(responseData){
-					if(responseData=="true"){
-						alert("Áßº¹");
-						$("#userid").val("");
-						$("#userid").focus();
-					}else{
-						alert("°¡´É");
-					}
+	function dCheck() {
+
+		$.ajax({
+			url : "login/idCheck",
+			data : {
+				"userid" : $("#userid").val()
+			},
+			success : function(responseData) {
+				if (responseData == "true") {
+					alert("ì•„ì´ë””ê°€ ì¤‘ë³µ ë©ë‹ˆë‹¤.");
+
+					$("#userid").val("");
+					$("#userid").focus();
 				}
-			});
-				
+
+				else {
+					if (!$("#userid").val()) {
+						alert("ì•„ì´ë””ë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”");
+					}else{alert("ì•„ì´ë”” ì‚¬ìš©ê°€ëŠ¥í•©ë‹ˆë‹¤.");}
+					
+				}
+			}
+		});
+
+	}
+
+	// í•„ìˆ˜ ì…ë ¥ì •ë³´ì¸ ì•„ì´ë””, ë¹„ë°€ë²ˆí˜¸ê°€ ì…ë ¥ë˜ì—ˆëŠ”ì§€ í™•ì¸í•˜ëŠ” í•¨ìˆ˜
+	function checkValue() {
+		if (!document.userInfo.userID.value) {
+			alert("ì•„ì´ë””ë¥¼ ì…ë ¥í•˜ì„¸ìš”.");
+			return false;
+		} else if (!document.userInfo.userPW.value) {
+			alert("ë¹„ë°€ë²ˆí˜¸ë¥¼ ì…ë ¥í•˜ì„¸ìš”.");
+			return false;
+		} else if (!document.userInfo.passwordcheck.value) {
+			alert("ë¹„ë°€ë²ˆí˜¸ë¥¼ ì…ë ¥í•˜ì„¸ìš”.");
+			return false;
 		}
+		// ë¹„ë°€ë²ˆí˜¸ì™€ ë¹„ë°€ë²ˆí˜¸ í™•ì¸ì— ì…ë ¥ëœ ê°’ì´ ë™ì¼í•œì§€ í™•ì¸
+		else if (document.userInfo.userPW.value !== document.userInfo.passwordcheck.value) {
+			alert("ë¹„ë°€ë²ˆí˜¸ë¥¼ ë™ì¼í•˜ê²Œ ì…ë ¥í•˜ì„¸ìš”.");
+			return false;
+		} else if (!document.userInfo.userName.value) {
+			alert("ì´ë¦„ì„ ì…ë ¥í•˜ì„¸ìš”.");
+			return false;
+		} else {
+			alert("íšŒì›ê°€ì…ì— ì„±ê³µí•˜ì˜€ìŠµë‹ˆë‹¤.");
+			return true;
+		}
+	}
 
-
-        // ÇÊ¼ö ÀÔ·ÂÁ¤º¸ÀÎ ¾ÆÀÌµğ, ºñ¹Ğ¹øÈ£°¡ ÀÔ·ÂµÇ¾ú´ÂÁö È®ÀÎÇÏ´Â ÇÔ¼ö
-        function checkValue() {
-            if (!document.userInfo.userID.value) {
-                alert("¾ÆÀÌµğ¸¦ ÀÔ·ÂÇÏ¼¼¿ä.");
-                return false;
-            }
-            else   if (!document.userInfo.userPW.value) {
-                alert("ºñ¹Ğ¹øÈ£¸¦ ÀÔ·ÂÇÏ¼¼¿ä.");
-                return false;
-            }
-            else   if (!document.userInfo.passwordcheck.value) {
-                alert("ºñ¹Ğ¹øÈ£¸¦ ÀÔ·ÂÇÏ¼¼¿ä.");
-                return false;
-            }
-            // ºñ¹Ğ¹øÈ£¿Í ºñ¹Ğ¹øÈ£ È®ÀÎ¿¡ ÀÔ·ÂµÈ °ªÀÌ µ¿ÀÏÇÑÁö È®ÀÎ
-            else if (document.userInfo.userPW.value !== document.userInfo.passwordcheck.value) {
-                alert("ºñ¹Ğ¹øÈ£¸¦ µ¿ÀÏÇÏ°Ô ÀÔ·ÂÇÏ¼¼¿ä.");
-                return false;
-            }
-            else   if (!document.userInfo.userName.value) {
-                alert("ÀÌ¸§À» ÀÔ·ÂÇÏ¼¼¿ä.");
-                return false;
-            }
-            else{
-            	alert("È¸¿ø°¡ÀÔ¿¡ ¼º°øÇÏ¿´½À´Ï´Ù.");
-            	return true;
-            }
-        }
-
-        // Ãë¼Ò ¹öÆ° Å¬¸¯½Ã ·Î±×ÀÎ È­¸éÀ¸·Î ÀÌµ¿
-        function goLoginForm() {
-            location.href = "../LoginForm.jsp";
-        }
-    </script>
+	// ì·¨ì†Œ ë²„íŠ¼ í´ë¦­ì‹œ ë¡œê·¸ì¸ í™”ë©´ìœ¼ë¡œ ì´ë™
+	function goLoginForm() {
+		location.href = "LoginForm.jsp";
+	}
+</script>
 
 <style>
-	#u2183 {
-		z-index: 46;
-		width: 36px;
-		background-color: transparent;
-		position: relative;
-		margin-right: -10000px;
-		margin-top: 130px;
-		left: 214px;
-	}
-	
-	#u2234-4 {
-		z-index: 48;
-		display: block;
-		font-size: 33px; font-family:'aÅ¸ÀÌÆ²°íµñ2';
-		position: relative;
-		margin-right: -10000px;
-		margin-top: 148px;
-		left: 264px;
-	}
-	
+#u2183 {
+	z-index: 46;
+	width: 36px;
+	background-color: transparent;
+	position: relative;
+	margin-right: -10000px;
+	margin-top: 130px;
+	left: 214px;
+}
 
+#u2234-4 {
+	z-index: 48;
+	display: block;
+	font-size: 33px;
+	font-family: 'aíƒ€ì´í‹€ê³ ë”•2';
+	position: relative;
+	margin-right: -10000px;
+	margin-top: 148px;
+	left: 264px;
+}
 </style>
 
 
 </head>
 <body>
 
-<div class="clearfix" id="page">
+	<div class="clearfix" id="page">
 		<!-- column -->
 		<div class="position_content" id="page_position_content">
-		<div class="browser_width colelem" id="u1966-bw">
-		<div id="u1966">
-		<!-- column -->
-		<div class="clearfix" id="u1966_align_to_page">
-		<div class="position_content" id="u1966_position_content">
-				
-				
-		<!-- µ¿¹°Ä£±¸µéÀÌ¹ÌÁö -->
-		<div class="clip_frame colelem" id="u2010">
-		<!-- image -->
-		<img class="block" id="u2010_img" src="../images/index-animalfriends.png?crc=414174054" alt="" width="677" height="125" />
-		</div>
-		<!-- ¿©±â±îÁö°¡ Header -->
-				
-			<!-- ¿©±â¼­ºÎÅÍ Navigator -->
-			<div class="clearfix colelem" id="u2954">
-				<!-- group -->
-				
-				<!-- ³ªÀÇÁ¤º¸¹öÆ° -->
-				<a class="nonblock nontext Button rounded-corners transition clearfix grpelem" id="buttonu2060" href="../myinform/myInform">
-                <img class="grpelem" id="u2061" alt="³ªÀÇÁ¤º¸" src="../images/blank.gif?crc=4208392903"/></a>
-				
-				<!-- À¯±âµ¿¹°Á¶È¸¹öÆ° -->
-				<a class="nonblock nontext Button rounded-corners transition clearfix grpelem" id="buttonu2062" href="../animal/animalsList">
-				<img class="grpelem" id="u2063" alt="À¯±âµ¿¹°Á¶È¸" src="../images/blank.gif?crc=4208392903"/></a>
-				 <!-- ¸Û³É¸Û³É·Î°í -->
-				<a class="nonblock nontext grpelem" id="u2059-4" href="../index.jsp">
-				<img id="u2059-4_img" alt="¸Û³É¸Û³É" width="212" height="60" src="../images/u2059-4.png?crc=347814851"/></a>
-				
-				<!-- °øÁö»çÇ×¹öÆ° -->
-				<a class="nonblock nontext Button rounded-corners transition clearfix grpelem" id="buttonu2064" href="../board/boardlist">
-                <img class="grpelem" id="u2065" alt="Ä¿¹Â´ÏÆ¼" src="../images/blank.gif?crc=4208392903"/></a>
-				
-				<!-- Ä¿¹Â´ÏÆ¼¹öÆ° -->
-				<a class="nonblock nontext Button rounded-corners transition clearfix grpelem" id="buttonu2066" href="../qna.html">
-                <img class="grpelem" id="u2067" alt="Q &amp; A" src="../images/blank.gif?crc=4208392903"/></a>
+			<div class="browser_width colelem" id="u1966-bw">
+				<div id="u1966">
+					<!-- column -->
+					<div class="clearfix" id="u1966_align_to_page">
+						<div class="position_content" id="u1966_position_content">
+
+
+							<!-- ë™ë¬¼ì¹œêµ¬ë“¤ì´ë¯¸ì§€ -->
+							<div class="clip_frame colelem" id="u2010">
+								<!-- image -->
+								<img class="block" id="u2010_img"
+									src="images/index-animalfriends.png?crc=414174054" alt=""
+									width="677" height="125" />
+							</div>
+							<!-- ì—¬ê¸°ê¹Œì§€ê°€ Header -->
+
+							<!-- ì—¬ê¸°ì„œë¶€í„° Navigator -->
+							<div class="clearfix colelem" id="u2954">
+								<!-- group -->
+
+								<!-- ë‚˜ì˜ì •ë³´ë²„íŠ¼ -->
+								<a
+									class="nonblock nontext Button rounded-corners transition clearfix grpelem"
+									id="buttonu2060" href="myinform/myinformation"> <img
+									class="grpelem" id="u2061" alt="ë‚˜ì˜ì •ë³´"
+									src="images/blank.gif?crc=4208392903" /></a>
+
+								<!-- ìœ ê¸°ë™ë¬¼ì¡°íšŒë²„íŠ¼ -->
+								<a
+									class="nonblock nontext Button rounded-corners transition clearfix grpelem"
+									id="buttonu2062" href="animal/animalsList"> <img
+									class="grpelem" id="u2063" alt="ìœ ê¸°ë™ë¬¼ì¡°íšŒ"
+									src="images/blank.gif?crc=4208392903" /></a>
+								<!-- ë©ëƒ¥ë©ëƒ¥ë¡œê³  -->
+								<a class="nonblock nontext grpelem" id="u2059-4"
+									href="index.jsp"> <img id="u2059-4_img" alt="ë©ëƒ¥ë©ëƒ¥"
+									width="212" height="60" src="images/u2059-4.png?crc=347814851" /></a>
+
+								<!-- ê³µì§€ì‚¬í•­ë²„íŠ¼ -->
+								<a
+									class="nonblock nontext Button rounded-corners transition clearfix grpelem"
+									id="buttonu2064" href="board/boardlist"> <img
+									class="grpelem" id="u2065" alt="ì»¤ë®¤ë‹ˆí‹°"
+									src="images/blank.gif?crc=4208392903" /></a>
+
+								<!-- ì»¤ë®¤ë‹ˆí‹°ë²„íŠ¼ -->
+								<a
+									class="nonblock nontext Button rounded-corners transition clearfix grpelem"
+									id="buttonu2066" href="qna.html"> <img class="grpelem"
+									id="u2067" alt="Q &amp; A"
+									src="images/blank.gif?crc=4208392903" /></a>
+							</div>
+							<!-- ì—¬ê¸°ê¹Œì§€ê°€ Nav -->
+
+							<!-- ì—¬ê¸°ì„œë¶€í„° Content -->
+							<div class="shadow clearfix colelem" id="u2013">
+								<!-- group -->
+								<div class="rounded-corners clearfix grpelem" id="u2511-3">
+									<!-- inner í…Œë‘ë¦¬ -->
+								</div>
+
+								<!-- íšŒì›ìœ í˜•ì„ íƒ -->
+								<div class="clip_frame grpelem" id="u2183">
+									<img class="block" id="u2183_img"
+										src="images/dogul.png?crc=4094454044" alt="" width="29"
+										height="51" />
+								</div>
+								<h1 class="grpelem" id="u2234-4">íšŒì› ê°€ì…</h1>
+
+								<div id="tab-panelu2860" class="clearfix grpelem">
+									<!-- íšŒì›ê°€ì… FORM -->
+									<div class="TabbedPanelsContentGroup clearfix colelem"
+										id="u2861">
+										<!-- stack box -->
+										<div class="TabbedPanelsContent grpelem" id="u2866">
+
+											<form method="post" action="RegisterCheckServlet" id="regfrm"
+												name="userInfo" onsubmit="return checkValue()">
+												<div>
+													<label id="reginfo">ì•„ì´ë”” : </label> <input id="userid"
+														type="text" name="userID" maxlength="50">
+													<div id="btn1BUTTON">
+														<input id="btn1" type="button" value="ì¤‘ë³µí™•ì¸"
+															onclick="dCheck();">
+													</div>
+													<br>
+													<br> <label id="reginfo">ë¹„ë°€ë²ˆí˜¸ : </label> <input
+														type="password" name="userPW" maxlength="50"><br>
+													<br> <label id="reginfo">ë¹„ë°€ë²ˆí˜¸ í™•ì¸ : </label> <input
+														type="password" name="passwordcheck" maxlength="50"><br>
+													<br> <label id="reginfo">ì´ë¦„ : </label> <input
+														type="text" name="userName" maxlength="50"> <br>
+													<br>
+													<br>
+													<br> <input type="submit" value="ê°€ì…" /> <input
+														id="btn2" type="button" value="ì·¨ì†Œ" onclick="goLoginForm()">
+												</div>
+											</form>
+
+
+										</div>
+									</div>
+								</div>
+
+
+
+							</div>
+							<!-- ì—¬ê¸°ê¹Œì§€ê°€ Content -->
+
+						</div>
+					</div>
+				</div>
 			</div>
-			<!-- ¿©±â±îÁö°¡ Nav -->
 
-		<!-- ¿©±â¼­ºÎÅÍ Content -->
-        <div class="shadow clearfix colelem" id="u2013"><!-- group -->
-         <div class="rounded-corners clearfix grpelem" id="u2511-3"><!-- inner Å×µÎ¸® --></div>
-        
-        <!-- È¸¿øÀ¯Çü¼±ÅÃ -->
-         <div class="clip_frame grpelem" id="u2183">
-          <img class="block" id="u2183_img" src="../images/dogul.png?crc=4094454044" alt="" width="29" height="51"/>
-         </div>
-         <h1 class="grpelem" id="u2234-4">È¸¿ø °¡ÀÔ</h1>
-        
-         <div id="tab-panelu2860" class="clearfix grpelem">
-          <!-- È¸¿ø°¡ÀÔ FORM -->
-          <div class="TabbedPanelsContentGroup clearfix colelem" id="u2861"><!-- stack box -->
-           <div class="TabbedPanelsContent grpelem" id="u2866">
-			
-			<form method="post" action="../RegisterCheckServlet" id="regfrm" name="userInfo" onsubmit="return checkValue()">
-				<div>
-				<label id="reginfo">¾ÆÀÌµğ : </label>
-				<input id="userid" type="text" name="userID" maxlength="50"> <div id="btn1BUTTON"><input id="btn1" type="button" value="Áßº¹È®ÀÎ" onclick="dCheck();"></div><br><br>
-		        <label id="reginfo">ºñ¹Ğ¹øÈ£ : </label>
-		        <input type="password" name="userPW" maxlength="50"><br><br>
-		        <label id="reginfo">ºñ¹Ğ¹øÈ£ È®ÀÎ : </label>
-		        <input type="password" name="passwordcheck" maxlength="50"><br><br>
-		        <label id="reginfo">ÀÌ¸§ : </label>
-		        <input type="text" name="userName" maxlength="50">
-		        <br><br><br><br>
-		        <input type="submit" value="°¡ÀÔ"/>
-		        <input id="btn2" type="button" value="Ãë¼Ò" onclick="goLoginForm()">
-		        </div>
-			</form>
-			
-			
-		   </div>
-          </div>
-         </div>
-         
-         
-         
-        </div>
-        <!-- ¿©±â±îÁö°¡ Content -->
-        
-       </div>
-      </div>
-     </div>
-    </div>
-    
-    <!-- footer(È¸»öµŞ¹è°æ) -->
-    <div class="browser_width colelem" id="u1965-bw">
-     <div id="u1965"><!-- simple frame --></div>
-    </div>
-    <div class="verticalspacer" data-offset-top="1235" data-content-above-spacer="1300" data-content-below-spacer="0"></div>
-    
-   </div>
-  </div>
+			<!-- footer(íšŒìƒ‰ë’·ë°°ê²½) -->
+			<div class="browser_width colelem" id="u1965-bw">
+				<div id="u1965">
+					<!-- simple frame -->
+				</div>
+			</div>
+			<div class="verticalspacer" data-offset-top="1235"
+				data-content-above-spacer="1300" data-content-below-spacer="0"></div>
+
+		</div>
+	</div>
 
 
 
 
-<!-- div ¿ŞÂÊ, ¿À¸¥ÂÊ ¹Ù±ù¿©¹éÀ» auto·Î ÁÖ¸é Áß¾ÓÁ¤·ÄµÈ´Ù.  -->
-<!-- <div id="wrap">
+	<!-- div ì™¼ìª½, ì˜¤ë¥¸ìª½ ë°”ê¹¥ì—¬ë°±ì„ autoë¡œ ì£¼ë©´ ì¤‘ì•™ì •ë ¬ëœë‹¤.  -->
+	<!-- <div id="wrap">
     <br>
-    <h2>È¸¿ø°¡ÀÔ</h2>
+    <h2>íšŒì›ê°€ì…</h2>
     <br>
 
 
-    ÀÔ·ÂÇÑ °ªÀ» Àü¼ÛÇÏ±â À§ÇØ form ÅÂ±×¸¦ »ç¿ëÇÑ´Ù
-    °ª(ÆÄ¶ó¹ÌÅÍ) Àü¼ÛÀº POST ¹æ½Ä, Àü¼ÛÇÒ ÆäÀÌÁö´Â RegisterCheck.jsp
+    ì…ë ¥í•œ ê°’ì„ ì „ì†¡í•˜ê¸° ìœ„í•´ form íƒœê·¸ë¥¼ ì‚¬ìš©í•œë‹¤
+    ê°’(íŒŒë¼ë¯¸í„°) ì „ì†¡ì€ POST ë°©ì‹, ì „ì†¡í•  í˜ì´ì§€ëŠ” RegisterCheck.jsp
     <form method="post" action="../RegisterCheckServlet" name="userInfo"
           onsubmit="return checkValue()">
         <table>
             <tr>
-                <td>¾ÆÀÌµğ</td>
+                <td>ì•„ì´ë””</td>
                 <td>
                     <input type="text" name="userID" maxlength="50">
-                    <input type="button" value="Áßº¹È®ÀÎ">
+                    <input type="button" value="ì¤‘ë³µí™•ì¸">
                 </td>
             </tr>
 
             <tr>
-                <td>ºñ¹Ğ¹øÈ£</td>
+                <td>ë¹„ë°€ë²ˆí˜¸</td>
                 <td>
                     <input type="password" name="userPW" maxlength="50">
                 </td>
             </tr>
 
             <tr>
-                <td>ºñ¹Ğ¹øÈ£ È®ÀÎ</td>
+                <td>ë¹„ë°€ë²ˆí˜¸ í™•ì¸</td>
                 <td>
                     <input type="password" name="passwordcheck" maxlength="50">
                 </td>
             </tr>
 
             <tr>
-                <td>ÀÌ¸§</td>
+                <td>ì´ë¦„</td>
                 <td>
                     <input type="text" name="userName" maxlength="50">
                 </td>
@@ -241,8 +277,8 @@
 
         </table>
         <br>
-        <input type="submit" value="°¡ÀÔ"/>
-        <input type="button" value="Ãë¼Ò" onclick="goLoginForm()">
+        <input type="submit" value="ê°€ì…"/>
+        <input type="button" value="ì·¨ì†Œ" onclick="goLoginForm()">
     </form>
 </div> -->
 

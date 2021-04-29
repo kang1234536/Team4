@@ -10,43 +10,35 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-
-
 /**
  * Servlet implementation class MyInformServlet
  */
 @WebServlet("/myinform/myinformation")
 public class MyInformServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
 
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 
-
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	
 		HttpSession session = request.getSession(true);
-		Object obj = session.getAttribute("userID");	
-		Object obj2 = session.getAttribute("userPW");	
-		Object obj3 = session.getAttribute("userName");	
-		if(obj==null) {
-			response.sendRedirect("../login/LoginForm.jsp");
+		Object obj = session.getAttribute("userID");
+		Object obj2 = session.getAttribute("userPW");
+		Object obj3 = session.getAttribute("userName");
+		Object obj4 = session.getAttribute("userDiv");
+		
+		RequestDispatcher rd = null;
+		if (obj == null) {
+
+			response.sendRedirect("../login/LoginCheckServlet");
+
+			return;
+		} else {
+			request.setAttribute("userName", obj3);
+			rd = request.getRequestDispatcher("myinform.jsp");
+			rd.forward(request, response);
 			return;
 		}
-	
-		 request.setAttribute("userName", obj3);
-		 RequestDispatcher rd =request.getRequestDispatcher("myinform.jsp");
-		 rd.forward(request,response);
-		
-		
-	
-	
-	}
-	
 
-	
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
 	}
 
 }

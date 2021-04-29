@@ -27,6 +27,45 @@
 
 <style>
 
+        /* The Modal (background) */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgb(0,0,0); /* Fallback color */
+            background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+        }
+          /* The Modal (background) */
+        .modal2 {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgb(0,0,0); /* Fallback color */
+            background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+        }
+        /* Modal Content/Box */
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto; /* 15% from the top and centered */
+            padding: 20px;
+            border: 1px solid #888;
+            width: 30%; /* Could be more or less, depending on screen size */                          
+        }
+ 
+
+
+
+
 #boxALL {
 	padding: 10px;
 	position: relative;
@@ -53,16 +92,40 @@ section {
 
 </head>
 <script type="text/javascript">
+
+/* $(function() {
+    $('#myModal').show();
+}); */
+//팝업 Close 기능
+function close_pop(flag) {
+ $('#myModal').hide();
+ $('#myModal2').hide();
+
+};
+function update(){
+	alert("수정완료되었습니다.");
+};
+
+
+
+
+
+
+
+
+
         function changeForm(val){
             if(val == "-2"){
-                location.href="../user/userList.jsp";
-            }/* else if(val=="-1"){
+               /*  location.href="../user/userList.jsp"; */
+            	$('#myModal').show();
+               
+            }
             	
-            } */
-            else if(val == "0"){ //회원정보 변경
+             else if(val == "0"){ //회원정보 변경
                	var test =confirm("회원정보를 변경하시겠습니까?");
             if(test==true){
-            	location.href="../login/UpdateForm.jsp";
+            	/*  location.href="../login/UpdateForm.jsp";  */
+            	 $('#myModal2').show();
             }
             else if(test==false){
             	alert("회원정보 변경을 취소하셨습니다.");
@@ -105,7 +168,7 @@ section {
 	        
 	        <!-- NAV -->
 	        <div class="clearfix colelem" id="u3513"><!-- group -->
-	         <div class="nonblock nontext Button rounded-corners transition clearfix grpelem" id="buttonu3461">
+	         <div class="nonblock nontext Button rounded-corners transition clearfix grpelem" id="buttonu3461" href="../myinform/myinformation">
 	         <img class="grpelem" id="u3462" alt="내 정보" src="../images/blank.gif?crc=4208392903"/></div>
 	         
 	         <a class="nonblock nontext Button rounded-corners transition clearfix grpelem" id="buttonu3463" href="../animal/animalsList">
@@ -194,6 +257,76 @@ section {
 				<!-- 게시판 메인 페이지 영역 끝 -->
 	       
 	         </div>
+	       
+	        <!-- The Modal -->
+	        <!-- 회원정보 보기  -->
+    <div id="myModal" class="modal">
+ 
+      <!-- Modal content -->
+      <div class="modal-content">
+                <p style="text-align: center;"><span style="font-size: 14pt;"><b><span style="font-size: 24pt;">회원정보</span></b></span></p>
+                <p style="text-align: center; line-height: 1.5;"><br />아이디:${userID }</p>
+                <p style="text-align: center; line-height: 1.5;"><br />이름:${userName }</p>
+                <p style="text-align: center; line-height: 1.5;"><br />개인/보호소:${userDiv }</p>
+                <p style="text-align: center; line-height: 1.5;"><br />비밀번호:${userPW }</p>
+                <p><br /></p>
+            <div style="cursor:pointer;background-color:#DDDDDD;text-align: center;padding-bottom: 10px;padding-top: 10px;" onClick="close_pop();">
+                <span class="pop_bt" style="font-size: 13pt;" >
+                     확인
+                </span>
+              
+            </div>
+      </div>
+ 
+    </div>
+        <!--End Modal-->
+<!-- The Modal -->
+	        <!-- 회원정보 수정  -->
+    <div id="myModal2" class="modal2">
+ 
+      <!-- Modal content -->
+      <div class="modal-content">
+           <div class="TabbedPanelsContentGroup clearfix colelem" id="u2861">
+           <div class="TabbedPanelsContent grpelem" id="u2866">
+			
+			<form id="loginfrm" action="../UpdateServlet" method="post" >
+				<input type="text" name="userID" maxlength="50" placeholder="${userID }" value="${userID }" required hidden=""><br><br>
+				<input type="text" name="userName" maxlength="50" placeholder="이름" required><br><br><br>
+				<input type="password" name="userPW" maxlength="50" placeholder="비밀번호" required><br><br><br>
+				<input type="submit" value="수정" onclick="update();"><br><br><br>
+				
+			</form>
+			
+		   </div>
+         <!--   <div class="TabbedPanelsContent invi grpelem" id="u2862">
+			<form id="loginfrm2" action="LoginCheckServlet" method="post" onsubmit="return checkValue()">
+				<input type="text" name="userID" maxlength="50" placeholder="아이디"><br><br>
+				<input type="password" name="userPW" maxlength="50" placeholder="비밀번호"><br><br>
+				<input type="text" name="aa"><br><br><br>
+				<input type="submit" value="수정"><br><br><br>
+			</form>
+		   </div> -->
+          </div>
+      </div>
+ 
+    </div>
+        <!--End Modal-->
+
+
+	    <%--          <p style="text-align: center;"><span style="font-size: 14pt;"><b><span style="font-size: 24pt;">회원정보</span></b></span></p>
+                <p style="text-align: center; line-height: 1.5;"><br />아이디:${userID }</p>
+                <p style="text-align: center; line-height: 1.5;"><br />이름:${userName }</p>
+                <p style="text-align: center; line-height: 1.5;"><br />개인/보호소:${userDiv }</p>
+                <p style="text-align: center; line-height: 1.5;"><br />ㅎㅎㅎ</p>
+                <p><br /></p>
+            <div style="cursor:pointer;background-color:#DDDDDD;text-align: center;padding-bottom: 10px;padding-top: 10px;" onClick="close_pop();">
+                <span class="pop_bt" style="font-size: 13pt;" >
+                     확인
+                </span>
+              
+            </div> --%>
+	       
+	       
 	       
 	       
 	        </div>

@@ -33,11 +33,11 @@
        <!-- 로그인버튼 -->
        <div class="clearfix colelem" id="loginheader">
      	
-     	<c:if test="${username != null}">
-			<p class="loginICON">${username}님 환영합니다!&nbsp;&nbsp;<a href="LogoutServlet">로그아웃</a></p>
+     	<c:if test="${userName != null}">
+			<p class="loginICON">${userName}님 환영합니다!&nbsp;&nbsp;<a href="LogoutServlet">로그아웃</a></p>
 		</c:if>
-		<c:if test="${username == null}">
-			<p class="loginICON"><a href="login/LoginForm.jsp">로그인</a></p>
+		<c:if test="${userName == null}">
+			<p class="loginICON"><a href="login/LoginCheckServlet">로그인</a></p>
 		</c:if>
 		
        </div>
@@ -82,6 +82,7 @@
      <div class="shadow clearfix grpelem" id="u1615"><!-- column -->
       <img class="colelem" id="u1465-4" alt="&lt; 멍냥멍냥 &gt;" width="130" height="30" src="images/u1465-4.png?crc=4231403855"/>
       <img class="colelem" id="u1466-7" alt="&quot; 사지말고 입양하세요 &quot; 작은 관심이 많은 생명을 살립니다." width="290" height="62" src="images/u1466-7.png?crc=3923293643"/>
+    	
      </div>
     </div>
     <div class="verticalspacer" data-offset-top="845" data-content-above-spacer="999" data-content-below-spacer="0"></div>

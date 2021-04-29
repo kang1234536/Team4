@@ -24,7 +24,7 @@
 
     <%
         // 인코딩 처리
-        request.setCharacterEncoding("euc-kr");
+        response.setCharacterEncoding("utf-8");
     %>
 
     <title>로그인 화면</title>
@@ -66,7 +66,7 @@
                         <div class="clearfix colelem" id="u2954">
                             <!-- 나의정보버튼 -->
                             <a class="nonblock nontext Button rounded-corners transition clearfix grpelem"
-                               id="buttonu2060" href="../myinform/myInform">
+                               id="buttonu2060" href="../myinform/myinformation">
                                 <img class="grpelem" id="u2061" alt="나의정보" src="../images/blank.gif?crc=4208392903"/>
                             </a>
                             <!-- 유기동물조회버튼 -->
@@ -136,7 +136,7 @@
                                             <input type="password" name="userPW" maxlength="50" placeholder="비밀번호"
                                                    required><br><br><br>
                                             <input type="submit" value="로그인"><br>
-                                             <p>아직 계정이 없으신가요?&nbsp;&nbsp;<a href="RegisterForm.jsp">회원가입</a></p>
+                                             <p>아직 계정이 없으신가요?&nbsp;&nbsp;<a href="../RegisterCheckServlet">회원가입</a></p>
                                         </form>
                                         <form name="naverLogin" action="../NaverCallbackServlet" method="post">
                                                 <button id="naverlogin" type="submit"><img width="100%" src="../images/naver_button.PNG"></button><br>

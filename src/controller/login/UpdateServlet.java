@@ -16,7 +16,8 @@ import model.user.UserVO;
 @WebServlet("/UpdateServlet")
 public class UpdateServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        UserVO user = new UserVO();
+      request.setCharacterEncoding("utf-8");
+    	UserVO user = new UserVO();
         UserDAO dao = new UserDAO();
 
         user.setUserID(request.getParameter("userID"));
