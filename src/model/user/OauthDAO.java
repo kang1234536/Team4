@@ -1,19 +1,27 @@
 package model.user;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
 import java.net.URL;
+import java.net.URLEncoder;
+import java.security.SecureRandom;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.HashMap;
 
 import org.json.simple.parser.*;
 
 import org.json.simple.JSONObject;
 
 import util.DBUtil;
+
+import javax.servlet.http.HttpSession;
 
 public class OauthDAO {
     private static OauthDAO instance;
@@ -74,7 +82,71 @@ public class OauthDAO {
         return null;
     }
 
-    private boolean oauthLoginCheck(String userID, String userPW) {
+    public UserVO kakaoUserProfileSelect(String access_token) throws IOException {
+        // 카카오 유저 정보 조회
+        UserVO user = new UserVO();
+        String reqURL = "https://kapi.kakao.com/v2/user/me";
+        try {
+            URL url = new URL(reqURL);
+            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+            conn.setRequestMethod("POST");
+
+            //    요청에 필요한 Header에 포함될 내용
+            conn.setRequestProperty("Authorization", "Bearer " + access_token);
+
+            int responseCode = conn.getResponseCode();
+            System.out.println("responseCode : " + responseCode);
+
+            BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+
+            String line = "";
+            StringBuilder result = new StringBuilder();
+
+            while ((line = br.readLine()) != null) {
+                result.append(line);
+            }
+            System.out.println("response body : " + result);
+
+            JSONParser parser = new JSONParser();
+            Object obj = parser.parse(result.toString());
+            JSONObject jsonObj = (JSONObject)obj;
+            JSONObject properties = null;
+            String userName = null;
+            String userPW = null;
+
+            JSONObject kakao_account = (JSONObject) jsonObj.get("kakao_account");
+            String userID = (String) kakao_account.get("email");
+
+            if(jsonObj.get("properties") != null) {
+                properties = (JSONObject) jsonObj.get("properties");
+                userName = (String) properties.get("nickname");
+            }
+            else {
+                userName = (String) kakao_account.get("email");
+            }
+            userPW = jsonObj.get("id").toString();
+
+            user.setUserID(userID);
+            user.setUserPW(userPW);
+            user.setUserName(userName);
+
+            boolean check = oauthLoginCheck(userID, userPW);
+            if(!check) { // DB의 사용자가 없다면 DB에 추가
+                UserDAO dao = UserDAO.getInstance();
+                dao.insertUser(user);
+                return user;
+            } else {
+                return user;
+            }
+
+        } catch (IOException | ParseException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public boolean oauthLoginCheck(String userID, String userPW) {
         Connection conn = DBUtil.getConnection();
         PreparedStatement st = null;
         ResultSet rs = null;

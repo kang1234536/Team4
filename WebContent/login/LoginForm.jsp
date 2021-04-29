@@ -3,7 +3,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js" charset="utf-8"></script>
+    <script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js"
+            charset="utf-8"></script>
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
 
     <script type="text/javascript">
@@ -17,10 +18,10 @@
         };
     </script>
 
-	<script>
-		var m = "${message}";
-		/* alert(m.replace(".", ".\n")); */
-	</script>
+    <script>
+        var m = "${message}";
+        /* alert(m.replace(".", ".\n")); */
+    </script>
 
     <%
         // 인코딩 처리
@@ -54,7 +55,8 @@
 
                         <!-- 동물친구들이미지 -->
                         <div class="clip_frame colelem" id="u2010">
-                            <img class="block" id="u2010_img" src="../images/index-animalfriends.png?crc=414174054" alt="" width="677" height="125"/>
+                            <img class="block" id="u2010_img" src="../images/index-animalfriends.png?crc=414174054"
+                                 alt="" width="677" height="125"/>
                         </div>
                         <!-- 여기까지가 Header -->
 
@@ -93,75 +95,84 @@
                         <div class="shadow clearfix colelem" id="u2013">
                             <div class="rounded-corners clearfix grpelem" id="u2511-3">
 
-                            <!-- 회원유형선택 -->
-                            <img class="grpelem" id="u2234-4" alt="회원 유형 선택" width="180" height="36"
-                                 src="../images/u2234-4.png?crc=421627513"/>
-                            <div class="clip_frame grpelem" id="u2985">
-                                <img class="block" id="u2985_img" src="../images/dogul.png?crc=3768580682" alt=""
-                                     width="29" height="51"/>
-                            </div>
-
-                            <!-- 유형선택 개인or보호소 -->
-                            <div class="TabbedPanelsWidget clearfix grpelem" id="tab-panelu2860">
-                                <div class="TabbedPanelsTabGroup clearfix colelem" id="u2874">
-                                    <div class="TabbedPanelsTab clearfix grpelem" id="u2879">
-                                        <img class="NoWrap grpelem" id="u2882" alt="개인"
-                                             src="../images/blank.gif?crc=4208392903"/>
-                                    </div>
-                                    <div class="TabbedPanelsTab clearfix grpelem" id="u2875">
-                                        <img class="NoWrap grpelem" id="u2878" alt="보호소"
-                                             src="../images/blank.gif?crc=4208392903"/>
-                                    </div>
+                                <!-- 회원유형선택 -->
+                                <img class="grpelem" id="u2234-4" alt="회원 유형 선택" width="180" height="36"
+                                     src="../images/u2234-4.png?crc=421627513"/>
+                                <div class="clip_frame grpelem" id="u2985">
+                                    <img class="block" id="u2985_img" src="../images/dogul.png?crc=3768580682" alt=""
+                                         width="29" height="51"/>
                                 </div>
 
-                                <!-- 로그인FORM -->
-                                <div class="TabbedPanelsContentGroup clearfix colelem" id="u2861">
-                                    <div class="TabbedPanelsContent grpelem" id="u2866">
-                                        <div id="loginform">
-                                        <form id="loginfrm" action="LoginCheckServlet" method="post" onsubmit="return checkValue()">
-                                            <c:choose>
-                                                <c:when test="${check == -1}">
-                                                    <p style="color:red">아이디가 존재하지 않습니다.</p><br>
-                                                </c:when>
-                                                <c:when test="${check == 0}">
-                                                    <p style="color:red">비밀번호가 올바르지 않습니다.</p><br>
-                                                </c:when>
-                                            </c:choose>
-                                            <input type="text" name="userID" maxlength="50" placeholder="아이디"
-                                                   required><br><br>
-                                            <input type="password" name="userPW" maxlength="50" placeholder="비밀번호"
-                                                   required><br><br><br>
-                                            <input type="submit" value="로그인">
-                                        </form>
-                                        
-                                        <form name="naverLogin" action="../NaverCallbackServlet" method="post">
-                                                <button id="naverlogin" type="submit"><img width="100%" src="../images/naver_button.PNG"></button>
-                                        </form>
-                                        
-                                        <a href="https://kauth.kakao.com/oauth/authorize?client_id=cbcb98ebb8713ea77adcfaf9b1992493&redirect_uri=http://127.0.0.1:9090/KakaoCallbackServlet&response_type=code">
-                                            <img id="kakaobtn" height="38px" src="../images/kakao_button.png" /></a>
-                                        <br><br><br>
-                                        <p>아직 계정이 없으신가요?&nbsp;&nbsp;<a href="../RegisterCheckServlet">회원가입</a></p>
-                                    	</div>
-                                    </div>
-                                    
-                                    <div class="TabbedPanelsContent invi grpelem" id="u2862">
-                                    	<div id="loginform2">
-                                        <form id="loginfrm2" action="LoginCheckServlet" method="post"
-                                              onsubmit="return checkValue()">
-                                            <input type="text" name="userID" maxlength="50" placeholder="아이디"><br><br>
-                                            <input type="password" name="userPW" maxlength="50"
-                                                   placeholder="비밀번호"><br><br><br>
-                                            <input type="submit" value="로그인"><br><br><br>
-                                        </form>
+                                <!-- 유형선택 개인or보호소 -->
+                                <div class="TabbedPanelsWidget clearfix grpelem" id="tab-panelu2860">
+                                    <div class="TabbedPanelsTabGroup clearfix colelem" id="u2874">
+                                        <div class="TabbedPanelsTab clearfix grpelem" id="u2879">
+                                            <img class="NoWrap grpelem" id="u2882" alt="개인"
+                                                 src="../images/blank.gif?crc=4208392903"/>
+                                        </div>
+                                        <div class="TabbedPanelsTab clearfix grpelem" id="u2875">
+                                            <img class="NoWrap grpelem" id="u2878" alt="보호소"
+                                                 src="../images/blank.gif?crc=4208392903"/>
                                         </div>
                                     </div>
-                                    
+
+                                    <!-- 로그인FORM -->
+                                    <div class="TabbedPanelsContentGroup clearfix colelem" id="u2861">
+                                        <div class="TabbedPanelsContent grpelem" id="u2866">
+                                            <div id="loginform">
+                                                <form id="loginfrm" action="LoginCheckServlet" method="post"
+                                                      onsubmit="return checkValue()">
+                                                    <c:choose>
+                                                        <c:when test="${check == -1}">
+                                                            <p style="color:red">아이디가 존재하지 않습니다.</p><br>
+                                                        </c:when>
+                                                        <c:when test="${check == 0}">
+                                                            <p style="color:red">비밀번호가 올바르지 않습니다.</p><br>
+                                                        </c:when>
+                                                    </c:choose>
+                                                    <input type="text" name="userID" maxlength="50" placeholder="아이디"
+                                                           required><br><br>
+                                                    <input type="password" name="userPW" maxlength="50"
+                                                           placeholder="비밀번호"
+                                                           required><br><br><br>
+                                                    <input type="submit" value="로그인">
+                                                </form>
+
+                                                <form name="naverLogin" action="../NaverCallbackServlet" method="post">
+                                                    <button id="naverlogin" type="submit"><img width="100%"
+                                                                                               src="../images/naver_button.PNG">
+                                                    </button>
+                                                </form>
+
+                                                <form name="kakaoLogin" action="../KakaoCallbackServlet" method="post">
+                                                    <button id="kakaologin" type="submit">
+                                                        <img id="kakaobtn" height="38px" src="../images/kakao_button.png"/>
+                                                    </button>
+                                                </form>
+                                                <br><br><br>
+                                                <p>아직 계정이 없으신가요?&nbsp;&nbsp;<a href="../RegisterCheckServlet">회원가입</a>
+                                                </p>
+                                            </div>
+                                        </div>
+
+                                        <div class="TabbedPanelsContent invi grpelem" id="u2862">
+                                            <div id="loginform2">
+                                                <form id="loginfrm2" action="LoginCheckServlet" method="post"
+                                                      onsubmit="return checkValue()">
+                                                    <input type="text" name="userID" maxlength="50"
+                                                           placeholder="아이디"><br><br>
+                                                    <input type="password" name="userPW" maxlength="50"
+                                                           placeholder="비밀번호"><br><br><br>
+                                                    <input type="submit" value="로그인"><br><br><br>
+                                                </form>
+                                            </div>
+                                        </div>
+
+                                    </div>
                                 </div>
                             </div>
+                            <!-- 여기까지가 Content -->
                         </div>
-                        <!-- 여기까지가 Content -->
-						</div>
                     </div>
                 </div>
             </div>
@@ -173,13 +184,9 @@
         </div>
         <div class="verticalspacer" data-offset-top="1235" data-content-above-spacer="1300"
              data-content-below-spacer="0">
-		</div>
+        </div>
     </div>
 </div>
-
-
-
-
 
 
 <div class="preload_images">
