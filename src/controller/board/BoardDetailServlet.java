@@ -1,6 +1,7 @@
 package controller.board;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -12,6 +13,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import model.board.*;
+import model.reply.ReplyDAO;
+import model.reply.ReplyVO;
 
 
 
@@ -21,10 +24,14 @@ public class BoardDetailServlet extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String boardid = request.getParameter("board_ID");
-		if(boardid == null) throw new ServletException("board_id ����");
+		if(boardid == null) throw new ServletException("board_id 없음");
 		
 		BoardDAO dao = new BoardDAO();
 		BoardVO board = dao.selectDetail(boardid);
+		
+		ReplyDAO replyDAO = new ReplyDAO();
+		List<ReplyVO> replyList = replyDAO.selectList(Integer.parseInt(boardid));
+		
 		int boardCount = board.getBoard_count();
 		Cookie[] cookieFromRequest = request.getCookies();
 		
@@ -46,23 +53,15 @@ public class BoardDetailServlet extends HttpServlet {
 			
 		
 		request.setAttribute("board_detail", board);
+		request.setAttribute("reply_list", replyList);
 		
 		String userID = (String) session.getAttribute("userID");
-		//System.out.println(userID);
 		String boardWriter = dao.getUserID(boardid);
-		//System.out.println(boardWriter);
-		if(userID==null) {
-			RequestDispatcher rd = request.getRequestDispatcher("boardDetailNotWriter.jsp");
-			rd.forward(request, response);
-		}
-		else if(userID.equals(boardWriter)) {
-			RequestDispatcher rd = request.getRequestDispatcher("boardDetail.jsp");
-			rd.forward(request, response);
-		}
-		else {
-			RequestDispatcher rd = request.getRequestDispatcher("boardDetailNotWriter.jsp");
-			rd.forward(request, response);
-		}
+		request.setAttribute("userID", userID);
+		request.setAttribute("boardWriter", boardWriter);
+		request.setAttribute("boardID", boardid);
+		RequestDispatcher rd = request.getRequestDispatcher("boardDetail.jsp");
+		rd.forward(request, response);
 	}
 
 }

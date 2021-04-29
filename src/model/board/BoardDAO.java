@@ -176,12 +176,13 @@ public class BoardDAO {
 			st.setString(1, board_ID);
 			rs = st.executeQuery();
 			while(rs.next()) {
+				board.setBoard_ID(Integer.parseInt(board_ID));
 				board.setBoard_content(rs.getString("board_content"));
 				board.setBoard_title(rs.getString("board_title"));
 				board.setUser_ID(rs.getString("user_id"));
 				board.setBoard_date(rs.getDate("board_date"));
 				board.setBoard_count(rs.getInt("board_count"));
-			//board = new BoardVO(rs.getString("board_title"), rs.getString("board_content"), rs.getString("user_ID"), rs.getDate("board_date"));
+				//board = new BoardVO(rs.getString("board_title"), rs.getString("board_content"), rs.getString("user_ID"), rs.getDate("board_date"));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();

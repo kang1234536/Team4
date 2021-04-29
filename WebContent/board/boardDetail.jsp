@@ -25,14 +25,13 @@
 		color : blue;
 	}
 	
-	
-	table, td {
-		text-align: center; 
+	.detail, .detail td {
+		text-align: center;
 		border-bottom: 1px dotted gray;
-		/* border-collapse: collapse; */
+		border-collapse: collapse;
 	}
 	
-	.td1 {
+	.detail .td1 {
 		background-color: #F6C95E; 
 		text-align: center;
 		font-size: 18px; font-family: 'a타이틀고딕2';
@@ -40,7 +39,7 @@
 		width: 150px;
 	}
 	
-	.td2 {
+	.detail .td2 {
 		background-color: transparent; 
 		text-align: left;
 		font-size: 15px; font-family: 'a타이틀고딕1';
@@ -77,7 +76,7 @@
 		font-size: 15px; font-family: 'a타이틀고딕1';
 		padding: 10px;
 		width: 600px;
-		height: 250px;
+		height: 200px;
 	}
 	
 	#catFoot {
@@ -108,6 +107,19 @@
 		margin-top: 20px;
 	}
 	
+	.btn2 {
+		width: 90px;
+		height: 30px;
+		font-size: 15px;
+		font-family: 'a타이틀고딕2';
+		text-shadow: 0.5px 0.5px 0.5px gray;
+		background-color: #F6C95E;
+		border-radius: 3px;
+		float: right;	
+		margin-right: 6px;
+		margin-bottom: 2px;
+	}
+	
 	.loginICON {
 		font-size: 15px;
 		text-decoration: none;
@@ -122,7 +134,42 @@
 		left: 182.5px;
 		position: relative;
 	}
+	.reply textarea{
+		border-top: 1px dotted gray;
+		border-left: 1px dotted gray;
+		border-right: 1px dotted gray;
+	}
+	#regist {
+		border-bottom: 1px dotted gray;
+		border-left: 1px dotted gray;
+		border-right: 1px dotted gray;
+	}
 	
+	#replyContent{
+		padding-left: 13px;
+		text-align: left;
+		height: 40px;
+	}
+	
+	#date{
+		padding-right: 10px;
+		text-align: right;
+		border-top-right-radius: 3px;
+		border-bottom-right-radius: 3px;
+	}
+	
+	#userID{
+		padding-left: 10px;
+		text-align: left;
+		font-weight: bold;
+		border-top-left-radius: 3px;
+		border-bottom-left-radius: 3px;
+	}
+	
+	#userID, #date {
+		background-color: lightgray;
+		height:3	0px;
+	}
 </style>
 
 </head>
@@ -137,10 +184,10 @@
 		
 		 <!-- 로그인버튼 -->
 	       <div class="clearfix colelem" id="loginheader">
-	     	<c:if test="${userName != null}">
-				<p class="loginICON">${userName}님 환영합니다!&nbsp;&nbsp;<a href="../LogoutServlet">로그아웃</a></p>
+	     	<c:if test="${username != null}">
+				<p class="loginICON">${username}님 환영합니다!&nbsp;&nbsp;<a href="../LogoutServlet">로그아웃</a></p>
 			</c:if>
-			<c:if test="${userName == null}">
+			<c:if test="${username == null}">
 				<p class="loginICON"><a href="../login/LoginForm.jsp">로그인</a></p>
 			</c:if>
 	       </div>
@@ -189,40 +236,79 @@
 			<h2 id="boardTITLE">커뮤니티 게시판</h2>
 		</div>
 		<br><br><br>
+		
 		<div class="container">
 			<div class="row">
-				<form action="boardlist">
-					<table class="detail">
-						<tbody>
+				<table class="detail">
+					<tbody>
+						<tr>
+							<td class="td1">제 목</td>
+							<td class="td2">${board_detail.board_title}</td>
+						</tr>
+						<tr>
+							<td class="td1">작성자</td>
+							<td class="td2">${board_detail.user_ID}</td>
+						</tr>
+						<tr>
+							<td class="td1">작성날짜</td>
+							<td class="td2">${board_detail.board_date}</td>
+						</tr>
+						<tr>
+							<td class="td1">내 용</td>
+							<td class="td2" id="td3">${board_detail.board_content}</td>
+						</tr>
+					</tbody>
+				</table>
+				<br>			
+				<form action="replyWrite">
+					<input type="hidden" name="boardID" value="${param.board_ID }">
+					<c:choose>
+						<c:when test="${userID==null }">
+							<table class="reply">
+							<c:forEach var="replylist" items="${reply_list}">
+								<tr>
+									<td id="userID">${replylist.user_id }</td>
+									<td id="date">${replylist.reply_date }</td>
+								</tr><tr>
+									<td id="replyContent" colspan="2">${replylist.reply }</td>
+								</tr>
+							</c:forEach>
 							<tr>
-								<td class="td1">제 목</td>
-								<td class="td2">${board_detail.board_title}</td>
+								<td colspan="2"><textarea placeholder="댓글을 작성하려면 로그인 해주세요" readonly style="height: 50px; width: 780px;padding: 10px 10px;" onclick="location='../login/LoginCheckServlet'"></textarea></td>
+							</tr>
+							</table>
+						</c:when>
+						<c:when test="${userID!=null }">
+							<table class="reply">
+							<c:forEach var="replylist" items="${reply_list}">
+								<tr>
+									<td id="userID">${replylist.user_id }</td>
+									<td id="date">${replylist.reply_date }</td>
+								</tr><tr>
+									<td id="replyContent" colspan="2">${replylist.reply }</td>
+								</tr>
+							</c:forEach>
+							<tr>
+								<td colspan="2"><textarea placeholder="네티켓을 지켜주세요! 비방및 욕설 댓글은 무통보 삭제됩니다" style="height: 100px; width: 780px;padding: 10px 10px;" name="reply"></textarea></td>
 							</tr>
 							<tr>
-								<td class="td1">작성자</td>
-								<td class="td2">${board_detail.user_ID}</td>
+								<td colspan="2" id="regist"><input type="submit" class="btn2" value="등록"></td>
 							</tr>
-							<tr>
-								<td class="td1">작성날짜</td>
-								<td class="td2">${board_detail.board_date}</td>
-							</tr>
-							<tr>
-								<td class="td1">내 용</td>
-								<td class="td2" id="td3">${board_detail.board_content}</td>
-							</tr>
-						</tbody>
-					</table>
-					
-					<!-- 목록 돌아가기 버튼 -->
-					<input type="submit" class="btn1" value="목록">
-					</form>
-					
-					<div>
-					<!-- 삭제 -->
-					<button class="btn1" onclick="del()">삭제</button>
-					<!-- 수정 -->
-					<button class="btn1" onclick="location='boardUpdate?board_ID=${param.board_ID}'">수정</button>
-					</div>
+							</table>
+						</c:when>
+					</c:choose>
+				</form>
+				
+				<!-- 목록 돌아가기 버튼 -->
+				<button class="btn1" onclick="location='boardlist'">목록</button>
+				<c:choose>
+				<c:when test="${userID==boardWriter }">
+				<!-- 삭제 -->
+				<button class="btn1" onclick="del()">삭제</button>
+				<!-- 수정 -->
+				<button class="btn1" onclick="location='boardUpdate?board_ID=${param.board_ID}'">수정</button>
+				</c:when>
+				</c:choose>
 				
 			</div>
 		</div>
@@ -236,15 +322,10 @@
 		}
 	}
 	</script>
-          
-          
-           
           </div>
-          
          </div>
         </div>
         <!-- 여기까지가 Content -->
-        
        </div>
       </div>
      </div>
@@ -256,7 +337,5 @@
     </div>
     <div class="verticalspacer" data-offset-top="1235" data-content-above-spacer="1300" data-content-below-spacer="0"></div>
 
-
-	
 </body>
 </html>
