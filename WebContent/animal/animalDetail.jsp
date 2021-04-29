@@ -120,11 +120,11 @@
 }
 
 #listbtn {
-	width: 50px; height: 30px;
-	border-radius: 3px;
-	border: 1px outset lightgray;
-	background-color: lightgray;
-	font-size: 14px; font-family: 'a타이틀고딕1';
+	width: 60px; height: 30px;
+	border-radius: 5px;
+	border: 1px outset #FDED91;
+	background-color: #FDED91;
+	font-size: 14px; font-family: 'a타이틀고딕2';
 	position: relative;
 	box-shadow: 1px 1px 10px #eee;
 	left: 500px;

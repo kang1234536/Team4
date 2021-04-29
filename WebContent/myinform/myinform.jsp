@@ -91,8 +91,9 @@
 	
 	.box input[type=button] {
 		font-size: 12px; font-family: 'a타이틀고딕1';
-		background-color: lightgray;
-		border: 1px outset lightgray;
+		background-color: #eee;
+		border: 1px outset #eee;
+		border-radius: 5px;
 		padding: 3px;
 		float: right;
 		margin-right: 20px;

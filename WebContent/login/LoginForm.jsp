@@ -49,16 +49,12 @@
         <div class="browser_width colelem" id="u1966-bw">
             <div id="u1966">
                 <div class="clearfix" id="u1966_align_to_page">
-                    
-
-
                     <div class="position_content" id="u1966_position_content">
 
 
                         <!-- 동물친구들이미지 -->
                         <div class="clip_frame colelem" id="u2010">
-                            <img class="block" id="u2010_img" src="../images/index-animalfriends.png?crc=414174054"
-                                 alt="" width="677" height="125"/>
+                            <img class="block" id="u2010_img" src="../images/index-animalfriends.png?crc=414174054" alt="" width="677" height="125"/>
                         </div>
                         <!-- 여기까지가 Header -->
 
@@ -95,7 +91,7 @@
 
                         <!-- 여기서부터 Content -->
                         <div class="shadow clearfix colelem" id="u2013">
-                            <div class="rounded-corners clearfix grpelem" id="u2511-3"></div>
+                            <div class="rounded-corners clearfix grpelem" id="u2511-3">
 
                             <!-- 회원유형선택 -->
                             <img class="grpelem" id="u2234-4" alt="회원 유형 선택" width="180" height="36"
@@ -121,8 +117,8 @@
                                 <!-- 로그인FORM -->
                                 <div class="TabbedPanelsContentGroup clearfix colelem" id="u2861">
                                     <div class="TabbedPanelsContent grpelem" id="u2866">
-                                        <form id="loginfrm" action="LoginCheckServlet" method="post"
-                                              onsubmit="return checkValue()">
+                                        <div id="loginform">
+                                        <form id="loginfrm" action="LoginCheckServlet" method="post" onsubmit="return checkValue()">
                                             <c:choose>
                                                 <c:when test="${check == -1}">
                                                     <p style="color:red">아이디가 존재하지 않습니다.</p><br>
@@ -135,18 +131,22 @@
                                                    required><br><br>
                                             <input type="password" name="userPW" maxlength="50" placeholder="비밀번호"
                                                    required><br><br><br>
-                                            <input type="submit" value="로그인"><br>
-                                             <p>아직 계정이 없으신가요?&nbsp;&nbsp;<a href="../RegisterCheckServlet">회원가입</a></p>
+                                            <input type="submit" value="로그인">
                                         </form>
+                                        
                                         <form name="naverLogin" action="../NaverCallbackServlet" method="post">
-                                                <button id="naverlogin" type="submit"><img width="100%" src="../images/naver_button.PNG"></button><br>
+                                                <button id="naverlogin" type="submit"><img width="100%" src="../images/naver_button.PNG"></button>
                                         </form>
                                         
                                         <a href="https://kauth.kakao.com/oauth/authorize?client_id=cbcb98ebb8713ea77adcfaf9b1992493&redirect_uri=http://127.0.0.1:9090/KakaoCallbackServlet&response_type=code">
-                                            <img height="38px" src="../images/kakao_button.png" /></a>
-
+                                            <img id="kakaobtn" height="38px" src="../images/kakao_button.png" /></a>
+                                        <br><br><br>
+                                        <p>아직 계정이 없으신가요?&nbsp;&nbsp;<a href="../RegisterCheckServlet">회원가입</a></p>
+                                    	</div>
                                     </div>
+                                    
                                     <div class="TabbedPanelsContent invi grpelem" id="u2862">
+                                    	<div id="loginform2">
                                         <form id="loginfrm2" action="LoginCheckServlet" method="post"
                                               onsubmit="return checkValue()">
                                             <input type="text" name="userID" maxlength="50" placeholder="아이디"><br><br>
@@ -154,13 +154,14 @@
                                                    placeholder="비밀번호"><br><br><br>
                                             <input type="submit" value="로그인"><br><br><br>
                                         </form>
+                                        </div>
                                     </div>
+                                    
                                 </div>
-
                             </div>
                         </div>
                         <!-- 여기까지가 Content -->
-
+						</div>
                     </div>
                 </div>
             </div>
@@ -171,10 +172,14 @@
             <div id="u1965"></div>
         </div>
         <div class="verticalspacer" data-offset-top="1235" data-content-above-spacer="1300"
-             data-content-below-spacer="0"></div>
-
+             data-content-below-spacer="0">
+		</div>
     </div>
 </div>
+
+
+
+
 
 
 <div class="preload_images">
@@ -281,8 +286,6 @@
         data-main="scripts/museconfig.js?crc=4153641093"
         onload="if (requirejs) requirejs.onError = function(requireType, requireModule) { if (requireType && requireType.toString && requireType.toString().indexOf && 0 <= requireType.toString().indexOf('#scripterror')) window.Muse.assets.check(); }"
         onerror="window.Muse.assets.check();"></script>
-
-<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 
 </body>
 </html>

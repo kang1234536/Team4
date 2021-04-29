@@ -68,10 +68,10 @@
 	.상세보기버튼 {
 		width: 70px; height: 25px;
 		font-size: 13px; font-family: 'a타이틀고딕2';
-		background-color: lightgray;
-		border-radius: 3px;
+		background-color: #FDED91;
+		border-radius: 5px;
 		box-shadow: 2px 2px 5px #eee;
-		border: 1px outset lightgray;
+		border: 1px outset #FDED91;
 		margin-top: 10px;
 		position: absolute;
 	}
