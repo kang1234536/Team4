@@ -21,7 +21,7 @@ public class BoardListPageServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String next_s = (String)request.getParameter("page");;
+		String next_s = (String)request.getParameter("page");
 		int next=0;
 		if(next_s != null) {
 			next = Integer.parseInt(next_s)-1;

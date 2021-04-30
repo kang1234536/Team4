@@ -1,7 +1,7 @@
 package model.board;
 
 import java.sql.Date;
-
+ 
 public class BoardVO {
 	private int board_ID;
 	private String board_title;

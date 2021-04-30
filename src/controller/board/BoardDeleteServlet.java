@@ -17,10 +17,10 @@ public class BoardDeleteServlet extends HttpServlet {
     
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String boardID = request.getParameter("board_ID");
-		BoardDAO dao = new BoardDAO();
+		BoardDAO dao = new BoardDAO(); 
 		int result = dao.deleteBoard(boardID);
 		if(result > 0) {
-			response.sendRedirect("boardlist");
+			response.sendRedirect("boardlist"); 
 		}
 	}
 }

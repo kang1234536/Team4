@@ -11,7 +11,7 @@ import java.util.List;
 import util.DBUtil;
 
 public class BoardDAO {
-	
+	 
 	public String getUserID(String boardid) {
 		String userID=null;
 		Connection conn = util.DBUtil.getConnection();

@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
   
 import model.board.*;
-
+ 
 @WebServlet("/board/boardWrite")
 public class boardWriteServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
