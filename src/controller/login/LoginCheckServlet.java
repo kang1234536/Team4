@@ -25,7 +25,6 @@ public class LoginCheckServlet extends HttpServlet {
         UserDAO dao = UserDAO.getInstance();
         String userID = request.getParameter("userID");
         String userPW = sha256(request.getParameter("userPW"));
-
         UserVO user = dao.selectByUserId(userID);
 
         // DB���� ���̵�, ��й�ȣ Ȯ��
@@ -39,7 +38,7 @@ public class LoginCheckServlet extends HttpServlet {
             System.out.println(session.getId() + " 연결됨");
             session.setAttribute("userID", userID);
             session.setAttribute("userName", user.getUserName());
-            session.setAttribute("userPW", user.getUserPW());
+            session.setAttribute("userPW", sha256(user.getUserPW()));
             session.setAttribute("userDiv", user.getUserDiv());
             response.sendRedirect("../index");
         } else if (check == -1) // ���̵� Ʋ��
