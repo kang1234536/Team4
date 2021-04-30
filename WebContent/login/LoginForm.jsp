@@ -46,11 +46,22 @@
             $("#myModal").show();
 
         }
+        function SelectPW(){
+            $("#myModal3").show();
+
+        }
         function close_pop(flag) {
             $('#myModal').hide();
+            $("#idfind_name").val("");
         };
         function close_pop2(flag) {
             $('#myModal2').hide();
+        };
+        function close_pop3(flag) {
+            $('#myModal3').hide();
+        };
+        function close_pop4(flag) {
+            $('#myModal4').hide();
         };
         function idfind(){
             var x= $("#idfind_name").val().trim();
@@ -66,7 +77,8 @@
                 type : "POST",
                 success : function(responseData) {
                     if(responseData=="false"){
-                        alert("아이디가 다릅니다")
+                        alert("아이디가 다릅니다");
+                        $("#idfind_name").val("");
                     }
                     else{
                         $('#myModal').hide();
@@ -78,6 +90,86 @@
                 }
             });
         }
+        function PWfind(){
+            var x= $("#PWfind_ID").val().trim();
+            var y= $("#PWfind_NAME").val().trim();
+
+            if(x.length < 1){
+                alert("아이디를 입력하세요");
+                return;
+            }else if(y.length<1){
+                alert("이름을 입력하세요");
+                return;
+            }
+            $.ajax({
+                url : "../SelectPWServlet",
+                data : {
+                    "userid" :x,
+                    "username" : y
+                },
+                type : "POST",
+                success : function(responseData) {
+                    if(responseData=="false"){
+                        alert("아이디 또는 이름이 틀렸습니다.")
+                        $("#PWfind_ID").val("");
+                        $("#PWfind_NAME").val("");
+                    }
+
+
+                    else {
+                        alert("비밀먼호를  재설정하겠습니다");
+                        $('#myModal3').hide();
+                        $('#myModal4').show();
+
+
+                    }
+
+
+                }
+
+
+            });
+        }
+        function settingpw(){
+            var a= $("#PWfind_ID").val().trim();
+            var b= $("#PWfind_NAME").val().trim();
+            var x= $("#PWfind_PW1").val().trim();
+            var y= $("#PWfind_PW2").val().trim();
+            if(x.length < 1){
+                alert("비밀번호를 입력하세요");
+                return;
+            }else if(y.length<1){
+                alert("비밀번호를 입력해주세요");
+            }else if(x!=y){
+                alert("비밀번호를 똑같이 입력해주세요");
+            }
+            $.ajax({
+                url : "../UpdatePwServlet",
+                data : {
+                    "userpw1" :x,
+                    "userid" :a,
+                    "username" :b
+                },
+                type : "POST",
+                success : function(responseData) {
+
+
+                    $('#myModal4').hide();
+                    alert("비밀먼호가  재설정 되었습니다.");
+
+
+
+                }
+
+
+            });
+
+
+
+
+
+        }
+
     </script>
 </head>
 
@@ -191,7 +283,7 @@
                                                 <p>아직 계정이 없으신가요?&nbsp;&nbsp;<a href="../RegisterCheckServlet">회원가입</a>
                                                 </p>
                                                 <p>ID를 잊어버리셨나요?&nbsp;&nbsp;<a href="javascript:SelectID();">ID찾기</a>
-
+                                                <p>ID를 잊어버리셨나요?&nbsp;&nbsp;<a href="javascript:SelectPW();">PW찾기</a>
                                                     <!-- The Modal -->
                                                     <!--start   -->
                                                 <div id="myModal" class="modal">
@@ -228,6 +320,48 @@
                                                         <br><br>
                                                         <div  align="center"> <!--onClick="close_pop();"  -->
                                                             <button class="btn" style="font-size: 13pt;" onclick="close_pop2();">확인</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!--End Modal-->
+                                                <!--start   -->
+                                                <div id="myModal3" class="modal">
+                                                    <!-- Modal content -->
+                                                    <div class="modal-content">
+                                                        <div style="text-align: center;">
+                                                            <span style="font-size: 14pt;"><b><span style="font-size: 20pt; font-family: 'a타이틀고딕4';">★비밀번호찾기★</span></b></span>
+                                                        </div><br>
+                                                        <div style="text-align: center; font-family: 'a타이틀고딕4';">
+
+                                                            <br>아이디&nbsp;&nbsp;<input id="PWfind_ID" type="text" style="border: 1px solid black;"><br>
+                                                            <br>이름&nbsp;&nbsp;<input id="PWfind_NAME" type="text" style="border: 1px solid black;"><br>
+
+                                                        </div>
+                                                        <br><br>
+                                                        <div  align="center"> <!--onClick="close_pop();"  -->
+                                                            <button class="btn" style="font-size: 13pt;" onclick="PWfind();">확인</button>
+                                                            <button class="btn" style="font-size: 13pt;" onclick="close_pop3();">취소</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!--End Modal-->
+                                                <!--start   -->
+                                                <div id="myModal4" class="modal">
+                                                    <!-- Modal content -->
+                                                    <div class="modal-content">
+                                                        <div style="text-align: center;">
+                                                            <span style="font-size: 14pt;"><b><span style="font-size: 20pt; font-family: 'a타이틀고딕4';">★비밀번호를 재설정.★</span></b></span>
+                                                        </div><br>
+                                                        <div style="text-align: center; font-family: 'a타이틀고딕4';">
+
+                                                            <br>비밀번호:&nbsp;&nbsp;<input id="PWfind_PW1" type="text" style="border: 1px solid black;" ><br>
+                                                            <br>비밀번호 확인:&nbsp;&nbsp;<input id="PWfind_PW2" type="text" style="border: 1px solid black;" ><br>
+
+                                                        </div>
+                                                        <br><br>
+                                                        <div  align="center"> <!--onClick="close_pop();"  -->
+                                                            <button class="btn" style="font-size: 13pt; " onclick="settingpw();" >비밀번호 재설정</button>
+                                                            <button class="btn" style="font-size: 13pt;  " onclick="close_pop4();">취소</button>
                                                         </div>
                                                     </div>
                                                 </div>

@@ -1,11 +1,8 @@
 package model.user;
 
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
 
 import util.DBUtil;
-
 
 public class UserDAO {
     private static UserDAO instance;
@@ -98,7 +95,6 @@ public class UserDAO {
 		}
 		return result;
 	}
-
 	public int UpdateUser(UserVO user) {
 		Connection conn =DBUtil.getConnection();
 		PreparedStatement st = null;
@@ -106,12 +102,15 @@ public class UserDAO {
 		try {
 		StringBuffer sql = new StringBuffer();
 		sql.append("update users set user_pw=? , user_name=? where user_id=?");
-
+		
+		
 			st = conn.prepareStatement(sql.toString());
 
 			st.setString(3, user.getUserID());
 			st.setString(1, user.getUserPW());
 			st.setString(2, user.getUserName());
+			
+		
 
 			result = st.executeUpdate(); // insert/update/delete는 executeUpdate()를 써야한다.
 		} catch (SQLException e) {
@@ -188,7 +187,85 @@ public class UserDAO {
 
         return result;
     }
+    public int updateByUseinfo(String userid,String username,String userpw) {
+    	Connection conn =DBUtil.getConnection();
+		PreparedStatement st = null;
+		int result = 0;
+		try {
+		StringBuffer sql = new StringBuffer();
+		sql.append("update users set user_pw=?  where user_name=? and user_id=?");
+		
+		
+			st = conn.prepareStatement(sql.toString());
 
+			st.setString(1, userpw);
+			st.setString(2, username);
+			st.setString(3, userid);
+			
+		
+
+			result = st.executeUpdate(); // insert/update/delete는 executeUpdate()를 써야한다.
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			DBUtil.dbClose(null, st, conn);
+		}
+		return result;
+    }
+    
+    
+    
+    public UserVO selectByUseinfo(String userid,String username) {
+        UserVO user = null;
+        Connection conn = DBUtil.getConnection();
+        PreparedStatement st = null;
+        ResultSet rs = null;
+        String sql = "select * from USERS where user_ID=? and user_NAME = ?";  //411322202100033
+        try {
+            st = conn.prepareStatement(sql);
+            st.setString(1,userid);
+            st.setString(2,username);
+            rs = st.executeQuery();
+            while(rs.next()) {
+                //System.out.println(rs.getString(1));
+                user = makeUsers(rs);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            DBUtil.dbClose(rs, st, conn);
+        }
+
+        return user;
+    }
+    
+    
+    
+    public UserVO selectByUserName(String username) {
+        UserVO user = null;
+        Connection conn = DBUtil.getConnection();
+        PreparedStatement st = null;
+        ResultSet rs = null;
+        String sql = "select * from USERS where user_NAME = ?";  //411322202100033
+        try {
+            st = conn.prepareStatement(sql);
+            st.setString(1,username);
+            rs = st.executeQuery();
+            while(rs.next()) {
+                //System.out.println(rs.getString(1));
+                user = makeUsers(rs);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            DBUtil.dbClose(rs, st, conn);
+        }
+
+        return user;
+    }
     public UserVO selectByUserId(String userId) {
         UserVO user = null;
         Connection conn = DBUtil.getConnection();
@@ -222,49 +299,6 @@ public class UserDAO {
 
         return user;
     }
+ 
 
-
-    public List<UserVO> selectAll() {
-        List<UserVO> userList = new ArrayList<UserVO>();
-        Connection conn = DBUtil.getConnection();
-        Statement st = null;
-        ResultSet rs = null;
-        String sql = "select * from USERS";
-        try {
-            st = conn.createStatement();
-            rs = st.executeQuery(sql);
-            while(rs.next()) {
-                userList.add(makeUsers(rs));
-            }
-        } catch (SQLException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        } finally {
-            DBUtil.dbClose(rs, st, conn);
-        }
-
-        return userList;
-    }
-
-    public UserVO selectByUserName(String username) {
-        UserVO user = null;
-        Connection conn = DBUtil.getConnection();
-        PreparedStatement st = null;
-        ResultSet rs = null;
-        String sql = "select * from USERS where user_NAME = ?";  //411322202100033
-        try {
-            st = conn.prepareStatement(sql);
-            st.setString(1,username);
-            rs = st.executeQuery();
-            while(rs.next()) {
-                //System.out.println(rs.getString(1));
-                user = makeUsers(rs);
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } finally {
-            DBUtil.dbClose(rs, st, conn);
-        }
-        return user;
-    }
 }

@@ -169,7 +169,7 @@
 	
 	#userID, #date {
 		background-color: lightgray;
-		height:3	0px;
+		height:30px;
 	}
 	
 </style>

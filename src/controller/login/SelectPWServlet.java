@@ -13,12 +13,12 @@ import model.user.UserVO;
 /**
  * Servlet implementation class SelectIDServlet
  */
-@WebServlet("/SelectIDServlet")
-public class SelectIDServlet extends HttpServlet {
+@WebServlet("/SelectPWServlet")
+public class SelectPWServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
   
-    public SelectIDServlet() {
+    public SelectPWServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -28,15 +28,22 @@ public class SelectIDServlet extends HttpServlet {
 
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String id = request.getParameter("userid");
 		String name = request.getParameter("username");
-        UserDAO dao = new UserDAO();
-        UserVO u= dao.selectByUserName(name);
+	
+        
+		
+		UserDAO dao = new UserDAO();
+        UserVO u= dao.selectByUseinfo(id,name);
+		
         //보내주는것
         PrintWriter out = response.getWriter();
-        if(u==null) 
-        	out.print("false");
-        else
-            out.append(u.getUserID());
+        if(u==null) {
+        	out.print("false");     
+        }
+       
+        
+	
       
 	}
 }
