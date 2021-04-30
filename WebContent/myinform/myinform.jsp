@@ -219,7 +219,7 @@
 		else if (val == "0") { //회원정보 변경               	
 			$('#myModal2').show();
 		} else if (val == "1") { //회원탈퇴
-			var delete_test = confirm("회원 탈퇴하시겠습니까?");
+			var delete_test = confirm("회원 탈퇴하시겠습니까?\n탈퇴를 하시게 되면 그동안 작성된 게시글과 댓글이 모두 삭제됩니다.");
 			if (delete_test == true) {
 				alert("Ajax 좀 돼라!!!!!!!!!!!!!");
 				$.ajax({
@@ -328,64 +328,64 @@
 		<!-- 게시판 메인 페이지 영역 끝 -->
 		
 	        <!-- The Modal -->
-										<!-- 회원정보 보기  -->
-										<div id="myModal" class="modal">
-											<!-- Modal content -->
-											<div class="modal-content">
-												<div style="text-align: center;">
-													<span style="font-size: 14pt;"><b><span style="font-size: 20pt; font-family: 'a타이틀고딕4';">★회원정보★</span></b></span>
-												</div><br>
-												<div style="text-align: center; font-family: 'a타이틀고딕4';">
-													<br>아이디 : ${userID }<br>
-													<br>이름 : ${userName }<br>
-													<br>개인/보호소 : ${userDiv }<br>
-													<br>비밀번호 : ${userPW }<br>
-												</div>
-												<br><br>
-												<div onClick="close_pop();" align="center">
-													<button class="btn" style="font-size: 13pt;">확인</button>
-												</div>
-											</div>
-										</div>
-										<!--End Modal-->
-										<!-- The Modal -->
-										<!-- 회원정보 수정  -->
-										
-										<div id="myModal2" class="modal2">
-											<!-- Modal content -->
-											<div class="modal-content">
-												<div class="TabbedPanelsContentGroup clearfix colelem"
-													id="u2861">
-													<div class="TabbedPanelsContent grpelem" id="u2866" align="center">
-														<form id="loginfrm" action="../UpdateServlet" method="post">
-															<p class="message">회원정보 수정창</p>
-															<input type="text" name="userID" maxlength="50"	placeholder="${userID }" value="${userID }" required hidden="">
-															<input id="ex1" type="text" name="userName" maxlength="50" placeholder="이름" required><br><br>
-															<input id="ex2" type="password" name="userPW" maxlength="50" placeholder="비밀번호" required><br><br>
-															<input id="ex3" class="btn" type="submit" value="수정" onclick="update();">
-															<button class="btn"	onclick="exit();">취소</button>
-														</form>
-													</div>
-												</div>
-												<div id="message"></div>
-											</div>
-										</div>
-										
-										<div id="myModal3" class="modal3">
-											<!-- Modal content -->
-											<div class="modal-content">
-												<div class="TabbedPanelsContentGroup clearfix colelem"
-													id="u2861">
-													<div style="text-align: center;">
-														<p class="message">회원정보 수정 취소하였습니다.</p>
-														<button class="btn" onclick="updateno();">확인</button>
-													</div>
-												</div>
-											</div>
-										</div>
-										
-										
-										<!--End Modal-->   
+			<!-- 회원정보 보기  -->
+			<div id="myModal" class="modal">
+				<!-- Modal content -->
+				<div class="modal-content">
+					<div style="text-align: center;">
+						<span style="font-size: 14pt;"><b><span style="font-size: 20pt; font-family: 'a타이틀고딕4';">★회원정보★</span></b></span>
+					</div><br>
+					<div style="text-align: center; font-family: 'a타이틀고딕4';">
+						<br>아이디 : ${userID }<br>
+						<br>이름 : ${userName }<br>
+						<br>개인/보호소 : ${userDiv }<br>
+						<br>비밀번호 : ${userPW }<br>
+					</div>
+					<br><br>
+					<div onClick="close_pop();" align="center">
+						<button class="btn" style="font-size: 13pt;">확인</button>
+					</div>
+				</div>
+			</div>
+			<!--End Modal-->
+			<!-- The Modal -->
+			<!-- 회원정보 수정  -->
+			
+			<div id="myModal2" class="modal2">
+				<!-- Modal content -->
+				<div class="modal-content">
+					<div class="TabbedPanelsContentGroup clearfix colelem"
+						id="u2861">
+						<div class="TabbedPanelsContent grpelem" id="u2866" align="center">
+							<form id="loginfrm" action="../UpdateServlet" method="post">
+								<p class="message">회원정보 수정창</p>
+								<input type="text" name="userID" maxlength="50"	placeholder="${userID }" value="${userID }" required hidden="">
+								<input id="ex1" type="text" name="userName" maxlength="50" placeholder="이름" required><br><br>
+								<input id="ex2" type="password" name="userPW" maxlength="50" placeholder="비밀번호" required><br><br>
+								<input id="ex3" class="btn" type="submit" value="수정" onclick="update();">
+								<button class="btn"	onclick="exit();">취소</button>
+							</form>
+						</div>
+					</div>
+					<div id="message"></div>
+				</div>
+			</div>
+			
+			<div id="myModal3" class="modal3">
+				<!-- Modal content -->
+				<div class="modal-content">
+					<div class="TabbedPanelsContentGroup clearfix colelem"
+						id="u2861">
+						<div style="text-align: center;">
+							<p class="message">회원정보 수정 취소하였습니다.</p>
+							<button class="btn" onclick="updateno();">확인</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			
+			<!--End Modal-->   
 
 
 	        </div>

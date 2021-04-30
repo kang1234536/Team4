@@ -21,7 +21,7 @@ public class boardWriteServlet extends HttpServlet {
 		String userID = (String) session.getAttribute("userID");
 		RequestDispatcher rd = null;
 		if(userID==null) {
-			session.setAttribute("message", "·Î±×ÀÎÀÌ ÇÊ¿äÇÑÀÛ¾÷ÀÔ´Ï´Ù.·Î±×ÀÎÇØÁÖ¼¼¿ä :)");
+			session.setAttribute("message", "ï¿½Î±ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê¿ï¿½ï¿½ï¿½ï¿½Û¾ï¿½ï¿½Ô´Ï´ï¿½.ï¿½Î±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¼ï¿½ï¿½ï¿½ :)");
 			//System.out.println(session.getAttribute("message"));
 			response.sendRedirect("../login/LoginCheckServlet");
 		}
@@ -37,6 +37,7 @@ public class boardWriteServlet extends HttpServlet {
 		BoardDAO boardDAO = new BoardDAO();
 		String title = request.getParameter("Title");
 		String content = request.getParameter("Content");
+		content = content.replace("\n","<br>");
 
 		HttpSession session = request.getSession();
 		String userID = (String) session.getAttribute("userID");

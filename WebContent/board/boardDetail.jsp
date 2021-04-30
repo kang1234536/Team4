@@ -135,7 +135,7 @@
 		left: 182.5px;
 		position: relative;
 	}
-	.reply textarea{
+	.inputreply textarea{
 		border-top: 1px dotted gray;
 		border-left: 1px dotted gray;
 		border-right: 1px dotted gray;
@@ -283,7 +283,7 @@
 						</c:when>
 						
 						<c:when test="${userID!=null }">
-							<table class="reply">
+							<table class="reply" style="width: 800px;">
 							<c:forEach var="replylist" items="${reply_list}">
 								<tr>
 									<td id="userID">${replylist.user_id }</td>
@@ -293,16 +293,18 @@
 									<c:choose>
 									<c:when test="${userID==replylist.user_id }">
 										<td id="replyContent">${replylist.reply }</td>
-										<td align="right"><button onclick="del2('${replylist.reply_id}');">삭제</button></td>
+										<td align="right">
+											<input type="button" onclick="del2(this, '${replylist.reply_id}');" value="삭제" id="delete">
+										</td>
 									</c:when>
 									<c:when test="${userID!=replylist.user_id }">
 										<td id="replyContent" colspan="2">${replylist.reply }</td>
 									</c:when>
 									</c:choose>
 								</tr>
-								
-							</c:forEach>
-							
+								</c:forEach>
+								</table>
+							<table class="inputreply">
 							<tr>
 								<td colspan="2">
 								   <textarea placeholder="네티켓을 지켜주세요! 비방및 욕설 댓글은 무통보 삭제됩니다" style="height: 100px; width: 780px;padding: 10px 10px;" name="reply" id="reply2"></textarea>
@@ -386,6 +388,22 @@ function replywrite(user, bid, r){
 		  data: {"uid":user, "bid":bid, "reply":r},
 		  success: function(responseData){
 			  $("#reply2").val("");
+		  }
+	  });
+}
+
+function del2(obj, reply_id){
+	$(obj).parent().parent().prev().remove();
+	$(obj).parent().parent().remove();
+	
+	replyDelete(reply_id);
+}
+
+function replyDelete(reply_id){
+	  $.ajax({
+		  url:"replyDelete",
+		  data: {"replyid":reply_id},
+		  success: function(responseData){
 		  }
 	  });
 }

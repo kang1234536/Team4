@@ -12,6 +12,26 @@ import util.DBUtil;
 
 public class ReplyDAO {
 
+	public int deleteReply(int replyID) {
+		String sql = "delete from reply where reply_id = ?";
+		Connection conn;
+		PreparedStatement st = null;
+		int result = 0;
+
+		conn = DBUtil.getConnection();
+		try {
+			st = conn.prepareStatement(sql);
+			st.setInt(1, replyID);
+			result = st.executeUpdate();
+			conn.commit();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			DBUtil.dbClose(null, st, conn);
+		}
+		return result;
+	}
+	
 	public List<ReplyVO> selectList(int board_id) {
 		List<ReplyVO> replylist = new ArrayList<ReplyVO>();
 		Connection conn = util.DBUtil.getConnection();
@@ -36,7 +56,7 @@ public class ReplyDAO {
 		return replylist;
 	}
 	
-	public int insertBoard(String userID, int boardID, String reply) {
+	public int insertReply(String userID, int boardID, String reply) {
 		String sql = "insert into reply values(seq_reply.nextval, ?, ?, ?, sysdate)";
 		Connection conn;
 		PreparedStatement st = null;

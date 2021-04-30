@@ -34,6 +34,7 @@ public class BoardUpdateServlet extends HttpServlet {
 		BoardDAO boardDAO = new BoardDAO();
 		String title = request.getParameter("Title");
 		String content = request.getParameter("Content");
+		content = content.replace("\n", "<br>");
 
 		request.setAttribute("board_ID", board_ID);
 		int result = boardDAO.updateBoard(title, content, board_ID);

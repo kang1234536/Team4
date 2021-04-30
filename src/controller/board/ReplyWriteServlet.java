@@ -31,7 +31,7 @@ public class ReplyWriteServlet extends HttpServlet {
 		//System.out.println(boardID);
 		String reply = request.getParameter("reply");
 		//System.out.println(reply);
-		dao.insertBoard(userID, boardID, reply);
+		dao.insertReply(userID, boardID, reply);
 		
 		request.setAttribute("userID", uid);
 		request.setAttribute("board_ID", bid);
