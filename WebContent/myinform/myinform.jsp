@@ -338,8 +338,14 @@
 					<div style="text-align: center; font-family: 'a타이틀고딕4';">
 						<br>아이디 : ${userID }<br>
 						<br>이름 : ${userName }<br>
-						<br>개인/보호소 : ${userDiv }<br>
-						<br>비밀번호 : ${userPW }<br>
+						<c:choose>
+							<c:when test="${userDiv == 0}">
+								<br>개인/보호소 : 개인<br>
+							</c:when>
+							<c:when test="${userDiv == 1}">
+								<br>개인/보호소 : 보호소<br>
+							</c:when>
+						</c:choose>
 					</div>
 					<br><br>
 					<div onClick="close_pop();" align="center">

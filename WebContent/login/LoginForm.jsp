@@ -16,11 +16,13 @@
             "required": ["museutils.js", "museconfig.js", "webpro.js", "musewpdisclosure.js", "jquery.watch.js", "require.js", "login.css"],
             "outOfDate": []
         };
+
     </script>
 
     <script>
         var m = "${message}";
         /* alert(m.replace(".", ".\n")); */
+
     </script>
 
     <%
@@ -39,6 +41,42 @@
         // 회원가입 버튼 클릭시 회원가입 화면으로 이동
         function goRegisterForm() {
             location.href = "RegisterForm.jsp";
+        }
+        function SelectID(){
+            $("#myModal").show();
+
+        }
+        function close_pop(flag) {
+            $('#myModal').hide();
+        };
+        function close_pop2(flag) {
+            $('#myModal2').hide();
+        };
+        function idfind(){
+            var x= $("#idfind_name").val().trim();
+            if(x.length < 1){
+                alert("아이디를 입력하세요");
+                return;
+            }
+            $.ajax({
+                url : "../SelectIDServlet",
+                data : {
+                    "username" : x
+                },
+                type : "POST",
+                success : function(responseData) {
+                    if(responseData=="false"){
+                        alert("아이디가 다릅니다")
+                    }
+                    else{
+                        $('#myModal').hide();
+                        $('#myModal2').show();
+                        $("#idfind_name2").val(responseData);
+                        /* 	 alert("아이디를 찾았습니다."+responseData);  */
+                    }
+
+                }
+            });
         }
     </script>
 </head>
@@ -152,7 +190,48 @@
                                                 <br><br><br>
                                                 <p>아직 계정이 없으신가요?&nbsp;&nbsp;<a href="../RegisterCheckServlet">회원가입</a>
                                                 </p>
-                                                <p>ID를 잊어버리셨나요?&nbsp;&nbsp;<a href="">ID찾기</a>
+                                                <p>ID를 잊어버리셨나요?&nbsp;&nbsp;<a href="javascript:SelectID();">ID찾기</a>
+
+                                                    <!-- The Modal -->
+                                                    <!--start   -->
+                                                <div id="myModal" class="modal">
+                                                    <!-- Modal content -->
+                                                    <div class="modal-content">
+                                                        <div style="text-align: center;">
+                                                            <span style="font-size: 14pt;"><b><span style="font-size: 20pt; font-family: 'a타이틀고딕4';">★아이디찾기★</span></b></span>
+                                                        </div><br>
+                                                        <div style="text-align: center; font-family: 'a타이틀고딕4';">
+
+                                                            <br>이름&nbsp;&nbsp;<input id="idfind_name" type="text" style="border: 1px solid black;"><br>
+
+                                                        </div>
+                                                        <br><br>
+                                                        <div  align="center"> <!--onClick="close_pop();"  -->
+                                                            <button class="btn" style="font-size: 13pt;" onclick="idfind();">확인</button>
+                                                            <button class="btn" style="font-size: 13pt;" onclick="close_pop();">취소</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!--End Modal-->
+                                                <!--start   -->
+                                                <div id="myModal2" class="modal">
+                                                    <!-- Modal content -->
+                                                    <div class="modal-content">
+                                                        <div style="text-align: center;">
+                                                            <span style="font-size: 14pt;"><b><span style="font-size: 20pt; font-family: 'a타이틀고딕4';">★아이디를 찾았습니다.★</span></b></span>
+                                                        </div><br>
+                                                        <div style="text-align: center; font-family: 'a타이틀고딕4';">
+
+                                                            <br>아이디:&nbsp;&nbsp;<input id="idfind_name2" type="text" ><br>
+
+                                                        </div>
+                                                        <br><br>
+                                                        <div  align="center"> <!--onClick="close_pop();"  -->
+                                                            <button class="btn" style="font-size: 13pt;" onclick="close_pop2();">확인</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!--End Modal-->
                                                 </p>
                                             </div>
                                         </div>

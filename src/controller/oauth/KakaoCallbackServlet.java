@@ -1,7 +1,6 @@
 package controller.oauth;
 
 import model.user.OauthDAO;
-import model.user.UserDAO;
 import model.user.UserVO;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -20,7 +19,6 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.security.SecureRandom;
-import java.util.HashMap;
 
 @WebServlet("/KakaoCallbackServlet")
 public class KakaoCallbackServlet extends HttpServlet {
@@ -112,6 +110,8 @@ public class KakaoCallbackServlet extends HttpServlet {
             System.out.println(session.getId() + " 연결됨");
             session.setAttribute("userID", user.getUserID());
             session.setAttribute("userName", user.getUserName());
+            session.setAttribute("userPW", user.getUserPW());
+            session.setAttribute("userDiv", user.getUserDiv());
 
             RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
             rd.forward(request, response);

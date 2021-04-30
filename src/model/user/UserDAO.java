@@ -245,4 +245,26 @@ public class UserDAO {
 
         return userList;
     }
+
+    public UserVO selectByUserName(String username) {
+        UserVO user = null;
+        Connection conn = DBUtil.getConnection();
+        PreparedStatement st = null;
+        ResultSet rs = null;
+        String sql = "select * from USERS where user_NAME = ?";  //411322202100033
+        try {
+            st = conn.prepareStatement(sql);
+            st.setString(1,username);
+            rs = st.executeQuery();
+            while(rs.next()) {
+                //System.out.println(rs.getString(1));
+                user = makeUsers(rs);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            DBUtil.dbClose(rs, st, conn);
+        }
+        return user;
+    }
 }
