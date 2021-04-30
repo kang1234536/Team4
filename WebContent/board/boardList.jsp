@@ -149,10 +149,10 @@
 	       
 	       <!-- 로그인버튼 -->
 	       <div class="clearfix colelem" id="loginheader">
-	     	<c:if test="${userName != null}">
-				<p class="loginICON">${userName}님 환영합니다!&nbsp;&nbsp;<a id="loginoutbtn" href="../LogoutServlet">로그아웃</a></p>
+	     	<c:if test="${username != null}">
+				<p class="loginICON">${username}님 환영합니다!&nbsp;&nbsp;<a id="loginoutbtn" href="../LogoutServlet">로그아웃</a></p>
 			</c:if>
-			<c:if test="${userName == null}">
+			<c:if test="${username == null}">
 				<p class="loginICON"><a id="loginoutbtn" href="../login/LoginForm.jsp">로그인</a></p>
 			</c:if>
 	       </div>

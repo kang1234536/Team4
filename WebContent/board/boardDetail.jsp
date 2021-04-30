@@ -7,6 +7,7 @@
 <meta charset="UTF-8">
 <!-- 화면 최적화 -->
 <meta name="viewport" content="width-device-width">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <title>멍냥멍냥 게시판 상세보기</title>
 
 	<!-- CSS -->
@@ -185,10 +186,10 @@
 		
 		 <!-- 로그인버튼 -->
 	       <div class="clearfix colelem" id="loginheader">
-	     	<c:if test="${userName != null}">
-				<p class="loginICON">${userName}님 환영합니다!&nbsp;&nbsp;<a href="../LogoutServlet">로그아웃</a></p>
+	     	<c:if test="${username != null}">
+				<p class="loginICON">${username}님 환영합니다!&nbsp;&nbsp;<a href="../LogoutServlet">로그아웃</a></p>
 			</c:if>
-			<c:if test="${userName == null}">
+			<c:if test="${username == null}">
 				<p class="loginICON"><a href="../login/LoginForm.jsp">로그인</a></p>
 			</c:if>
 	       </div>
@@ -261,8 +262,9 @@
 					</tbody>
 				</table>
 				<br>			
-				<form action="replyWrite">
+				<form>
 					<input type="hidden" name="boardID" value="${param.board_ID }">
+					<div id="replyTable">
 					<c:choose>
 						<c:when test="${userID==null }">
 							<table class="reply">
@@ -279,25 +281,41 @@
 							</tr>
 							</table>
 						</c:when>
+						
 						<c:when test="${userID!=null }">
 							<table class="reply">
 							<c:forEach var="replylist" items="${reply_list}">
 								<tr>
 									<td id="userID">${replylist.user_id }</td>
 									<td id="date">${replylist.reply_date }</td>
-								</tr><tr>
-									<td id="replyContent" colspan="2">${replylist.reply }</td>
 								</tr>
+								<tr>
+									<c:choose>
+									<c:when test="${userID==replylist.user_id }">
+										<td id="replyContent">${replylist.reply }</td>
+										<td align="right"><button onclick="del2('${replylist.reply_id}');">삭제</button></td>
+									</c:when>
+									<c:when test="${userID!=replylist.user_id }">
+										<td id="replyContent" colspan="2">${replylist.reply }</td>
+									</c:when>
+									</c:choose>
+								</tr>
+								
 							</c:forEach>
+							
 							<tr>
-								<td colspan="2"><textarea placeholder="네티켓을 지켜주세요! 비방및 욕설 댓글은 무통보 삭제됩니다" style="height: 100px; width: 780px;padding: 10px 10px;" name="reply"></textarea></td>
+								<td colspan="2">
+								   <textarea placeholder="네티켓을 지켜주세요! 비방및 욕설 댓글은 무통보 삭제됩니다" style="height: 100px; width: 780px;padding: 10px 10px;" name="reply" id="reply2"></textarea>
+								</td>
 							</tr>
 							<tr>
-								<td colspan="2" id="regist"><input type="submit" class="btn2" value="등록"></td>
+								<td colspan="2" id="regist"><input type="button" class="btn2" value="등록" onclick="godata('${userID}','${param.board_ID }');"></td>
 							</tr>
 							</table>
 						</c:when>
+						
 					</c:choose>
+					</div>
 				</form>
 				
 				<!-- 목록 돌아가기 버튼 -->
@@ -338,5 +356,39 @@
     </div>
     <div class="verticalspacer" data-offset-top="1235" data-content-above-spacer="1300" data-content-below-spacer="0"></div>
 
+<script>
+function godata(user, bid){
+	
+	var d = new Date();
+	var month = d.getMonth()+1;
+	var hours = d.getHours();
+	if(hours<10) hours= "0"+d.getHours();
+	if(month<10) month = "0"+month;
+	
+	var date = d.getFullYear()+"."+month+"."+d.getDate()+" "+hours+":"+d.getMinutes();
+	var r = $("#reply2").val();
+	
+	var str = 
+	"<tr>"+
+	"<td id='userID'>"+user+"</td>"+
+	"<td id='date'>"+date+"</td>"+
+	"</tr>"+
+	"<tr>"+
+	"<td id='replyContent' colspan='2'>"+r+"</td>"+
+	"</tr>";
+	 
+	$("#reply2").parent().parent().before(str);
+	replywrite(user, bid, r);
+}
+function replywrite(user, bid, r){
+	  $.ajax({
+		  url:"replyWrite",
+		  data: {"uid":user, "bid":bid, "reply":r},
+		  success: function(responseData){
+			  $("#reply2").val("");
+		  }
+	  });
+}
+</script>
 </body>
 </html>
