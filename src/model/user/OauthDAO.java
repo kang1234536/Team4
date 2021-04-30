@@ -3,25 +3,17 @@ package model.user;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
 import java.net.URL;
-import java.net.URLEncoder;
-import java.security.SecureRandom;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.HashMap;
-
 import org.json.simple.parser.*;
-
 import org.json.simple.JSONObject;
-
 import util.DBUtil;
+import static util.Encryption.sha256;
 
-import javax.servlet.http.HttpSession;
 
 public class OauthDAO {
     private static OauthDAO instance;
@@ -62,7 +54,7 @@ public class OauthDAO {
             JSONObject resObj = (JSONObject)jsonObj.get("response");
 
             //왼쪽 변수 이름은 원하는 대로 정하면 된다.
-            String userPW = (String)resObj.get("id"); //이게 pw임
+            String userPW = sha256((String)resObj.get("id")); //이게 pw임
             String userID = (String)resObj.get("email");
             String userName = (String)resObj.get("name");
 
@@ -124,7 +116,7 @@ public class OauthDAO {
             else {
                 userName = (String) kakao_account.get("email");
             }
-            userPW = jsonObj.get("id").toString();
+            userPW = sha256(jsonObj.get("id").toString());
 
             user.setUserID(userID);
             user.setUserPW(userPW);

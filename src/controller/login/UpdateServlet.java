@@ -12,6 +12,7 @@ import javax.servlet.http.HttpSession;
 
 import model.user.UserDAO;
 import model.user.UserVO;
+import static util.Encryption.sha256;
 
 @WebServlet("/UpdateServlet")
 public class UpdateServlet extends HttpServlet {
@@ -21,7 +22,7 @@ public class UpdateServlet extends HttpServlet {
         UserDAO dao = new UserDAO();
 
         user.setUserID(request.getParameter("userID"));
-        user.setUserPW(request.getParameter("userPW"));
+        user.setUserPW(sha256(request.getParameter("userPW")));
         user.setUserName(request.getParameter("userName"));
         
         dao.UpdateUser(user);

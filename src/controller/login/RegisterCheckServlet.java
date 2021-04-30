@@ -12,26 +12,27 @@ import javax.servlet.http.HttpSession;
 
 import model.user.UserDAO;
 import model.user.UserVO;
+import static util.Encryption.sha256;
 
 @WebServlet("/RegisterCheckServlet")
 public class RegisterCheckServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     	
-		 request.setCharacterEncoding("UTF-8"); 
-    	
-    	
-    	
+		 request.setCharacterEncoding("UTF-8");
+
     	UserVO user = new UserVO();
         UserDAO dao = new UserDAO();
 
         user.setUserID(request.getParameter("userID"));
-        user.setUserPW(request.getParameter("userPW"));
+        user.setUserPW(sha256(request.getParameter("userPW")));
         user.setUserName(request.getParameter("userName"));
 
         dao.insertUser(user);
 
         response.sendRedirect("login/LoginForm.jsp");
     }
+
+
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     	HttpSession session = request.getSession();
     	request.setAttribute("message", session.getAttribute("message"));

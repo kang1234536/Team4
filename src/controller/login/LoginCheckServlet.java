@@ -1,8 +1,6 @@
 package controller.login;
 
 import java.io.IOException;
-
-import javax.servlet.DispatcherType;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -13,6 +11,7 @@ import javax.servlet.http.HttpSession;
 
 import model.user.UserDAO;
 import model.user.UserVO;
+import static util.Encryption.sha256;
 
 @WebServlet("/login/LoginCheckServlet")
 public class LoginCheckServlet extends HttpServlet {
@@ -25,7 +24,7 @@ public class LoginCheckServlet extends HttpServlet {
         // �α��� ȭ�鿡 �Էµ� ���̵�� ��й�ȣ�� �����´�
         UserDAO dao = UserDAO.getInstance();
         String userID = request.getParameter("userID");
-        String userPW = request.getParameter("userPW");
+        String userPW = sha256(request.getParameter("userPW"));
 
         UserVO user = dao.selectByUserId(userID);
 

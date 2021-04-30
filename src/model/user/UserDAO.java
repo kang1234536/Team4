@@ -1,8 +1,11 @@
 package model.user;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 import util.DBUtil;
+
 
 public class UserDAO {
     private static UserDAO instance;
@@ -95,6 +98,7 @@ public class UserDAO {
 		}
 		return result;
 	}
+
 	public int UpdateUser(UserVO user) {
 		Connection conn =DBUtil.getConnection();
 		PreparedStatement st = null;
@@ -102,15 +106,12 @@ public class UserDAO {
 		try {
 		StringBuffer sql = new StringBuffer();
 		sql.append("update users set user_pw=? , user_name=? where user_id=?");
-		
-		
+
 			st = conn.prepareStatement(sql.toString());
 
 			st.setString(3, user.getUserID());
 			st.setString(1, user.getUserPW());
 			st.setString(2, user.getUserName());
-			
-		
 
 			result = st.executeUpdate(); // insert/update/delete는 executeUpdate()를 써야한다.
 		} catch (SQLException e) {
@@ -222,4 +223,26 @@ public class UserDAO {
         return user;
     }
 
+
+    public List<UserVO> selectAll() {
+        List<UserVO> userList = new ArrayList<UserVO>();
+        Connection conn = DBUtil.getConnection();
+        Statement st = null;
+        ResultSet rs = null;
+        String sql = "select * from USERS";
+        try {
+            st = conn.createStatement();
+            rs = st.executeQuery(sql);
+            while(rs.next()) {
+                userList.add(makeUsers(rs));
+            }
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } finally {
+            DBUtil.dbClose(rs, st, conn);
+        }
+
+        return userList;
+    }
 }
