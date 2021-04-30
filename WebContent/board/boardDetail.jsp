@@ -277,7 +277,7 @@
 								</tr>
 							</c:forEach>
 							<tr>
-								<td colspan="2"><textarea placeholder="댓글을 작성하려면 로그인 해주세요" readonly style="height: 50px; width: 780px;padding: 10px 10px;" onclick="location='../login/LoginCheckServlet'"></textarea></td>
+								<td colspan="2" style="border: 1px dotted gray;"><textarea placeholder="댓글을 작성하려면 로그인 해주세요" readonly style="height: 50px; width: 780px;padding: 10px 10px;" onclick="location='../login/LoginCheckServlet'"></textarea></td>
 							</tr>
 							</table>
 						</c:when>
@@ -376,7 +376,10 @@ function godata(user, bid){
 	"<td id='date'>"+date+"</td>"+
 	"</tr>"+
 	"<tr>"+
-	"<td id='replyContent' colspan='2'>"+r+"</td>"+
+	"<td id='replyContent'>"+r+"</td>"+
+	'<td align="right">'+
+	'<input type="button" onclick="del2(this, \'${replylist.reply_id}\');" value="삭제" id="delete">'+
+	"</td>"+
 	"</tr>";
 	 
 	$("#reply2").parent().parent().before(str);
