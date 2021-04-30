@@ -14,6 +14,111 @@ import util.DBUtil;
 
 public class AnimalsDAO {
 	
+	public List<AnimalsVO> selectByKindB(int start, int end, String kindB) {
+		List<AnimalsVO> aniList = new ArrayList<AnimalsVO>();
+		Connection conn = util.DBUtil.getConnection();
+		PreparedStatement st = null;
+		ResultSet rs = null;
+		String sql = "select * from (select rownum rn, aa.* from(select * from animals where kind like '%"
+				+ kindB
+				+ "%' order by animalid)aa) where rn between ? and ?";
+		try {
+			st = conn.prepareStatement(sql);
+			st.setInt(1, start);
+			st.setInt(2, end);
+			rs = st.executeQuery();
+			while(rs.next()) {
+				AnimalsVO makeRs = makeAnimals(rs);
+				aniList.add(makeRs);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			DBUtil.dbClose(rs, st, conn);
+		}
+		
+		return aniList;
+	}
+	
+	public List<AnimalsVO> selectByKindA(int start, int end, String kindA) {
+		List<AnimalsVO> aniList = new ArrayList<AnimalsVO>();
+		Connection conn = util.DBUtil.getConnection();
+		PreparedStatement st = null;
+		ResultSet rs = null;
+		String sql = "select * from (select rownum rn, aa.* from(select * from animals where kind like '%["
+				+ kindA
+				+ "]%' order by animalid)aa) where rn between ? and ?";
+		try {
+			st = conn.prepareStatement(sql);
+			st.setInt(1, start);
+			st.setInt(2, end);
+			rs = st.executeQuery();
+			while(rs.next()) {
+				AnimalsVO makeRs = makeAnimals(rs);
+				aniList.add(makeRs);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			DBUtil.dbClose(rs, st, conn);
+		}
+		
+		return aniList;
+	}
+	
+	public List<AnimalsVO> selectByLocalB(int start, int end, String localB) {
+		List<AnimalsVO> aniList = new ArrayList<AnimalsVO>();
+		Connection conn = util.DBUtil.getConnection();
+		PreparedStatement st = null;
+		ResultSet rs = null;
+		String sql = "select * from (select rownum rn, aa.* from(select * from animals where careaddr like '%"
+				+ localB
+				+ "%' order by animalid)aa) where rn between ? and ?";
+		try {
+			st = conn.prepareStatement(sql);
+			st.setInt(1, start);
+			st.setInt(2, end);
+			rs = st.executeQuery();
+			while(rs.next()) {
+				AnimalsVO makeRs = makeAnimals(rs);
+				aniList.add(makeRs);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			DBUtil.dbClose(rs, st, conn);
+		}
+		
+		return aniList;
+	}
+	
+	public List<AnimalsVO> selectByLocalA(int start, int end, String localA) {
+		List<AnimalsVO> aniList = new ArrayList<AnimalsVO>();
+		Connection conn = util.DBUtil.getConnection();
+		PreparedStatement st = null;
+		ResultSet rs = null;
+		String sql = "select * from (select rownum rn, aa.* from(select * from animals where careaddr like '%"
+				+ localA
+				+ "%' order by animalid)aa) where rn between ? and ?";
+		try {
+			st = conn.prepareStatement(sql);
+			st.setInt(1, start);
+			st.setInt(2, end);
+			rs = st.executeQuery();
+			while(rs.next()) {
+				AnimalsVO makeRs = makeAnimals(rs);
+				aniList.add(makeRs);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			DBUtil.dbClose(rs, st, conn);
+		}
+		
+		return aniList;
+	}
+	
+	
 	public HashSet<String> selectKind() {
 		HashSet<String> kindSet = new HashSet<>();
 		Connection conn = DBUtil.getConnection();
@@ -208,7 +313,7 @@ public class AnimalsDAO {
 	   ani.setSpacialMark(rs.getString("spacialmark"));
 	   ani.setState(rs.getString("state")); 
 	   ani.setWeight(rs.getString("weight"));
-	   
+	   ani.setKind(rs.getString("kind"));
 	   return ani;
    }
 

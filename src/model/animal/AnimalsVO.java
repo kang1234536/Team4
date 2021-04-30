@@ -18,12 +18,13 @@ public class AnimalsVO {
 	private String careTel;			// 
 	private String careAddr;			// 
 	private int bookNum;			// 
+	private String kind;
 	public AnimalsVO() {
 		super();
 	}
 	public AnimalsVO(String animalID, String popfile, String color, String sex, String age, String weight,
 			String neuter, String happenDate, String happenPlace, String spacialMark, String state, String careName,
-			String careTel, String careAddr, int bookNum) {
+			String careTel, String careAddr, int bookNum, String kind) {
 		super();
 		this.animalID = animalID;
 		this.popfile = popfile;
@@ -40,6 +41,7 @@ public class AnimalsVO {
 		this.careTel = careTel;
 		this.careAddr = careAddr;
 		this.bookNum = bookNum;
+		this.kind = kind;
 	}
 	public String getAnimalID() {
 		return animalID;
@@ -50,8 +52,8 @@ public class AnimalsVO {
 	public String getPopfile() {
 		return popfile;
 	}
-	public void setPopfile(String profile) {
-		this.popfile = profile;
+	public void setPopfile(String popfile) {
+		this.popfile = popfile;
 	}
 	public String getColor() {
 		return color;
@@ -131,13 +133,25 @@ public class AnimalsVO {
 	public void setBookNum(int bookNum) {
 		this.bookNum = bookNum;
 	}
+	public String getKind() {
+		return kind;
+	}
+	public void setKind(String kind) {
+		this.kind = kind;
+	}
 	@Override
 	public String toString() {
-		return "AnimalsVO [animalID=" + animalID + ", popfile=" + popfile + ", color=" + color + ", sex=" + sex
-				+ ", age=" + age + ", weight=" + weight + ", neuter=" + neuter + ", happenDate=" + happenDate
-				+ ", happenPlace=" + happenPlace + ", spacialMark=" + spacialMark + ", state=" + state + ", careName="
-				+ careName + ", careTel=" + careTel + ", careAddr=" + careAddr + ", bookNum=" + bookNum + "]";
+		StringBuilder builder = new StringBuilder();
+		builder.append("AnimalsVO [animalID=").append(animalID).append(", popfile=").append(popfile).append(", color=")
+				.append(color).append(", sex=").append(sex).append(", age=").append(age).append(", weight=")
+				.append(weight).append(", neuter=").append(neuter).append(", happenDate=").append(happenDate)
+				.append(", happenPlace=").append(happenPlace).append(", spacialMark=").append(spacialMark)
+				.append(", state=").append(state).append(", careName=").append(careName).append(", careTel=")
+				.append(careTel).append(", careAddr=").append(careAddr).append(", bookNum=").append(bookNum)
+				.append(", kind=").append(kind).append("]");
+		return builder.toString();
 	}
+	
 	
 	
 	

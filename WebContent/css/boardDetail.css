@@ -6,7 +6,7 @@
 #page {
 	z-index: 1;
 	width: 1280px;
-	min-height: 1300.957621841228px;
+	min-height: auto;
 	background-image: none;
 	border-width: 0px;
 	border-color: #000000;
@@ -22,7 +22,7 @@
 
 #u1966 {
 	z-index: 3;
-	min-height: 1300px;
+	height: 1200px;
 	padding-bottom: 1px;
 }
 
@@ -35,7 +35,7 @@
 }
 
 #u1966_position_content {
-	margin-bottom: -238px;
+	/* margin-bottom: -238px; */
 	padding-top: 105px;
 	width: 100%;
 }
@@ -324,20 +324,21 @@
 
 #u2013 {
 	z-index: 6;
-	width: 1115px; min-height: 1100px; 
+	width: 1115px; 
+	/* min-height: auto;  */
 	box-shadow: 0px 20px 20px rgba(127, 127, 127, 0.2);
 	background-color: #FFFFFF;
 	padding-bottom: 28px;
 	left: 182px;
 	top: -1px;
-	margin-bottom: -1px;
+	margin-bottom: 80px;
 	position: relative;
 }
 
 #u2511-3 {
 	z-index: 7;
 	width: 1052px;
-	min-height: 1100px;
+	min-height: auto;
 	border-style: solid;
 	border-width: 5px;
 	border-color: #F6C95E;
@@ -347,6 +348,7 @@
 	margin-right: -10000px;
 	margin-top: 29px;
 	left: 27px;
+	padding-bottom: 30px;
 }
 
 #tab-panelu2860 {
@@ -551,12 +553,13 @@
 
 #u1966-bw {
 	z-index: 3;
-	min-height: 960.3500000000001px;
+	min-height: 950px;
 }
 
 #u1965, #u1965-bw {
 	z-index: 2;
 	height: 340px;
+	position: relative;
 }
 
 #muse_css_mq, .html {

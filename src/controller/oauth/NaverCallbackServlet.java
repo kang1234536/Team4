@@ -97,8 +97,6 @@ public class NaverCallbackServlet extends HttpServlet {
                             System.out.println(session.getId() + " 연결됨");
                             session.setAttribute("userID", user.getUserID());
                             session.setAttribute("userName", user.getUserName());
-                            session.setAttribute("userPW", user.getUserPW());
-                            session.setAttribute("userDiv", user.getUserDiv());
 
                             RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
                             rd.forward(request, response);

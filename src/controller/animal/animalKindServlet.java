@@ -45,7 +45,7 @@ public class animalKindServlet extends HttpServlet {
 				if(vv.equals("고양이"))
 					detailSet.add(addr.split(" ", 2)[1]);
 			}
-		}else {
+		}else if(kind.equals("기타축종")){
 			for(String addr: set) {
 				zz = addr.split(" ")[0];
 				vv = zz.substring(1, zz.length()-1);
@@ -53,7 +53,7 @@ public class animalKindServlet extends HttpServlet {
 					detailSet.add(addr.split(" ", 2)[1]);
 			}
 		}
-		
+		System.out.println(detailSet);
 		request.setAttribute("detailSet", detailSet);
 		
 		RequestDispatcher rd = request.getRequestDispatcher("detailKind.jsp");

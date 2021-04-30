@@ -5,6 +5,7 @@ import java.security.MessageDigest;
 public class Encryption {
     public static String sha256(String pwd) {
         try{
+
             MessageDigest digest = MessageDigest.getInstance("SHA-256");
             byte[] hash = digest.digest(pwd.getBytes("UTF-8"));
             StringBuffer hexString = new StringBuffer();

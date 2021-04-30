@@ -7,13 +7,39 @@
 <meta charset="UTF-8">
 <!-- 화면 최적화 -->
 <meta name="viewport" content="width-device-width">
-
 <title>유기동물 상세정보</title>
+
+
 
 	<!-- CSS -->
 	<link rel="stylesheet" type="text/css" href="../css/site_global.css"/>
 	<link rel="stylesheet" type="text/css" href="../css/master_b-___.css"/>
 	<link rel="stylesheet" type="text/css" href="../css/animalDetail.css" id="pagesheet"/>
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+<script>
+	/* 스크롤을 내리면 메뉴바가 상단에 고정 */
+	$(function(){
+		var wind = $(window),
+			header = $('.menubar'),
+			headerOffsetTop = header.offset().top;
+		console.log(headerOffsetTop);
+		wind.scroll(function(){
+			if($(this).scrollTop() >= headerOffsetTop) {
+				header.addClass('sticky');
+			} else {
+				header.removeClass('sticky');
+			}
+		});
+		
+		$('#reservation').on("click", function(){
+			alert('입양신청되었습니다.');
+		});
+	});
+	
+	
+</script>
 
 <style>
 	#u1966 {
@@ -127,17 +153,30 @@
 	font-size: 14px; font-family: 'a타이틀고딕2';
 	position: relative;
 	box-shadow: 1px 1px 10px #eee;
-	left: 500px;
+	left: 470px;
+}
+#reservation {
+	width: 60px; height: 30px;
+	border-radius: 5px;
+	border: 1px outset #FDED91;
+	background-color: #FDED91;
+	font-size: 14px; font-family: 'a타이틀고딕2';
+	position: relative;
+	box-shadow: 1px 1px 10px #eee;
+	left: 480px;
 }
 
 #u2013 {
-	z-index: 6;
+	z-index: 5;
 	width: 1115px;
+	height: 1100px;
 	box-shadow: 0px 20px 20px rgba(127, 127, 127, 0.2);
 	background-color: #FFFFFF;
-	padding-bottom: 28px;
+	padding-top: 100px;
+	/* padding-bottom: 28px; */
 	left: 182px;
-	position: relative;
+	position: absolute;
+	margin-top: 60px;
 }
   
 	#loginheader {
@@ -165,7 +204,30 @@
 		color : blue;
 	}
 
-
+	.menubar {
+		position:absolute;
+		z-index: 6;
+		width: 1115px; 
+		/* height: 105px; */
+		background-color: #FFFCEC;
+		padding-top: 49px;
+		padding-bottom: 49px;
+		/* border: 1px solid red; */
+		margin-left: 182px;
+		/* margin: 0 auto; */
+		transition: 0.3s;
+	}
+	
+	.menubar.sticky {
+		position: fixed; 
+		top:0;
+		z-index: 6;
+		background-color: #FFFCEC;
+		box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+		height: 65px;
+		padding-top: 28px;
+		padding-bottom: 14px;
+	}
 </style>
 </head>
 
@@ -178,7 +240,7 @@
 		<div id="u1966">
 		<div class="clearfix" id="u1966_align_to_page">
 		<div class="position_content" id="u1966_position_content">
-
+		
 		<!-- 로그인버튼 -->
 		<div class="clearfix colelem" id="loginheader">
 			<c:if test="${userName != null}">
@@ -188,7 +250,7 @@
 				<p class="loginICON"><a href="../login/LoginForm.jsp">로그인</a></p>
 			</c:if>
 		</div>
-
+				
 		<!-- 동물친구들이미지 -->
 		<div class="clip_frame colelem" id="u2010">
 		<img class="block" id="u2010_img" src="../images/index-animalfriends.png?crc=414174054" alt="" width="677" height="125" />
@@ -196,13 +258,13 @@
 		<!-- 여기까지가 Header -->
 				
 			<!-- 여기서부터 Navigator -->
-			<div class="clearfix colelem" id="u2954">
+			<div class="menubar">
 				<!-- 나의정보버튼 -->
-				<a class="nonblock nontext Button rounded-corners transition clearfix grpelem" id="buttonu2060" href="../login/myinform.jsp">
+				<a class="nonblock nontext Button rounded-corners transition clearfix grpelem" id="buttonu2060" href="../myinform/myinformation">
 				<img class="grpelem" id="u2061" alt="나의정보"	src="../images/blank.gif?crc=4208392903" />
 				</a>
 				<!-- 유기동물조회버튼 -->
-				<a class="nonblock nontext Button rounded-corners transition clearfix grpelem" id="buttonu2062" href="../animal/animalsList">
+				<a class="nonblock nontext Button rounded-corners transition clearfix grpelem" id="buttonu2062" href="../animal/animalsFirst">
 				<img class="grpelem" id="u2063" alt="유기동물조회" src="../images/blank.gif?crc=4208392903" />
 				</a>
 				 <!-- 멍냥멍냥로고 -->
@@ -298,8 +360,10 @@
 				    </tbody>
 				  </table>
 				</div>
-				<a href="animalsList">
+				<a href="../animal/animalsFirst">
 				<button id="listbtn">목 록</button></a>
+				<a href="">
+				<button id="reservation">입양신청</button></a>
 				<div id="map">
 				  <span id="careLocation">[ 보호소 위치 ]</span>
 				  <%@ include file="/map/carePlaceSearch.jsp" %>

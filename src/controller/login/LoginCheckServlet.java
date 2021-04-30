@@ -25,6 +25,7 @@ public class LoginCheckServlet extends HttpServlet {
         UserDAO dao = UserDAO.getInstance();
         String userID = request.getParameter("userID");
         String userPW = sha256(request.getParameter("userPW"));
+
         UserVO user = dao.selectByUserId(userID);
 
         // DB���� ���̵�, ��й�ȣ Ȯ��

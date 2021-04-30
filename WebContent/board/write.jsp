@@ -20,16 +20,12 @@
 <style>
 a:link {
 	text-decoration: none;
-	color: black;
+	color: blue;
 }
 
 a:visited {
 	text-decoration: none;
-	color: black;
-}
-
-noticeA:link {
-	color: red;
+	color: blue;
 }
 
 th {
@@ -108,7 +104,7 @@ table {
 
 #boardTITLE {
 	font-size: 40px;
-	font-family: 'a타이틀고딕3';
+	font-family: 'a타이틀고딕2';
 	display: inline;
 	position: absolute;
 	margin-left: 20px;
@@ -116,16 +112,10 @@ table {
 	text-align: center;
 }
 
-#loginICON {
-	font-size: 15px;
-	text-decoration: none;
-	font-family: 'a타이틀고딕3';
-}
-
 .loginICON {
 	font-size: 15px;
 	text-decoration: none;
-	font-family: 'a타이틀고딕3';
+	font-family: 'a타이틀고딕2';
 	float: right;
 }
 </style>
@@ -142,12 +132,11 @@ table {
 
 			<!-- 로그인버튼 -->
 			<div class="clearfix colelem" id="loginheader">
-				<c:if test="${username != null}">
-					<p class="loginICON">${username}님
-						환영합니다!<a href="../LogoutServlet">로그아웃</a>
+				<c:if test="${userName != null}">
+					<p class="loginICON">${userName}님 환영합니다!&nbsp;&nbsp;<a href="../LogoutServlet">로그아웃</a>
 					</p>
 				</c:if>
-				<c:if test="${username == null}">
+				<c:if test="${userName == null}">
 					<p class="loginICON">
 						<a href="../login/LoginForm.jsp">로그인</a>
 					</p>
@@ -163,9 +152,9 @@ table {
 			<!-- NAV -->
 			<div class="clearfix colelem" id="u3513">
 				<!-- group -->
-				<a class="nonblock nontext Button rounded-corners transition clearfix grpelem" id="buttonu3461" href="../myinform/myinform.jsp"> 
+				<a class="nonblock nontext Button rounded-corners transition clearfix grpelem" id="buttonu3461" href="../myinform/myinformation"> 
 				<img class="grpelem" id="u3462" alt="내 정보" src="../images/blank.gif?crc=4208392903" /></a> 
-				<a class="nonblock nontext Button rounded-corners transition clearfix grpelem" id="buttonu3463" href="../animal/animalsList"> 
+				<a class="nonblock nontext Button rounded-corners transition clearfix grpelem" id="buttonu3463" href="../animal/animalsFirst"> 
 				<img class="grpelem" id="u3464" alt="유기동물조회" src="../images/blank.gif?crc=4208392903" /></a> 
 				<a class="nonblock nontext grpelem" id="u3469-4" href="../index.jsp"> <img id="u3469-4_img" alt="멍냥멍냥" width="212" height="60" src="../images/u3469-4.png?crc=347814851" /></a>
 

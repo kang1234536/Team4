@@ -157,7 +157,7 @@ table, td {
 				<img class="grpelem" id="u2061" alt="나의정보"	src="../images/blank.gif?crc=4208392903" />
 				</a>
 				<!-- 유기동물조회버튼 -->
-				<a class="nonblock nontext Button rounded-corners transition clearfix grpelem" id="buttonu2062" href="../animal/animalsList">
+				<a class="nonblock nontext Button rounded-corners transition clearfix grpelem" id="buttonu2062" href="../animal/animalsFirst">
 				<img class="grpelem" id="u2063" alt="유기동물조회" src="../images/blank.gif?crc=4208392903" />
 				</a>
 				 <!-- 멍냥멍냥로고 -->

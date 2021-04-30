@@ -176,6 +176,31 @@
 		width: 300px; height: 40px; 
 		padding-left: 10px;
 	}
+	
+	a:link {
+		text-decoration: none;
+		color : blue;
+	}
+	
+	a:visited {
+		text-decoration: none;
+		color : blue;
+	}
+	
+	#loginheader {
+		z-index: 5;
+		width: 1115px;
+		/* border: 2px solid red; */
+		left: 182.5px;
+		position: relative;
+	}
+	
+	.loginICON {
+		font-size: 15px;
+		text-decoration: none;
+		font-family: 'a타이틀고딕2';
+		float: right;
+	}
 </style>
 
 
@@ -219,7 +244,7 @@
 		else if (val == "0") { //회원정보 변경               	
 			$('#myModal2').show();
 		} else if (val == "1") { //회원탈퇴
-			var delete_test = confirm("회원 탈퇴하시겠습니까?\n탈퇴를 하시게 되면 그동안 작성된 게시글과 댓글이 모두 삭제됩니다.");
+			var delete_test = confirm("회원 탈퇴하시겠습니까?");
 			if (delete_test == true) {
 				alert("Ajax 좀 돼라!!!!!!!!!!!!!");
 				$.ajax({
@@ -251,6 +276,19 @@
 	     <div id="u1966"><!-- column -->
 	      <div class="clearfix" id="u1966_align_to_page">
 	       <div class="position_content" id="u1966_position_content">
+	       
+	       <!-- 로그인버튼 -->
+	       <div class="clearfix colelem" id="loginheader">
+	     	
+	     	<c:if test="${userName != null}">
+				<p class="loginICON">${userName}님 환영합니다!&nbsp;&nbsp;<a href="../LogoutServlet">로그아웃</a></p>
+			</c:if>
+			<c:if test="${userName == null}">
+				<p class="loginICON"><a href="../login/LoginCheckServlet">로그인</a></p>
+			</c:if>
+			
+	       </div>
+	       
 	        <div class="clip_frame colelem" id="u3456">
 	         <img class="block" id="u3456_img" src="../images/index-animalfriends.png?crc=414174054" alt="" width="677" height="125"/>
 	        </div>
@@ -260,7 +298,7 @@
 	         <div class="nonblock nontext Button rounded-corners transition clearfix grpelem" id="buttonu3461" href="../myinform/myinformation">
 	         <img class="grpelem" id="u3462" alt="내 정보" src="../images/blank.gif?crc=4208392903"/></div>
 	         
-	         <a class="nonblock nontext Button rounded-corners transition clearfix grpelem" id="buttonu3463" href="../animal/animalsList">
+	         <a class="nonblock nontext Button rounded-corners transition clearfix grpelem" id="buttonu3463" href="../animal/animalsFirst">
 	         <img class="grpelem" id="u3464" alt="유기동물조회" src="../images/blank.gif?crc=4208392903"/></a>
 	         
 	         <a class="nonblock nontext grpelem" id="u3469-4" href="../index.jsp">
@@ -328,70 +366,64 @@
 		<!-- 게시판 메인 페이지 영역 끝 -->
 		
 	        <!-- The Modal -->
-			<!-- 회원정보 보기  -->
-			<div id="myModal" class="modal">
-				<!-- Modal content -->
-				<div class="modal-content">
-					<div style="text-align: center;">
-						<span style="font-size: 14pt;"><b><span style="font-size: 20pt; font-family: 'a타이틀고딕4';">★회원정보★</span></b></span>
-					</div><br>
-					<div style="text-align: center; font-family: 'a타이틀고딕4';">
-						<br>아이디 : ${userID }<br>
-						<br>이름 : ${userName }<br>
-						<c:choose>
-							<c:when test="${userDiv == 0}">
-								<br>개인/보호소 : 개인<br>
-							</c:when>
-							<c:when test="${userDiv == 1}">
-								<br>개인/보호소 : 보호소<br>
-							</c:when>
-						</c:choose>
-					</div>
-					<br><br>
-					<div onClick="close_pop();" align="center">
-						<button class="btn" style="font-size: 13pt;">확인</button>
-					</div>
-				</div>
-			</div>
-			<!--End Modal-->
-			<!-- The Modal -->
-			<!-- 회원정보 수정  -->
-			
-			<div id="myModal2" class="modal2">
-				<!-- Modal content -->
-				<div class="modal-content">
-					<div class="TabbedPanelsContentGroup clearfix colelem"
-						id="u2861">
-						<div class="TabbedPanelsContent grpelem" id="u2866" align="center">
-							<form id="loginfrm" action="../UpdateServlet" method="post">
-								<p class="message">회원정보 수정창</p>
-								<input type="text" name="userID" maxlength="50"	placeholder="${userID }" value="${userID }" required hidden="">
-								<input id="ex1" type="text" name="userName" maxlength="50" placeholder="이름" required><br><br>
-								<input id="ex2" type="password" name="userPW" maxlength="50" placeholder="비밀번호" required><br><br>
-								<input id="ex3" class="btn" type="submit" value="수정" onclick="update();">
-								<button class="btn"	onclick="exit();">취소</button>
-							</form>
-						</div>
-					</div>
-					<div id="message"></div>
-				</div>
-			</div>
-			
-			<div id="myModal3" class="modal3">
-				<!-- Modal content -->
-				<div class="modal-content">
-					<div class="TabbedPanelsContentGroup clearfix colelem"
-						id="u2861">
-						<div style="text-align: center;">
-							<p class="message">회원정보 수정 취소하였습니다.</p>
-							<button class="btn" onclick="updateno();">확인</button>
-						</div>
-					</div>
-				</div>
-			</div>
-			
-			
-			<!--End Modal-->   
+										<!-- 회원정보 보기  -->
+										<div id="myModal" class="modal">
+											<!-- Modal content -->
+											<div class="modal-content">
+												<div style="text-align: center;">
+													<span style="font-size: 14pt;"><b><span style="font-size: 20pt; font-family: 'a타이틀고딕4';">★회원정보★</span></b></span>
+												</div><br>
+												<div style="text-align: center; font-family: 'a타이틀고딕4';">
+													<br>아이디 : ${userID }<br>
+													<br>이름 : ${userName }<br>
+													<br>개인/보호소 : ${userDiv }<br>
+													<br>비밀번호 : ${userPW }<br>
+												</div>
+												<br><br>
+												<div onClick="close_pop();" align="center">
+													<button class="btn" style="font-size: 13pt;">확인</button>
+												</div>
+											</div>
+										</div>
+										<!--End Modal-->
+										<!-- The Modal -->
+										<!-- 회원정보 수정  -->
+										
+										<div id="myModal2" class="modal2">
+											<!-- Modal content -->
+											<div class="modal-content">
+												<div class="TabbedPanelsContentGroup clearfix colelem"
+													id="u2861">
+													<div class="TabbedPanelsContent grpelem" id="u2866" align="center">
+														<form id="loginfrm" action="../UpdateServlet" method="post">
+															<p class="message">회원정보 수정창</p>
+															<input type="text" name="userID" maxlength="50"	placeholder="${userID }" value="${userID }" required hidden="">
+															<input id="ex1" type="text" name="userName" maxlength="50" placeholder="이름" required><br><br>
+															<input id="ex2" type="password" name="userPW" maxlength="50" placeholder="비밀번호" required><br><br>
+															<input id="ex3" class="btn" type="submit" value="수정" onclick="update();">
+															<button class="btn"	onclick="exit();">취소</button>
+														</form>
+													</div>
+												</div>
+												<div id="message"></div>
+											</div>
+										</div>
+										
+										<div id="myModal3" class="modal3">
+											<!-- Modal content -->
+											<div class="modal-content">
+												<div class="TabbedPanelsContentGroup clearfix colelem"
+													id="u2861">
+													<div style="text-align: center;">
+														<p class="message">회원정보 수정 취소하였습니다.</p>
+														<button class="btn" onclick="updateno();">확인</button>
+													</div>
+												</div>
+											</div>
+										</div>
+										
+										
+										<!--End Modal-->   
 
 
 	        </div>
