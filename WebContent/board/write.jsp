@@ -27,7 +27,7 @@ a:visited {
 	text-decoration: none;
 	color: blue;
 }
-
+/* 
 th {
 	background-color: #F6C95E;
 	text-align: center;
@@ -117,7 +117,53 @@ table {
 	text-decoration: none;
 	font-family: 'a타이틀고딕2';
 	float: right;
-}
+} */
+
+	.menubar {
+		position:absolute;
+		z-index: 30;
+		width: 1115px;
+		background-color: #FFFCEC;
+		padding-top: 49px;
+		padding-bottom: 49px;
+		/* border: 1px solid red; */
+		margin-left: 182px;
+		transition: 0.3s;
+	}
+	.menubar.sticky {
+		position: fixed; 
+		top:0;
+		z-index: 30;
+		background-color: #FFFCEC;
+		box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+		height: 65px;
+		padding-top: 28px;
+		padding-bottom: 14px;
+	}
+
+	#u3821-w {
+		z-index: 28;
+		width: 1115px;
+		height: 820px;
+		box-shadow: 0px 20px 20px rgba(127, 127, 127, 0.2);
+		background-color: #FFFFFF;
+		left: 182px;
+		top: -1px;
+		margin-bottom: -1px;
+		position: absolute;
+		margin-top: 400px;
+	}
+
+	.container3 {
+		margin-bottom: 20px;
+		margin: 0 auto;
+		width: 1000px;
+	}
+	
+	#graybar, #graybar-bw {
+		z-index: 3;
+		height: 300px;
+	}
 </style>
 </head>
 <body>
@@ -150,7 +196,7 @@ table {
 			</div>
 
 			<!-- NAV -->
-			<div class="clearfix colelem" id="u3513">
+			<div class="menubar">
 				<!-- group -->
 				<a class="nonblock nontext Button rounded-corners transition clearfix grpelem" id="buttonu3461" href="../myinform/myinformation"> 
 				<img class="grpelem" id="u3462" alt="내 정보" src="../images/blank.gif?crc=4208392903" /></a> 
@@ -168,14 +214,14 @@ table {
 			</div>
 
 
-			<div class="shadow clearfix colelem" id="u3821">
+			<div class="shadow clearfix colelem" id="u3821-w">
 				<!-- group -->
 
 				<div class="rounded-corners clearfix grpelem" id="u3822-3">
 
-					<br> <br> <br>
+					<br> <br>
 					<!-- 게시판 글쓰기 양식 영역 시작 -->
-					<div class="container">
+					<div class="container3">
 					<div class="row">
 						<form method="post" action="boardWrite" >
 							<table class="table table-striped" style="text-align: center; width: 1000px;">
@@ -205,9 +251,8 @@ table {
 			</div>
 		</div>
 
-		<div class="browser_width colelem" id="u1965-bw">
-			<div id="u1965">
-				<!-- simple frame -->
+		<div class="browser_width colelem" id="graybar-bw">
+			<div id="graybar">
 			</div>
 		</div>
 		<div class="verticalspacer" data-offset-top="1199"

@@ -18,6 +18,14 @@
 	#loginICON {
 		float: right;
 	}
+	#copyright {
+		z-index: 99;
+		margin-top: 280px;
+		margin-left: 575px;
+		margin-bottom: 10px;
+		position: absolute;
+		/* border: 1px solid red; */
+	}
 </style>
 
 </head>
@@ -74,6 +82,7 @@
     </div>
     
     <!-- FOOTER -->
+    
     <div class="clearfix colelem" id="pu128"><!-- group -->
      <div class="browser_width grpelem" id="u128-bw">
       <div id="u128"></div>
@@ -82,7 +91,12 @@
       <img class="colelem" id="u1465-4" alt="&lt; 멍냥멍냥 &gt;" width="130" height="30" src="images/u1465-4.png?crc=4231403855"/>
       <img class="colelem" id="u1466-7" alt="&quot; 사지말고 입양하세요 &quot; 작은 관심이 많은 생명을 살립니다." width="290" height="62" src="images/u1466-7.png?crc=3923293643"/>
      </div>
+     <div id="copyright" align="center">
+		<img src="images/bowmeowLOGO.png" width="20%" />
+		<p>Copyright © <b>BOWMEOW Corp.</b> All Rights Reserved.</p>
+	</div>
     </div>
+    
     <div class="verticalspacer" data-offset-top="845" data-content-above-spacer="999" data-content-below-spacer="0"></div>
    </div>
   </div>

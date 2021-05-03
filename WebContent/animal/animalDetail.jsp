@@ -169,11 +169,10 @@
 #u2013 {
 	z-index: 5;
 	width: 1115px;
-	height: 1100px;
+	height: 1150px;
 	box-shadow: 0px 20px 20px rgba(127, 127, 127, 0.2);
 	background-color: #FFFFFF;
 	padding-top: 100px;
-	/* padding-bottom: 28px; */
 	left: 182px;
 	position: absolute;
 	margin-top: 60px;
@@ -304,6 +303,10 @@
 				      <tr>
 				        <th scope="row">유기번호</th>
 				        <td colspan="3" width="600">${animal.animalID }</td>
+				      </tr>
+				      <tr>
+				        <th scope="row">품종</th>
+				        <td colspan="3" width="600">${animal.kind }</td>
 				      </tr>
 				      <tr>
 				        <th scope="row">색상</th>

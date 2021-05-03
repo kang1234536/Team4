@@ -14,14 +14,11 @@
 	.menubar {
 		position:absolute;
 		z-index: 6;
-		width: 1115px; 
-		/* height: 105px; */
+		width: 1115px;
 		background-color: #FFFCEC;
 		padding-top: 49px;
 		padding-bottom: 49px;
-		/* border: 1px solid red; */
 		margin-left: 182px;
-		/* margin: 0 auto; */
 		transition: 0.3s;
 	}
 	.menubar.sticky {
@@ -40,10 +37,10 @@
 </head>
 <body>
 	
-  <div class="clearfix" id="page"><!-- column -->
+  <div class="clearfix" id="page">
    <div class="position_content" id="page_position_content">
     <div class="browser_width colelem" id="u1442-bw">
-     <div id="u1442"><!-- column -->
+     <div id="u1442">
       <div class="clearfix" id="u1442_align_to_page">
        <div class="position_content" id="u1442_position_content">
        
@@ -62,7 +59,7 @@
         </div>
         
         <!-- NAV -->
-        <div class="menubar"><!-- group -->
+        <div class="menubar">
          <a class="nonblock nontext Button rounded-corners transition clearfix grpelem" id="buttonu3263" href="../myinform/myInform">
          <img class="grpelem" id="u3264" alt="내 정보" src="../images/blank.gif?crc=4208392903"/></a>
          <a class="nonblock nontext Button ButtonSelected rounded-corners clearfix grpelem" id="buttonu3265" href="animalsFirst">
@@ -75,8 +72,8 @@
          <img class="grpelem" id="u3270" alt="Q &amp; A" src="../images/blank.gif?crc=4208392903"/></a>
         </div>
         
-        <div class="shadow clearfix colelem" id="u1522"><!-- group -->
-         <div class="rounded-corners clearfix grpelem" id="u2957-3"><!-- content -->
+        <div class="shadow clearfix colelem" id="u1522">
+         <div class="rounded-corners clearfix grpelem" id="u2957-3">
          <section id="a_safe">
          <img src="../images/animal-safe-img.gif"/>
          </section>

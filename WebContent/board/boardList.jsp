@@ -23,116 +23,27 @@
 	<link rel="stylesheet" type="text/css" href="../css/site_global.css?crc=444006867"/>
 	<link rel="stylesheet" type="text/css" href="../css/master_b-___.css?crc=4037835255"/>
 	<link rel="stylesheet" type="text/css" href="../css/board.css?crc=346539564" id="pagesheet"/>
-
 <style>
-	#loginoutbtn:link {
-		text-decoration: none;
-		color : blue;
+	.menubar {
+		position:absolute;
+		z-index: 30;
+		width: 1115px;
+		background-color: #FFFCEC;
+		padding-top: 49px;
+		padding-bottom: 49px;
+		/* border: 1px solid red; */
+		margin-left: 182px;
+		transition: 0.3s;
 	}
-	
-	#loginoutbtn:visited {
-		text-decoration: none;
-		color : blue;
-	}
-	
-	a:link {
-		text-decoration: none;
-		color : black;
-	}
-	
-	a:visited {
-		text-decoration: none;
-		color : black;
-	}
-	
-	noticeA:link {
-		color : red;
-	}
-	
-	th {
-		background-color: #F6C95E; 
-		text-align: center;
-		font-size: 18px; font-family: 'a타이틀고딕2';
-		padding: 15px;
-	}
-	
-	td {
-		background-color: transparent; 
-		text-align: center;
-		font-size: 14px; font-family: 'a타이틀고딕1';
-		padding: 10px;
-		border-bottom: 1px dotted gray;
-	}
-	
-	table {
-		text-align: center;
-		width: 800px;
-	
-	}
-	
-	.btn1 {
-		float: right;
-	}
-		
-	.container {
-		margin-top: 50px;
-		margin-bottom: 10px;
-	}
-	.container2 {
-		width: 350px;
-		background-color: transparent;
-		position: relative;
-		margin-top: 40px;
-		left: 150px;
-		padding: 10px;
-		float: left;
-	}
-	
-	.row {
-		margin: 0 auto;
-		padding-top: 30px;
-	}
-	
-	.btn1 {
-		width: 90px; height: 30px;
-		font-size: 15px; font-family: 'a타이틀고딕2';
-		text-shadow: 0.5px 0.5px 0.5px gray;
-		background-color: #F6C95E;
-		border-radius: 3px;
-	}
-	
-	.a {
-		text-align: center;
-	}
-	#notice {
-		background-color: lightgray;
-	}
-	
-	#notice td {
-		color: red;
-		font-family: 'a타이틀고딕3';
-	}
-	
-	#catFoot {
-		position: relative;
-		margin-top: 10px;
-	}
-	
-	#boardTITLE {
-		font-size: 40px;
-		font-family: 'a타이틀고딕3';
-		display: inline;
-		position: absolute;
-		margin-left: 20px;
-		margin-top: 35px;
-		text-align: center;
-	}
-	
-	.loginICON {
-		font-size: 15px;
-		text-decoration: none;
-		font-family: 'a타이틀고딕2';
-		float: right;
+	.menubar.sticky {
+		position: fixed; 
+		top:0;
+		z-index: 30;
+		background-color: #FFFCEC;
+		box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+		height: 65px;
+		padding-top: 28px;
+		padding-bottom: 14px;
 	}
 
 
@@ -162,11 +73,11 @@
 	        </div>
 	        
 	        <!-- NAV -->
-	        <div class="clearfix colelem" id="u3513"><!-- group -->
+	        <div class="menubar">
 	         <a class="nonblock nontext Button rounded-corners transition clearfix grpelem" id="buttonu3461" href="../myinform/myinform.jsp">
 	         <img class="grpelem" id="u3462" alt="내 정보" src="../images/blank.gif?crc=4208392903"/></a>
 	         
-	         <a class="nonblock nontext Button rounded-corners transition clearfix grpelem" id="buttonu3463" href="../animal/animalsList">
+	         <a class="nonblock nontext Button rounded-corners transition clearfix grpelem" id="buttonu3463" href="../animal/animalsFirst">
 	         <img class="grpelem" id="u3464" alt="유기동물조회" src="../images/blank.gif?crc=4208392903"/></a>
 	         
 	         <a class="nonblock nontext grpelem" id="u3469-4" href="../index.jsp">
@@ -180,10 +91,8 @@
 	        </div>
 	        
 	        
-	        <div class="shadow clearfix colelem" id="u3821"><!-- group -->
-	         
+	        <div class="shadow clearfix colelem" id="u3821">
 	         <div class="rounded-corners clearfix grpelem" id="u3822-3">
-	         <!-- content -->
 	         <!-- 게시판 메인 페이지 영역 시작 -->
 			<div class="container2">
 				<img id="catFoot" src="../images/catUL.png" width="32" height="56"/>
@@ -235,6 +144,21 @@
 		  });
 	  }
 	  paging(1);
+	  
+	  /* 스크롤을 내리면 메뉴바가 상단에 고정 */
+	  $(function(){
+	  	var wind = $(window),
+	  		header = $('.menubar'),
+	  		headerOffsetTop = header.offset().top;
+	  	console.log(headerOffsetTop);
+	  	wind.scroll(function(){
+	  		if($(this).scrollTop() >= headerOffsetTop) {
+	  			header.addClass('sticky');
+	  		} else {
+	  			header.removeClass('sticky');
+	  		}
+	  	});
+	  });
 	  </script>
 </body>
 </html>

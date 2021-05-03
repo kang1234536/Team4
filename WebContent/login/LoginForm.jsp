@@ -199,7 +199,7 @@
                             </a>
                             <!-- 유기동물조회버튼 -->
                             <a class="nonblock nontext Button rounded-corners transition clearfix grpelem"
-                               id="buttonu2062" href="../animal/animalsList">
+                               id="buttonu2062" href="../animal/animalsFirst">
                                 <img class="grpelem" id="u2063" alt="유기동물조회" src="../images/blank.gif?crc=4208392903"/>
                             </a>
                             <!-- 멍냥멍냥로고 -->
@@ -270,7 +270,7 @@
 
                                                 <form name="naverLogin" action="../NaverCallbackServlet" method="post">
                                                     <button id="naverlogin" type="submit"><img width="100%"
-                                                                                               src="../images/naver_button.PNG">
+                                                                                               src="../images/naver_button1.png">
                                                     </button>
                                                 </form>
 
@@ -279,11 +279,11 @@
                                                         <img id="kakaobtn" height="38px" src="../images/kakao_button.png"/>
                                                     </button>
                                                 </form>
-                                                <br><br><br>
+                                                <br><br>
                                                 <p>아직 계정이 없으신가요?&nbsp;&nbsp;<a href="../RegisterCheckServlet">회원가입</a>
                                                 </p>
                                                 <p>ID를 잊어버리셨나요?&nbsp;&nbsp;<a href="javascript:SelectID();">ID찾기</a>
-                                                <p>ID를 잊어버리셨나요?&nbsp;&nbsp;<a href="javascript:SelectPW();">PW찾기</a>
+                                                <p>비밀번호를 잊어버리셨나요?&nbsp;&nbsp;<a href="javascript:SelectPW();">PW찾기</a><br>
                                                     <!-- The Modal -->
                                                     <!--start   -->
                                                 <div id="myModal" class="modal">

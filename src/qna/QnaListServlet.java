@@ -1,4 +1,4 @@
-package controller.qna;
+package qna;
 
 import java.io.IOException;
 import java.util.List;
