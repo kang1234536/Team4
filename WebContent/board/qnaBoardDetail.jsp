@@ -16,25 +16,160 @@
 	<link rel="stylesheet" type="text/css" href="../css/boardDetail.css" id="pagesheet"/>
 
 <style>
-	.menubar {
-		position:absolute;
-		z-index: 30;
-		width: 1115px;
-		background-color: #FFFCEC;
-		padding-top: 49px;
-		padding-bottom: 49px;
-		margin-left: 182px;
-		transition: 0.3s;
+	a:link {
+		text-decoration: none;
+		color : blue;
 	}
-	.menubar.sticky {
-		position: fixed; 
-		top:0;
-		z-index: 30;
-		background-color: #FFFCEC;
-		box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-		height: 65px;
-		padding-top: 28px;
-		padding-bottom: 14px;
+	
+	a:visited {
+		text-decoration: none;
+		color : blue;
+	}
+	
+	.detail, .detail td {
+		text-align: center;
+		border-bottom: 1px dotted gray;
+		border-collapse: collapse;
+	}
+	
+	.detail .td1 {
+		background-color: #F6C95E; 
+		text-align: center;
+		font-size: 18px; font-family: 'a타이틀고딕2';
+		padding: 20px;
+		width: 150px;
+	}
+	
+	.detail .td2 {
+		background-color: transparent; 
+		text-align: left;
+		font-size: 15px; font-family: 'a타이틀고딕1';
+		padding: 10px;
+		width: 800px;
+	}
+	
+	.container {
+		/* border: 1px solid red; */
+		width: 1050px;
+		margin-top: 100px;
+	}
+	
+	.container2 {
+		width: 350px;
+		background-color: transparent;
+		/* border: 1px solid red; */
+		position: relative;
+		margin-top: 40px;
+		left: 150px;
+		padding: 10px;
+		float: left;
+	}
+	
+	.row {
+		/* border: 2px solid blue; */
+		margin: 0 auto;
+		width: 800px;
+	}
+	
+	#td3 {
+		background-color: transparent; 
+		text-align: left;
+		font-size: 15px; font-family: 'a타이틀고딕1';
+		padding: 10px;
+		width: 600px;
+		height: 200px;
+	}
+	
+	#catFoot {
+		position: relative;
+		margin-top: 10px;
+	}
+	
+	#boardTITLE {
+		font-size: 40px;
+		font-family: 'a타이틀고딕3';
+		display: inline;
+		position: absolute;
+		margin-left: 20px;
+		margin-top: 35px;
+		text-align: center;
+	}
+	
+	.btn1 {
+		width: 90px;
+		height: 30px;
+		font-size: 15px;
+		font-family: 'a타이틀고딕2';
+		text-shadow: 0.5px 0.5px 0.5px gray;
+		background-color: #F6C95E;
+		border-radius: 3px;
+		float: right;
+		margin-left: 5px;
+		margin-top: 20px;
+	}
+	
+	.btn2 {
+		width: 90px;
+		height: 30px;
+		font-size: 15px;
+		font-family: 'a타이틀고딕2';
+		text-shadow: 0.5px 0.5px 0.5px gray;
+		background-color: #F6C95E;
+		border-radius: 3px;
+		float: right;	
+		margin-right: 6px;
+		margin-bottom: 2px;
+	}
+	
+	.loginICON {
+		font-size: 15px;
+		text-decoration: none;
+		font-family: 'a타이틀고딕2';
+		float: right;
+	}
+	
+	#loginheader {
+		z-index: 5;
+		width: 1115px;
+		/* border: 2px solid red; */
+		left: 182.5px;
+		position: relative;
+	}
+	.inputreply textarea{
+		border-top: 1px dotted gray;
+		border-left: 1px dotted gray;
+		border-right: 1px dotted gray;
+	}
+	#regist {
+		border-bottom: 1px dotted gray;
+		border-left: 1px dotted gray;
+		border-right: 1px dotted gray;
+	}
+	
+	#replyContent{
+		padding-left: 13px;
+		text-align: left;
+		height: 40px;
+	}
+	
+	#date{
+		padding-right: 10px;
+		text-align: right;
+		border-top-right-radius: 3px;
+		border-bottom-right-radius: 3px;
+	}
+	
+	#userID{
+		padding-left: 10px;
+		text-align: left;
+		font-weight: bold;
+		border-top-left-radius: 3px;
+		border-bottom-left-radius: 3px;
+	}
+	
+	#userID, #date {
+		background-color: lightgray;
+		height:30px;
 	}
 	
 </style>
@@ -67,13 +202,13 @@
 		<!-- 여기까지가 Header -->
 				
 			<!-- 여기서부터 Navigator -->
-			<div class="menubar">
-				<!-- 내정보버튼 -->
+			<div class="clearfix colelem" id="u2954">
+				<!-- 나의정보버튼 -->
 				<a class="nonblock nontext Button rounded-corners transition clearfix grpelem" id="buttonu2060" href="../login/myinform.jsp">
 				<img class="grpelem" id="u2061" alt="나의정보"	src="../images/blank.gif?crc=4208392903" />
 				</a>
 				<!-- 유기동물조회버튼 -->
-				<a class="nonblock nontext Button rounded-corners transition clearfix grpelem" id="buttonu2062" href="../animal/animalsFirst">
+				<a class="nonblock nontext Button rounded-corners transition clearfix grpelem" id="buttonu2062" href="../animal/animalsList">
 				<img class="grpelem" id="u2063" alt="유기동물조회" src="../images/blank.gif?crc=4208392903" />
 				</a>
 				 <!-- 멍냥멍냥로고 -->
@@ -85,7 +220,7 @@
 		        <img class="grpelem" id="u2065" alt="커뮤니티" src="../images/blank.gif?crc=4208392903"/>
 		        </a>
 				<!-- QnA버튼 -->
-				<a class="nonblock nontext Button rounded-corners transition clearfix grpelem" id="buttonu2066" href="../board/qnalist">
+				<a class="nonblock nontext Button rounded-corners transition clearfix grpelem" id="buttonu2066" href="">
          		<img class="grpelem" id="u2067" alt="Q &amp; A" src="../images/blank.gif?crc=4208392903"/>
          		</a>
 			</div>
@@ -142,10 +277,7 @@
 								</tr>
 							</c:forEach>
 							<tr>
-								<td colspan="2" style="border: 1px dotted gray;">
-								<textarea placeholder="댓글을 작성하려면 로그인 해주세요" 
-								readonly style="height: 50px; width: 780px;padding: 10px 10px;" 
-								onclick="location='../login/LoginCheckServlet'"></textarea></td>
+								<td colspan="2" style="border: 1px dotted gray;"><textarea placeholder="댓글을 작성하려면 로그인 해주세요" readonly style="height: 50px; width: 780px;padding: 10px 10px;" onclick="location='../login/LoginCheckServlet'"></textarea></td>
 							</tr>
 							</table>
 						</c:when>
@@ -175,12 +307,11 @@
 							<table class="inputreply">
 							<tr>
 								<td colspan="2">
-								   <textarea placeholder="네티켓을 지켜주세요! 비방및 욕설 댓글은 무통보 삭제됩니다"style="height: 100px; width: 780px;padding: 10px 10px;" name="reply" id="reply2"></textarea>
+								   <textarea placeholder="네티켓을 지켜주세요! 비방및 욕설 댓글은 무통보 삭제됩니다" style="height: 100px; width: 780px;padding: 10px 10px;" name="reply" id="reply2"></textarea>
 								</td>
 							</tr>
 							<tr>
-								<td colspan="2" id="regist"><input type="button" class="btn2" value="등록" 
-								onclick="godata('${userID}','${param.board_ID }');"></td>
+								<td colspan="2" id="regist"><input type="button" class="btn2" value="등록" onclick="godata('${userID}','${param.board_ID }');"></td>
 							</tr>
 							</table>
 						</c:when>
@@ -279,20 +410,6 @@ function replyDelete(reply_id){
 		  }
 	  });
 }
-/* 스크롤을 내리면 메뉴바가 상단에 고정 */
-$(function(){
-	var wind = $(window),
-		header = $('.menubar'),
-		headerOffsetTop = header.offset().top;
-	console.log(headerOffsetTop);
-	wind.scroll(function(){
-		if($(this).scrollTop() >= headerOffsetTop) {
-			header.addClass('sticky');
-		} else {
-			header.removeClass('sticky');
-		}
-	});
-});
 </script>
 </body>
 </html>

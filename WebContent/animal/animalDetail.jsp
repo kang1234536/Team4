@@ -169,11 +169,10 @@
 #u2013 {
 	z-index: 5;
 	width: 1115px;
-	height: 1100px;
+	height: 1150px;
 	box-shadow: 0px 20px 20px rgba(127, 127, 127, 0.2);
 	background-color: #FFFFFF;
 	padding-top: 100px;
-	/* padding-bottom: 28px; */
 	left: 182px;
 	position: absolute;
 	margin-top: 60px;
@@ -276,7 +275,7 @@
 		        <img class="grpelem" id="u2065" alt="커뮤니티" src="../images/blank.gif?crc=4208392903"/>
 		        </a>
 				<!-- QnA버튼 -->
-				<a class="nonblock nontext Button rounded-corners transition clearfix grpelem" id="buttonu2066" href="">
+				<a class="nonblock nontext Button rounded-corners transition clearfix grpelem" id="buttonu2066" href="../board/qnalist">
          		<img class="grpelem" id="u2067" alt="Q &amp; A" src="../images/blank.gif?crc=4208392903"/>
          		</a>
 			</div>
@@ -304,6 +303,10 @@
 				      <tr>
 				        <th scope="row">유기번호</th>
 				        <td colspan="3" width="600">${animal.animalID }</td>
+				      </tr>
+				      <tr>
+				        <th scope="row">품종</th>
+				        <td colspan="3" width="600">${animal.kind }</td>
 				      </tr>
 				      <tr>
 				        <th scope="row">색상</th>

@@ -14,14 +14,11 @@
 	.menubar {
 		position:absolute;
 		z-index: 6;
-		width: 1115px; 
-		/* height: 105px; */
+		width: 1115px;
 		background-color: #FFFCEC;
 		padding-top: 49px;
 		padding-bottom: 49px;
-		/* border: 1px solid red; */
 		margin-left: 182px;
-		/* margin: 0 auto; */
 		transition: 0.3s;
 	}
 	.menubar.sticky {
@@ -40,10 +37,10 @@
 </head>
 <body>
 	
-  <div class="clearfix" id="page"><!-- column -->
+  <div class="clearfix" id="page">
    <div class="position_content" id="page_position_content">
     <div class="browser_width colelem" id="u1442-bw">
-     <div id="u1442"><!-- column -->
+     <div id="u1442">
       <div class="clearfix" id="u1442_align_to_page">
        <div class="position_content" id="u1442_position_content">
        
@@ -62,7 +59,7 @@
         </div>
         
         <!-- NAV -->
-        <div class="menubar"><!-- group -->
+        <div class="menubar">
          <a class="nonblock nontext Button rounded-corners transition clearfix grpelem" id="buttonu3263" href="../myinform/myInform">
          <img class="grpelem" id="u3264" alt="내 정보" src="../images/blank.gif?crc=4208392903"/></a>
          <a class="nonblock nontext Button ButtonSelected rounded-corners clearfix grpelem" id="buttonu3265" href="animalsFirst">
@@ -71,12 +68,12 @@
          <img id="u3271-4_img" alt="멍냥멍냥" width="212" height="60" src="../images/u3271-4.png?crc=347814851"/></a>
          <a class="nonblock nontext Button rounded-corners transition clearfix grpelem" id="buttonu3267" href="../board/boardlist">
          <img class="grpelem" id="u3268" alt="커뮤니티" src="../images/blank.gif?crc=4208392903"/></a>
-         <a class="nonblock nontext Button rounded-corners transition clearfix grpelem" id="buttonu3269" href="">
+         <a class="nonblock nontext Button rounded-corners transition clearfix grpelem" id="buttonu3269" href="../board/qnalist">
          <img class="grpelem" id="u3270" alt="Q &amp; A" src="../images/blank.gif?crc=4208392903"/></a>
         </div>
         
-        <div class="shadow clearfix colelem" id="u1522"><!-- group -->
-         <div class="rounded-corners clearfix grpelem" id="u2957-3"><!-- content -->
+        <div class="shadow clearfix colelem" id="u1522">
+         <div class="rounded-corners clearfix grpelem" id="u2957-3">
          <section id="a_safe">
          <img src="../images/animal-safe-img.gif"/>
          </section>
@@ -132,45 +129,48 @@
           <div align="center">
           <div class="animalList" id="alist">
 	         <div class="a_listDIV">
-				<c:forEach var="animal" items="${aniList }" varStatus="status">
-					<c:if test="${status.count%2 eq 1}">
-						<li class="animals"><img src="${animal.popfile}" width="150" height="150">
-							<ul>
-								<li><span>유기번호 : </span>${animal.animalID}</li>
-								<li><span>발견장소 : </span>${animal.happenPlace}</li>
-								<li><span>발견날짜 : </span>${animal.happenDate}</li>
-								<li><span>상태 : </span>${animal.state}</li><br>
-								<li><button	class="상세보기버튼" onclick="location.href='AnimalDetailServlet?animalId=${animal.animalID}'">상세보기</button></li>
-							</ul>
-						</li>
-					</c:if>
-				</c:forEach>
-			</div>
-			<div class="a_listDIV">
-				<c:forEach var="animal" items="${aniList }" varStatus="status">
-					<c:if test="${status.count%2 eq 0}">
-						<li class="animals"><img src="${animal.popfile}" width="150" height="150">
-							<ul>
-								<li><span>유기번호 : </span>${animal.animalID}</li>
-								<li><span>발견장소 : </span>${animal.happenPlace}</li>
-								<li><span>발견날짜 : </span>${animal.happenDate}</li>
-								<li><span>상태 : </span>${animal.state}</li><br>
-								<li><button	class="상세보기버튼" onclick="location.href='AnimalDetailServlet?animalId=${animal.animalID}'">상세보기</button></li>
-							</ul>
-						</li>
-					</c:if>
-				</c:forEach>
-			</div>
+		<c:forEach var="animal" items="${aniList }" varStatus="status">
+			<c:if test="${status.count%2 eq 1}">
+				<li class="animals"><img src="${animal.popfile}" width="150" height="150">
+					<!-- <div align="left" style="border: 1px solid red; width:279px; height: 204px;"> -->
+					<ul>
+						<li><span>유기번호 : </span>${animal.animalID}</li>
+						<li><span>발견장소 : </span>${animal.happenPlace}</li>
+						<li><span>발견날짜 : </span>${animal.happenDate}</li>
+						<li><span>상태 : </span>${animal.state}</li><br>
+						<li><button	class="상세보기버튼" onclick="location.href='AnimalDetailServlet?animalId=${animal.animalID}'">상세보기</button></li>
+					</ul>
+					<!-- </div> -->
+				</li>
+			</c:if>
+		</c:forEach>
+	</div>
+
+	<div class="a_listDIV">
+		<c:forEach var="animal" items="${aniList }" varStatus="status">
+			<c:if test="${status.count%2 eq 0}">
+				<li class="animals"><img src="${animal.popfile}" width="150" height="150">
+					<ul>
+						<li><span>유기번호 : </span>${animal.animalID}</li>
+						<li><span>발견장소 : </span>${animal.happenPlace}</li>
+						<li><span>발견날짜 : </span>${animal.happenDate}</li>
+						<li><span>상태 : </span>${animal.state}</li><br>
+						<li><button	class="상세보기버튼" onclick="location.href='AnimalDetailServlet?animalId=${animal.animalID}'">상세보기</button></li>
+					</ul>
+				</li>
+			</c:if>
+		</c:forEach>​
+	</div>
 			<br><br><br>
 			
 	      	  <div id="paging">
 					<c:set var="page" value="${totalPage}"/>
 					<div>
 					<c:forEach var="pageNum" begin="1" end="${page}" step="1">
-						<a id="animalPaging" href="animalsFirst?page=${pageNum}" onclick="pageChange('${pageNum}')">${pageNum}&nbsp;&nbsp;&nbsp;</a>
+						<a id="animalPaging" href="javascript:pageChange(${pageNum});">${pageNum}&nbsp;&nbsp;&nbsp;</a>
 					</c:forEach>
 					</div>
-				</div><!-- paging -->
+			</div><!-- paging -->
 			</div><!-- list -->
 			</div>
       	  
@@ -268,6 +268,8 @@ $(function(){
 		}
 	});
 });
+
+
 </script>
 
 </body>

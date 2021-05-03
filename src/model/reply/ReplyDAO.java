@@ -37,7 +37,9 @@ public class ReplyDAO {
 		Connection conn = util.DBUtil.getConnection();
 		PreparedStatement st = null;
 		ResultSet rs = null;
-		String sql = "select reply_id, user_id, board_id, reply, to_char(reply_date+9/24, 'yyyy.mm.dd. HH:MI') from reply where board_id=? order by reply_id asc";
+		String sql = "select reply_id, user_id, board_id, reply, "
+				+ "to_char(reply_date+9/24, 'yyyy.mm.dd. HH:MI') "
+				+ "from reply where board_id=? order by reply_id asc";
 		try {
 			st = conn.prepareStatement(sql);
 			st.setInt(1, board_id);

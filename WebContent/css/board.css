@@ -72,7 +72,7 @@
 	padding-bottom: 10px;
 	position: relative;
 	margin-right: -10000px;
-	margin-top: 57px;
+	margin-top: 8px;
 	left: 99px;
 }
 
@@ -88,7 +88,7 @@
 	width: 120px;
 	height: 30px;
 	min-height: 0px;
-	margin: 57px -10000px 0px 0px;
+	margin: 8px -10000px 0px 0px;
 }
 
 #u3462 {
@@ -124,7 +124,7 @@
 	padding-bottom: 10px;
 	position: relative;
 	margin-right: -10000px;
-	margin-top: 57px;
+	margin-top: 8px;
 	left: 275px;
 }
 
@@ -140,7 +140,7 @@
 	width: 120px;
 	height: 30px;
 	min-height: 0px;
-	margin: 57px -10000px 0px 0px;
+	margin: 8px -10000px 0px 0px;
 }
 
 #u3464 {
@@ -166,7 +166,7 @@
 	position: relative;
 	margin-right: -10000px;
 	width: 212px;
-	margin-top: 48px;
+	/* margin-top: 48px; */
 	left: 452px;
 }
 
@@ -190,7 +190,7 @@
 	padding-bottom: 10px;
 	position: relative;
 	margin-right: -10000px;
-	margin-top: 57px;
+	margin-top: 8px;
 	left: 720px;
 }
 
@@ -204,7 +204,7 @@
 	width: 120px;
 	height: 30px;
 	min-height: 0px;
-	margin: 57px -10000px 0px 0px;
+	margin: 8px -10000px 0px 0px;
 }
 
 #u3466-4 {
@@ -232,7 +232,7 @@
 	padding-bottom: 10px;
 	position: relative;
 	margin-right: -10000px;
-	margin-top: 57px;
+	margin-top: 8px;
 	left: 896px;
 }
 
@@ -248,7 +248,7 @@
 	width: 120px;
 	height: 30px;
 	min-height: 0px;
-	margin: 57px -10000px 0px 0px;
+	margin: 8px -10000px 0px 0px;
 }
 
 #buttonu3467:active {
@@ -263,7 +263,7 @@
 	width: 120px;
 	height: 30px;
 	min-height: 0px;
-	margin: 57px -10000px 0px 0px;
+	margin: 8px -10000px 0px 0px;
 }
 
 #u3468 {
@@ -275,25 +275,27 @@
 	margin-right: -10000px;
 	margin-top: 10px;
 	left: 28px;
-	background: transparent url("../images/u3468.png?crc=3978999753")
+	background: transparent url("../images/u3233.png")
 		no-repeat 0px 0px;
 }
 
 #buttonu3467:hover #u3468 {
-	background: transparent url("../images/u3468-r.png?crc=4001421722")
+	background: transparent url("../images/u3233-r.png")
 		no-repeat 0px 0px;
 }
 
 #u3821 {
 	z-index: 28;
 	width: 1115px;
+	height: 820px;
 	box-shadow: 0px 20px 20px rgba(127, 127, 127, 0.2);
 	background-color: #FFFFFF;
-	padding-bottom: 28px;
+	padding-top: 100px;
 	left: 182px;
 	top: -1px;
 	margin-bottom: -1px;
-	position: relative;
+	position: absolute;
+	margin-top: 300px;
 }
 
 #u3822-3 {
@@ -349,3 +351,117 @@ body {
 	left: 182.5px;
 	position: relative;
 }
+
+	#loginoutbtn:link {
+		text-decoration: none;
+		color : blue;
+	}
+	
+	#loginoutbtn:visited {
+		text-decoration: none;
+		color : blue;
+	}
+	
+	a:link {
+		text-decoration: none;
+		color : black;
+	}
+	
+	a:visited {
+		text-decoration: none;
+		color : black;
+	}
+	
+	noticeA:link {
+		color : red;
+	}
+	
+	th {
+		background-color: #F6C95E; 
+		text-align: center;
+		font-size: 18px; font-family: 'a타이틀고딕2';
+		padding: 15px;
+	}
+	
+	td {
+		background-color: transparent; 
+		text-align: center;
+		font-size: 14px; font-family: 'a타이틀고딕1';
+		padding: 10px;
+		border-bottom: 1px dotted gray;
+	}
+	
+	table {
+		text-align: center;
+		width: 800px;
+	
+	}
+	
+	.btn1 {
+		float: right;
+	}
+		
+	.container {
+		margin-top: 50px;
+		margin-bottom: 10px;
+	}
+	.container2 {
+		width: 350px;
+		background-color: transparent;
+		position: relative;
+		margin-top: 40px;
+		left: 150px;
+		padding: 10px;
+		float: left;
+	}
+	
+	.row {
+		margin: 0 auto;
+		padding-top: 30px;
+	}
+	
+	.btn1 {
+		width: 90px; height: 30px;
+		font-size: 15px; font-family: 'a타이틀고딕2';
+		text-shadow: 0.5px 0.5px 0.5px gray;
+		background-color: #F6C95E;
+		border-radius: 3px;
+	}
+	
+	.a {
+		text-align: center;
+	}
+	#notice {
+		background-color: lightgray;
+	}
+	
+	#notice td {
+		color: red;
+		font-family: 'a타이틀고딕3';
+	}
+	
+	#notice1 td:nth-of-type(2) {
+		text-align: left;
+	}
+	
+	#catFoot {
+		position: relative;
+		margin-top: 10px;
+	}
+	
+	#boardTITLE {
+		font-size: 40px;
+		font-family: 'a타이틀고딕3';
+		display: inline;
+		position: absolute;
+		margin-left: 20px;
+		margin-top: 35px;
+		text-align: center;
+	}
+	
+	.loginICON {
+		font-size: 15px;
+		text-decoration: none;
+		font-family: 'a타이틀고딕2';
+		float: right;
+	}

@@ -209,36 +209,33 @@
 	$(function(){
 		$('#myModal3').hide();
 	});
+	
 	//팝업 Close 기능
 	function close_pop(flag) {
 		$('#myModal').hide();
 	};
 	
 	function update() {
-		
-     	 if(!$("#ex1").val() ){
+     	 if(!$("#ex1").val()) {
      		
-     	 }
-     	 else if(!$("#ex2").val()){
+     	 } else if(!$("#ex2").val()) {
      		
-     	 }else{
+     	 } else {
      		alert("회원정보가 수정되었습니다.");
      	 }
-		
 	};
 	
 	function updateno(){
 		$('#myModal3').hide();
 	}
 	function exit() {
-		
 		$('#myModal2').hide();
 		$('#myModal3').show();
 		
 	}
+	
 	function changeForm(val) {
 		if (val == "-2") {
-			
 			$('#myModal').show();
 		}
 		else if (val == "0") { //회원정보 변경               	
@@ -246,7 +243,6 @@
 		} else if (val == "1") { //회원탈퇴
 			var delete_test = confirm("회원 탈퇴하시겠습니까?");
 			if (delete_test == true) {
-				alert("Ajax 좀 돼라!!!!!!!!!!!!!");
 				$.ajax({
 					url : "../Delete",
 					data : {
@@ -295,7 +291,7 @@
 	        
 	        <!-- NAV -->
 	        <div class="clearfix colelem" id="u3513"><!-- group -->
-	         <div class="nonblock nontext Button rounded-corners transition clearfix grpelem" id="buttonu3461" href="../myinform/myinformation">
+	         <div class="nonblock nontext Button rounded-corners transition clearfix grpelem" id="buttonu3461">
 	         <img class="grpelem" id="u3462" alt="내 정보" src="../images/blank.gif?crc=4208392903"/></div>
 	         
 	         <a class="nonblock nontext Button rounded-corners transition clearfix grpelem" id="buttonu3463" href="../animal/animalsFirst">
@@ -307,7 +303,7 @@
 	         <a class="nonblock nontext Button ButtonSelected rounded-corners clearfix grpelem" id="buttonu3465" href="../board/boardlist">
 	         <img class="grpelem" id="u3466-4" alt="커뮤니티" width="65" height="20" src="../images/u3466-4-a.png?crc=4069860665"/></a>
 	         
-	         <a class="nonblock nontext Button rounded-corners transition clearfix grpelem" id="buttonu3467" href="../qna.html">
+	         <a class="nonblock nontext Button rounded-corners transition clearfix grpelem" id="buttonu3467" href="../board/qnalist">
 	         <img class="grpelem" id="u3468" alt="Q &amp; A" src="../images/blank.gif?crc=4208392903"/></a>
 	        </div>
 	        
@@ -371,7 +367,10 @@
 											<!-- Modal content -->
 											<div class="modal-content">
 												<div style="text-align: center;">
-													<span style="font-size: 14pt;"><b><span style="font-size: 20pt; font-family: 'a타이틀고딕4';">★회원정보★</span></b></span>
+													<span style="font-size: 14pt;">
+														<b><span style="font-size: 20pt; 
+															font-family: 'a타이틀고딕4';">★회원정보★</span></b>
+													</span>
 												</div><br>
 												<div style="text-align: center; font-family: 'a타이틀고딕4';">
 													<br>아이디 : ${userID }<br>
@@ -386,21 +385,26 @@
 											</div>
 										</div>
 										<!--End Modal-->
+										
+										
 										<!-- The Modal -->
 										<!-- 회원정보 수정  -->
 										
 										<div id="myModal2" class="modal2">
 											<!-- Modal content -->
 											<div class="modal-content">
-												<div class="TabbedPanelsContentGroup clearfix colelem"
-													id="u2861">
+												<div class="TabbedPanelsContentGroup clearfix colelem" id="u2861">
 													<div class="TabbedPanelsContent grpelem" id="u2866" align="center">
 														<form id="loginfrm" action="../UpdateServlet" method="post">
 															<p class="message">회원정보 수정창</p>
-															<input type="text" name="userID" maxlength="50"	placeholder="${userID }" value="${userID }" required hidden="">
-															<input id="ex1" type="text" name="userName" maxlength="50" placeholder="이름" required><br><br>
-															<input id="ex2" type="password" name="userPW" maxlength="50" placeholder="비밀번호" required><br><br>
-															<input id="ex3" class="btn" type="submit" value="수정" onclick="update();">
+															<input type="text" name="userID" maxlength="50"	
+																placeholder="${userID }" value="${userID }" required hidden="">
+															<input id="ex1" type="text" name="userName" maxlength="50" 
+																placeholder="이름" required><br><br>
+															<input id="ex2" type="password" name="userPW" maxlength="50" 
+																placeholder="비밀번호" required><br><br>
+															<input id="ex3" class="btn" type="submit" value="수정" 
+																onclick="update();">
 															<button class="btn"	onclick="exit();">취소</button>
 														</form>
 													</div>

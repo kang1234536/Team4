@@ -269,12 +269,12 @@
 	margin-right: -10000px;
 	margin-top: 10px;
 	left: 28px;
-	background: transparent url("../images/u3270.png?crc=3978999753")
+	background: transparent url("../images/u3233.png")
 		no-repeat 0px 0px;
 }
 
 #buttonu3269:hover #u3270 {
-	background: transparent url("../images/u3270-r.png?crc=4001421722")
+	background: transparent url("../images/u3233-r.png")
 		no-repeat 0px 0px;
 }
 
@@ -421,7 +421,7 @@ h2 {
 		position : relative;
 		background-color: #FFF;
 		box-shadow: 0 0 7px gray;
-		width: 700px; height: 60px;
+		width: 700px; height: 90px;
 		margin: auto;
 		margin-top: 20px;
 		margin-bottom: 40px;
@@ -430,7 +430,7 @@ h2 {
 	
 	#paging {
 		flex: auto;
-		margin-top: 50px;
+		margin-top: 15px;
 	}
 	
 	.container2 {
@@ -474,8 +474,10 @@ h2 {
 	
 	
 	#klist {
-		position: relative;
-		float: right;
+		position: absolute;
+		left: 450px;
+		margin-top: -18px;
+		/* float: right; */
 		
 	}
 	
@@ -524,12 +526,12 @@ h2 {
 	}
 	
 	#btn {
-		font-size: 12px; font-family: 'a타이틀고딕2';
+		font-size: 13px; font-family: 'a타이틀고딕2';
 		border: 1px outset #FDED91;
 		border-radius:5px;
 		background: #FDED91;
 		box-shadow: 0 2px 2px #eee;
-		width: 50px; height: 20px;
+		width: 55px; height: 25px;
 		float: right;
 		margin-top: 10px;
 		margin-right: 10px;
