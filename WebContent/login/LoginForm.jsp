@@ -214,7 +214,7 @@
                             </a>
                             <!-- QnA버튼 -->
                             <a class="nonblock nontext Button rounded-corners transition clearfix grpelem"
-                               id="buttonu2066" href="../qna.html">
+                               id="buttonu2066" href="../board/qnalist">
                                 <img class="grpelem" id="u2067" alt="Q &amp; A"
                                      src="../images/blank.gif?crc=4208392903"/>
                             </a>

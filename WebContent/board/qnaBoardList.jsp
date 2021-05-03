@@ -166,7 +166,7 @@
 	         <a class="nonblock nontext Button rounded-corners transition clearfix grpelem" id="buttonu3461" href="../myinform/myinform.jsp">
 	         <img class="grpelem" id="u3462" alt="내 정보" src="../images/blank.gif?crc=4208392903"/></a>
 	         
-	         <a class="nonblock nontext Button rounded-corners transition clearfix grpelem" id="buttonu3463" href="../animal/animalsList">
+	         <a class="nonblock nontext Button rounded-corners transition clearfix grpelem" id="buttonu3463" href="../animal/animalsFirst">
 	         <img class="grpelem" id="u3464" alt="유기동물조회" src="../images/blank.gif?crc=4208392903"/></a>
 	         
 	         <a class="nonblock nontext grpelem" id="u3469-4" href="../index.jsp">
@@ -175,7 +175,7 @@
 	         <a class="nonblock nontext Button ButtonSelected rounded-corners clearfix grpelem" id="buttonu3465" href="../board/boardlist">
 	         <img class="grpelem" id="u3466-4" alt="커뮤니티" width="65" height="20" src="../images/u3466-4-a.png?crc=4069860665"/></a>
 	         
-	         <a class="nonblock nontext Button rounded-corners transition clearfix grpelem" id="buttonu3467" href="qnalist">
+	         <a class="nonblock nontext Button rounded-corners transition clearfix grpelem" id="buttonu3467" href="../board/qnalist">
 	         <img class="grpelem" id="u3468" alt="Q &amp; A" src="../images/blank.gif?crc=4208392903"/></a>
 	        </div>
 	        
@@ -187,24 +187,55 @@
 	         <!-- 게시판 메인 페이지 영역 시작 -->
 			<div class="container2">
 				<img id="catFoot" src="../images/catUL.png" width="32" height="56"/>
-				<h2 id="boardTITLE">커뮤니티 게시판</h2>
+				<h2 id="boardTITLE">자주묻는 질문</h2>
 			</div>
 			<br><br><br>
 			
 			<!-- 게시판 메인 페이지 영역 시작 -->
 				<div class="container">
 					<div class="row" style="width: 800px;">
-						<div id="boardTable"></div>
-						<br>
-						<c:set var="page" value="${totalData}"/>
-						<div class="a">
-						<c:forEach var="pageNum" begin="1" end="${page}" step="1">
-							<a href="javascript:paging(${pageNum});">${pageNum}&nbsp;&nbsp;&nbsp;</a>
-						</c:forEach>
-						</div>
-						<!-- 글쓰기 버튼 생성 -->
-						<br>
-						<button class="btn1" onclick="location='boardWrite'">WRITE</button>
+						<table class="boardTable">
+						<thead>
+							<tr>
+								<th>번호</th>
+								<th>제목</th>
+								<th>작성자</th>
+								<th>작성일</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr id="notice">
+								<td>Q & A</td>
+								<td><a href="https://www.animal.go.kr/front/community/show.do?boardId=contents&seq=53&menuNo=1000000058" target="_blank" id="noticeA">[답변] 입양 안내 </a></td>
+								<td>관리자</td>
+								<td>2021-04-26</td>
+							</tr>
+							<tr id="notice">
+								<td>Q & A</td>
+								<td><a href="https://www.animal.go.kr/front/community/show.do?boardId=contents&seq=209&menuNo=1000000056" target="_blank" id="noticeA">[답변] 습득시 안내 </a></td>
+								<td>관리자</td>
+								<td>2021-04-26</td>
+							</tr>
+							<tr id="notice">
+								<td>Q & A</td>
+								<td><a href="https://m.blog.naver.com/PostView.nhn?blogId=maelson&logNo=220076734719&proxyReferer=https:%2F%2Fwww.google.com%2F" target="_blank" id="noticeA">[답변] (소형견)강아지들의 종별 특성은 어떤가요?</a></td>
+								<td>관리자</td>
+								<td>2021-04-26</td>
+							</tr>
+							<tr id="notice">
+								<td>Q & A</td>
+								<td><a href="https://m.blog.naver.com/maelson/220078423354" target="_blank" id="noticeA">[답변] (중형견)강아지들의 종별 특성은 어떤가요?</a></td>
+								<td>관리자</td>
+								<td>2021-04-26</td>
+							</tr>
+							<tr id="notice">
+								<td>Q & A</td>
+								<td><a href="https://namu.wiki/w/%EA%B3%A0%EC%96%91%EC%9D%B4/%EC%8A%B5%EC%84%B1" target="_blank" id="noticeA">[답변] 고양이들의 특성은 어떤가요?</a></td>
+								<td>관리자</td>
+								<td>2021-04-26</td>
+							</tr>
+						</tbody>
+					</table>
 					</div>
 				</div>
 				<!-- 게시판 메인 페이지 영역 끝 -->
@@ -224,17 +255,5 @@
 	   </div>
 	  </div>
 	  
-	  <script>
-	  function paging(page){
-		  $.ajax({
-			  url:"boardListPage",
-			  data: {"page":page},
-			  success: function(responseData){
-				  $("#boardTable").html(responseData);
-			  }
-		  });
-	  }
-	  paging(1);
-	  </script>
 </body>
 </html>

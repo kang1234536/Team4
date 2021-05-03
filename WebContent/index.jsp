@@ -65,7 +65,7 @@
          <a class="nonblock nontext grpelem" id="u3231" href="board/boardlist">
          <img id="u3231_states" alt="커뮤니티" src="images/blank.gif?crc=4208392903"/></a>
         </div>
-        <a class="nonblock nontext Button rounded-corners transition clearfix grpelem" id="buttonu3232" href="qna.html">
+        <a class="nonblock nontext Button rounded-corners transition clearfix grpelem" id="buttonu3232" href="board/qnalist">
         <img class="grpelem" id="u3233" alt="Q &amp; A" src="images/blank.gif?crc=4208392903"/></a>
        </div>
        

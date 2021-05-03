@@ -185,7 +185,7 @@ table {
 					<img class="grpelem" id="u3466-4" alt="커뮤니티" width="65" height="20" src="../images/u3466-4-a.png?crc=4069860665" /></a>
 				</div>
 
-				<a class="nonblock nontext Button rounded-corners transition clearfix grpelem" id="buttonu3467" href=""> 
+				<a class="nonblock nontext Button rounded-corners transition clearfix grpelem" id="buttonu3467" href="qnalist"> 
 				<img class="grpelem" id="u3468" alt="Q &amp; A" src="../images/blank.gif?crc=4208392903" /></a>
 			</div>
 

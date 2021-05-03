@@ -23,10 +23,10 @@
 		<tbody>
 			<tr id="notice">
 				<td>공지사항</td>
-				<td><a href="" id="noticeA">[공지] 공지사항입니다. 필독</a></td>
-				<td>관리자다</td>
+				<td><a href="" id="noticeA">[필독] 커뮤니티 게시판 공지</a></td>
+				<td>관리자</td>
 				<td>2021-04-26</td>
-				<td>0</td>
+				<td></td>
 			</tr>
 
 			<c:set var="seq" value="${list_length }" />

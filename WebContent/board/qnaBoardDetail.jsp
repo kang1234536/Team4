@@ -220,7 +220,7 @@
 		        <img class="grpelem" id="u2065" alt="커뮤니티" src="../images/blank.gif?crc=4208392903"/>
 		        </a>
 				<!-- QnA버튼 -->
-				<a class="nonblock nontext Button rounded-corners transition clearfix grpelem" id="buttonu2066" href="../board/qnalist">
+				<a class="nonblock nontext Button rounded-corners transition clearfix grpelem" id="buttonu2066" href="">
          		<img class="grpelem" id="u2067" alt="Q &amp; A" src="../images/blank.gif?crc=4208392903"/>
          		</a>
 			</div>
@@ -277,10 +277,7 @@
 								</tr>
 							</c:forEach>
 							<tr>
-								<td colspan="2" style="border: 1px dotted gray;">
-								<textarea placeholder="댓글을 작성하려면 로그인 해주세요" 
-								readonly style="height: 50px; width: 780px;padding: 10px 10px;" 
-								onclick="location='../login/LoginCheckServlet'"></textarea></td>
+								<td colspan="2" style="border: 1px dotted gray;"><textarea placeholder="댓글을 작성하려면 로그인 해주세요" readonly style="height: 50px; width: 780px;padding: 10px 10px;" onclick="location='../login/LoginCheckServlet'"></textarea></td>
 							</tr>
 							</table>
 						</c:when>
@@ -310,14 +307,11 @@
 							<table class="inputreply">
 							<tr>
 								<td colspan="2">
-								   <textarea placeholder="네티켓을 지켜주세요! 비방및 욕설 댓글은 무통보 삭제됩니다" 
-								   style="height: 100px; width: 780px;padding: 10px 10px;" name="reply" id="reply2">
-								   </textarea>
+								   <textarea placeholder="네티켓을 지켜주세요! 비방및 욕설 댓글은 무통보 삭제됩니다" style="height: 100px; width: 780px;padding: 10px 10px;" name="reply" id="reply2"></textarea>
 								</td>
 							</tr>
 							<tr>
-								<td colspan="2" id="regist"><input type="button" class="btn2" value="등록" 
-								onclick="godata('${userID}','${param.board_ID }');"></td>
+								<td colspan="2" id="regist"><input type="button" class="btn2" value="등록" onclick="godata('${userID}','${param.board_ID }');"></td>
 							</tr>
 							</table>
 						</c:when>

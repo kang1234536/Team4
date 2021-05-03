@@ -341,7 +341,7 @@ body {
 }
 
 h2 {
-		font-size: 20px; font-family: 'a타이틀고딕3';
+		font-size: 20px; font-family: 'a���씠��怨좊뵓3';
 	}
 	
 	a:link {
@@ -382,11 +382,11 @@ h2 {
 	}
 	
 	span {
-		font-size: 15px; font-family: 'a타이틀고딕2';
+		font-size: 15px; font-family: 'a���씠��怨좊뵓2';
 	}
 	
 	li {
-		font-size: 13px; font-family: 'a타이틀고딕1';
+		font-size: 13px; font-family: 'a���씠��怨좊뵓1';
 		line-height: 1.7em;
 		overflow: hidden;
 		text-overflow: ellipsis;
@@ -394,9 +394,9 @@ h2 {
 		/* width: 80%; */	
 	}
 	
-	.상세보기버튼 {
+	.�긽�꽭蹂닿린踰꾪듉 {
 		width: 70px; height: 25px;
-		font-size: 13px; font-family: 'a타이틀고딕2';
+		font-size: 13px; font-family: 'a���씠��怨좊뵓2';
 		background-color: #FDED91;
 		border-radius: 5px;
 		box-shadow: 2px 2px 5px #eee;
@@ -449,7 +449,7 @@ h2 {
 	
 	#boardTITLE {
 		font-size: 35px;
-		font-family: 'a타이틀고딕3';
+		font-family: 'a���씠��怨좊뵓3';
 		display: inline;
 		position: absolute;
 		margin-left: 20px;
@@ -482,7 +482,7 @@ h2 {
 	.loginICON {
 		font-size: 15px;
 		text-decoration: none;
-		font-family: 'a타이틀고딕2';
+		font-family: 'a���씠��怨좊뵓2';
 		float: right;
 	}
 	
@@ -524,7 +524,7 @@ h2 {
 	}
 	
 	#btn {
-		font-size: 12px; font-family: 'a타이틀고딕2';
+		font-size: 12px; font-family: 'a���씠��怨좊뵓2';
 		border: 1px outset #FDED91;
 		border-radius:5px;
 		background: #FDED91;
