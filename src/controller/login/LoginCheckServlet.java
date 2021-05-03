@@ -15,25 +15,20 @@ import static util.Encryption.sha256;
 
 @WebServlet("/login/LoginCheckServlet")
 public class LoginCheckServlet extends HttpServlet {
-    /**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // �α��� ȭ�鿡 �Էµ� ���̵�� ��й�ȣ�� �����´�
         UserDAO dao = UserDAO.getInstance();
         String userID = request.getParameter("userID");
         String userPW = sha256(request.getParameter("userPW"));
 
         UserVO user = dao.selectByUserId(userID);
 
-        // DB���� ���̵�, ��й�ȣ Ȯ��
         int check = dao.loginCheck(userID, userPW);
 
         RequestDispatcher rd = null;
 
-        if (check == 1)    // �α��� ����
+        if (check == 1)
         {
             HttpSession session = request.getSession();
             System.out.println(session.getId() + " 연결됨");
@@ -42,16 +37,14 @@ public class LoginCheckServlet extends HttpServlet {
             session.setAttribute("userPW", user.getUserPW());
             session.setAttribute("userDiv", user.getUserDiv());
             response.sendRedirect("../index");
-        } else if (check == -1) // ���̵� Ʋ��
+        } else if (check == -1)
         {
             request.setAttribute("check", check);
             rd = request.getRequestDispatcher("LoginForm.jsp");
-			/* rd = request.getRequestDispatcher("LoginCheckServlet"); */
             rd.forward(request, response);
         } else if (check == 0){ // ��й�ȣ�� Ʋ��
             request.setAttribute("check", check);
             rd = request.getRequestDispatcher("LoginForm.jsp");
-			/* rd = request.getRequestDispatcher("LoginCheckServlet"); */
             rd.forward(request, response);
         }
 
@@ -61,7 +54,6 @@ public class LoginCheckServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     	HttpSession session = request.getSession();
     	request.setAttribute("message", session.getAttribute("message"));
-    	//System.out.println(session.getAttribute("message"));
     	session.setAttribute("message", null);
         RequestDispatcher rd = request.getRequestDispatcher("LoginForm.jsp");
         rd.forward(request, response);

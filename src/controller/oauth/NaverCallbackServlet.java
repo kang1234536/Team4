@@ -47,7 +47,7 @@ public class NaverCallbackServlet extends HttpServlet {
         String clientSecret = "34F7pTX_AP";
         String code = request.getParameter("code");
         String state = request.getParameter("state");
-        String redirectURI = URLEncoder.encode("http://f1c04.xyz/Team4_war/NaverCallbackServlet","UTF-8");
+        String redirectURI = URLEncoder.encode("http://f1c04.xyz/Team4_war/NaverCallbackServlet", "UTF-8");
 
         StringBuffer apiURL = new StringBuffer();
         apiURL.append("https://nid.naver.com/oauth2.0/token?grant_type=authorization_code&");
@@ -59,59 +59,57 @@ public class NaverCallbackServlet extends HttpServlet {
         String access_token = "";
         String refresh_token = ""; //나중에 이용합시다
 
-        try {
-            URL url = new URL(apiURL.toString());
-            HttpURLConnection con = (HttpURLConnection)url.openConnection();
-            con.setRequestMethod("GET");
-            int responseCode = con.getResponseCode();
-            BufferedReader br;
-            System.out.print("responseCode="+responseCode);
-            if(responseCode==200) { // 정상 호출
-                br = new BufferedReader(new InputStreamReader(con.getInputStream()));
-            } else {  // 에러 발생
-                br = new BufferedReader(new InputStreamReader(con.getErrorStream()));
+        URL url = new URL(apiURL.toString());
+        HttpURLConnection con = (HttpURLConnection) url.openConnection();
+        con.setRequestMethod("GET");
+        int responseCode = con.getResponseCode();
+        BufferedReader br;
+        System.out.print("responseCode=" + responseCode);
+        if (responseCode == 200) { // 정상 호출
+            br = new BufferedReader(new InputStreamReader(con.getInputStream()));
+        } else {  // 에러 발생
+            br = new BufferedReader(new InputStreamReader(con.getErrorStream()));
+        }
+        String inputLine;
+        StringBuffer res = new StringBuffer();
+        while ((inputLine = br.readLine()) != null) {
+            res.append(inputLine);
+        }
+        br.close();
+        if (responseCode == 200) {
+            System.out.println("\n토큰정보: " + res.toString());
+            JSONParser parsing = new JSONParser();
+            Object obj = null;
+            try {
+                obj = parsing.parse(res.toString());
+            } catch (ParseException e) {
+                e.printStackTrace();
             }
-            String inputLine;
-            StringBuffer res = new StringBuffer();
-            while ((inputLine = br.readLine()) != null) {
-                res.append(inputLine);
-            }
-            br.close();
-            if(responseCode==200) {
-                System.out.println("\n토큰정보: " + res.toString());
-                JSONParser parsing = new JSONParser();
-                Object obj = parsing.parse(res.toString());
-                JSONObject jsonObj = (JSONObject)obj;
+            JSONObject jsonObj = (JSONObject) obj;
 
-                access_token = (String)jsonObj.get("access_token");
-                refresh_token = (String)jsonObj.get("refresh_token");
+            access_token = (String) jsonObj.get("access_token");
+            refresh_token = (String) jsonObj.get("refresh_token");
 
-                //상태 토큰 검증
-                if(access_token != null) {
-                    try {
-                        // 사용자 프로필 정보 조회
-                        OauthDAO dao = OauthDAO.getInstance();
-                        UserVO user = dao.naverUserProfileSelect(access_token);
-                        if(user != null) {
-                            HttpSession session = request.getSession();
-                            System.out.println(session.getId() + " 연결됨");
-                            session.setAttribute("userID", user.getUserID());
-                            session.setAttribute("userName", user.getUserName());
+            //상태 토큰 검증
+            if (access_token != null) {
+                // 사용자 프로필 정보 조회
+                OauthDAO dao = OauthDAO.getInstance();
+                UserVO user = dao.naverUserProfileSelect(access_token);
+                if (user != null) {
+                    HttpSession session = request.getSession();
+                    System.out.println(session.getId() + " 연결됨");
+                    session.setAttribute("userID", user.getUserID());
+                    session.setAttribute("userName", user.getUserName());
 
-                            RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
-                            rd.forward(request, response);
-                        } else {
-                            RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
-                            rd.forward(request, response);
-                        }
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
+                    RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
+                    rd.forward(request, response);
+                } else {
+                    RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
+                    rd.forward(request, response);
                 }
             }
-        } catch (Exception e) {
-            System.out.println(e);
         }
+
     }
 
 }

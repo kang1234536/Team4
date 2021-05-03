@@ -28,7 +28,7 @@ public class KakaoCallbackServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String clientId = "cbcb98ebb8713ea77adcfaf9b1992493";//애플리케이션 클라이언트 아이디값";
-        String redirectURI = URLEncoder.encode("http://127.0.0.1:9090/KakaoCallbackServlet", "UTF-8");
+        String redirectURI = URLEncoder.encode("http://f1c04.xyz/Team4_war/KakaoCallbackServlet", "UTF-8");
         SecureRandom random = new SecureRandom();
         String state = new BigInteger(130, random).toString();
         String apiURL = "https://kauth.kakao.com/oauth/authorize?";
@@ -50,7 +50,7 @@ public class KakaoCallbackServlet extends HttpServlet {
         String clientId = "cbcb98ebb8713ea77adcfaf9b1992493";
         String code = request.getParameter("code");
         //String state = request.getParameter("state");
-        String redirectURI = URLEncoder.encode("http://127.0.0.1:9090/KakaoCallbackServlet","UTF-8");
+        String redirectURI = URLEncoder.encode("http://f1c04.xyz/Team4_war/KakaoCallbackServlet","UTF-8");
 
         String access_token = "";
         String refresh_token = ""; //나중에 이용합시다
