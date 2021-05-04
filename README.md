@@ -4,7 +4,8 @@
 ​
 [![Image Logo](https://camo.githubusercontent.com/4052866b9cfdb121606add150b8cd1d9d410b10805d857812ee3bd45cdd02805/68747470733a2f2f6966682e63632f672f324a4a69787a2e706e67)](https://camo.githubusercontent.com/4052866b9cfdb121606add150b8cd1d9d410b10805d857812ee3bd45cdd02805/68747470733a2f2f6966682e63632f672f324a4a69787a2e706e67)
 ​
-[![Build Status](https://camo.githubusercontent.com/c29bc856325cd819f5a3bb6536b7982f04a161e656de066c4c970e0079c14ff5/68747470733a2f2f7472617669732d63692e6f72672f6a6f656d6363616e6e2f64696c6c696e6765722e7376673f6272616e63683d6d6173746572)](https://travis-ci.org/joemccann/dillinger) 멍냥멍냥은 어디든지 접속 가능 주소:http://f1c04.xyz/Team4_war/
+[![Build Status](https://camo.githubusercontent.com/c29bc856325cd819f5a3bb6536b7982f04a161e656de066c4c970e0079c14ff5/68747470733a2f2f7472617669732d63692e6f72672f6a6f656d6363616e6e2f64696c6c696e6765722e7376673f6272616e63683d6d6173746572)](https://travis-ci.org/joemccann/dillinger) 
+	멍냥멍냥은 어디든지 접속 가능 주소:http://f1c04.xyz/Team4_war/
 ​
 ```
     1.프로젝트 기획의도
