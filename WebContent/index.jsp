@@ -18,6 +18,7 @@
 	#loginICON {
 		float: right;
 	}
+	
 	#copyright {
 		z-index: 99;
 		margin-top: 280px;

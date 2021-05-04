@@ -11,12 +11,9 @@
 <meta name="viewport" content="width-device-width">
 <title>멍냥멍냥 게시판 글쓰기</title>
 <!-- CSS -->
-<link rel="stylesheet" type="text/css"
-	href="../css/site_global.css?crc=444006867" />
-<link rel="stylesheet" type="text/css"
-	href="../css/master_b-___.css?crc=4037835255" />
-<link rel="stylesheet" type="text/css"
-	href="../css/board.css?crc=346539564" id="pagesheet" />
+<link rel="stylesheet" type="text/css" href="../css/site_global.css" />
+<link rel="stylesheet" type="text/css" href="../css/master_b-___.css" />
+<link rel="stylesheet" type="text/css" href="../css/boardUpdate.css" id="pagesheet" />
 <style>
 	.menubar {
 		position:absolute;
@@ -25,7 +22,6 @@
 		background-color: #FFFCEC;
 		padding-top: 49px;
 		padding-bottom: 49px;
-		/* border: 1px solid red; */
 		margin-left: 182px;
 		transition: 0.3s;
 	}
@@ -54,14 +50,10 @@
 			<!-- 로그인버튼 -->
 			<div class="clearfix colelem" id="loginheader">
 				<c:if test="${userName != null}">
-					<p class="loginICON">${userName}님
-						환영합니다!<a href="../LogoutServlet">로그아웃</a>
-					</p>
+					<p class="loginICON">${userName}님 환영합니다!&nbsp;&nbsp;<a href="../LogoutServlet">로그아웃</a></p>
 				</c:if>
 				<c:if test="${userName == null}">
-					<p class="loginICON">
-						<a href="../login/LoginForm.jsp">로그인</a>
-					</p>
+					<p class="loginICON"><a href="../login/LoginForm.jsp">로그인</a></p>
 				</c:if>
 			</div>
 
