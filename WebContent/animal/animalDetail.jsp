@@ -9,8 +9,6 @@
 <meta name="viewport" content="width-device-width">
 <title>유기동물 상세정보</title>
 
-
-
 	<!-- CSS -->
 	<link rel="stylesheet" type="text/css" href="../css/site_global.css"/>
 	<link rel="stylesheet" type="text/css" href="../css/master_b-___.css"/>
@@ -35,6 +33,7 @@
 		
 		$('#reservation').on("click", function(){
 			alert('입양신청되었습니다.');
+			document.location.href="../index.jsp";
 		});
 	});
 	

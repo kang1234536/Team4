@@ -727,3 +727,33 @@ a:link {
 		background-color: lightgray;
 		height:30px;
 	}
+	
+	th {
+		background-color: #F6C95E; 
+		text-align: center;
+		font-size: 18px; font-family: 'a타이틀고딕2';
+		padding: 15px;
+	}
+	
+	td {
+		background-color: transparent; 
+		text-align: center;
+		font-size: 14px; font-family: 'a타이틀고딕1';
+		padding: 10px;
+		border-bottom: 1px dotted gray;
+	}
+	
+	table {
+		text-align: center;
+		width: 800px;
+	
+	}
+	
+	.td1 {
+		background-color: #F6C95E;
+	    text-align: center;
+	    font-size: 18px;
+	    font-family: 'a타이틀고딕2';
+	    padding: 20px;
+	    width: 150px;
+	}

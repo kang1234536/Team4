@@ -69,7 +69,7 @@
 			<!-- 여기서부터 Navigator -->
 			<div class="menubar">
 				<!-- 내정보버튼 -->
-				<a class="nonblock nontext Button rounded-corners transition clearfix grpelem" id="buttonu2060" href="../login/myinform.jsp">
+				<a class="nonblock nontext Button rounded-corners transition clearfix grpelem" id="buttonu2060" href="../myinform/myinformation">
 				<img class="grpelem" id="u2061" alt="나의정보"	src="../images/blank.gif?crc=4208392903" />
 				</a>
 				<!-- 유기동물조회버튼 -->
