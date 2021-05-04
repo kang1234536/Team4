@@ -673,7 +673,7 @@ a:link {
 		background-color: #F6C95E;
 		border-radius: 3px;
 		float: right;	
-		margin-right: 6px;
+		margin-right: 7px;
 		margin-bottom: 2px;
 	}
 	
@@ -715,7 +715,7 @@ a:link {
 		border-bottom-right-radius: 3px;
 	}
 	
-	#userID{
+	#userID {
 		padding-left: 10px;
 		text-align: left;
 		font-weight: bold;
@@ -725,35 +725,5 @@ a:link {
 	
 	#userID, #date {
 		background-color: lightgray;
-		height:30px;
-	}
-	
-	th {
-		background-color: #F6C95E; 
-		text-align: center;
-		font-size: 18px; font-family: 'a타이틀고딕2';
-		padding: 15px;
-	}
-	
-	td {
-		background-color: transparent; 
-		text-align: center;
-		font-size: 14px; font-family: 'a타이틀고딕1';
-		padding: 10px;
-		border-bottom: 1px dotted gray;
-	}
-	
-	table {
-		text-align: center;
-		width: 800px;
-	
-	}
-	
-	.td1 {
-		background-color: #F6C95E;
-	    text-align: center;
-	    font-size: 18px;
-	    font-family: 'a타이틀고딕2';
-	    padding: 20px;
-	    width: 150px;
+		height:20px;
 	}
