@@ -1,12 +1,12 @@
 # KOSTA 213기 ( 유기견 조회 서비스)
-​
+
 ## 멍냥멍냥 프로젝트 (21년4월20~ 21년5월4일)
-​
-[![Image Logo](https://camo.githubusercontent.com/4052866b9cfdb121606add150b8cd1d9d410b10805d857812ee3bd45cdd02805/68747470733a2f2f6966682e63632f672f324a4a69787a2e706e67)](https://camo.githubusercontent.com/4052866b9cfdb121606add150b8cd1d9d410b10805d857812ee3bd45cdd02805/68747470733a2f2f6966682e63632f672f324a4a69787a2e706e67)
-​
-[![Build Status](https://camo.githubusercontent.com/c29bc856325cd819f5a3bb6536b7982f04a161e656de066c4c970e0079c14ff5/68747470733a2f2f7472617669732d63692e6f72672f6a6f656d6363616e6e2f64696c6c696e6765722e7376673f6272616e63683d6d6173746572)](https://travis-ci.org/joemccann/dillinger) 
-	멍냥멍냥은 어디든지 접속 가능 주소:http://f1c04.xyz/Team4_war/
-​
+
+[![Image Logo]()](https://camo.githubusercontent.com/4052866b9cfdb121606add150b8cd1d9d410b10805d857812ee3bd45cdd02805/68747470733a2f2f6966682e63632f672f324a4a69787a2e706e67)
+
+[![Build Status]](https://travis-ci.org/joemccann/dillinger) 
+멍냥멍냥은 어디든지 접속 가능 주소:http://f1c04.xyz/Team4_war/
+
 ```
     1.프로젝트 기획의도
         - 유기동물들에 대한 상세정보를 제공하고 사용자들간의 커뮤니티를 위한 게시판 서비스 제공               
@@ -30,7 +30,7 @@
 ​
 ## ERD
 ​
-[![ERD IMG](https://camo.githubusercontent.com/d2c4f080e0ae15528c47ee86f84f1e56446b5528181bbed7ff41dc140a50a43f/68747470733a2f2f6966682e63632f672f324a436847702e706e67)](https://camo.githubusercontent.com/d2c4f080e0ae15528c47ee86f84f1e56446b5528181bbed7ff41dc140a50a43f/68747470733a2f2f6966682e63632f672f324a436847702e706e67)
+[![ERD IMG]()](https://camo.githubusercontent.com/d2c4f080e0ae15528c47ee86f84f1e56446b5528181bbed7ff41dc140a50a43f/68747470733a2f2f6966682e63632f672f324a436847702e706e67)
 ​
 - USER:고객
 - RESERVATION:예약
@@ -40,7 +40,7 @@
 ​
 ## 프로젝트 화면
 ​
-[![Image Logo](https://camo.githubusercontent.com/7bd304771d1e6daca35cb3c0e6a54d23ed3bf61c71654b5d0c237fc34b23488a/68747470733a2f2f6966682e63632f672f464568796a382e706e67)](https://camo.githubusercontent.com/7bd304771d1e6daca35cb3c0e6a54d23ed3bf61c71654b5d0c237fc34b23488a/68747470733a2f2f6966682e63632f672f464568796a382e706e67)
+[![Image Logo]()](https://camo.githubusercontent.com/7bd304771d1e6daca35cb3c0e6a54d23ed3bf61c71654b5d0c237fc34b23488a/68747470733a2f2f6966682e63632f672f464568796a382e706e67)
 ​
 - 프로젝트의 기본 화면들
 ​
