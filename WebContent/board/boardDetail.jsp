@@ -180,7 +180,7 @@
 							</tr>
 							<tr>
 								<td colspan="2" id="regist"><input type="button" class="btn2" value="등록" 
-								onclick="godata('${userID}','${param.board_ID }');"></td>
+									onclick="godata('${userID}','${param.board_ID }');"></td>
 							</tr>
 							</table>
 						</c:when>
